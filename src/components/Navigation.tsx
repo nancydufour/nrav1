@@ -1,0 +1,118 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Heart } from 'lucide-react';
+
+const Navigation: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Our Work', path: '/work' },
+    { name: 'Get Involved', path: '/get-involved' },
+    { name: 'Green Nose Day', path: '/green-nose-day' },
+    { name: 'Stories', path: '/stories' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <Heart className="h-8 w-8 text-burnt-red" />
+            <div className="flex flex-col">
+              <span className="font-montserrat font-bold text-lg text-deep-purple">
+                Needy Relief
+              </span>
+              <span className="font-montserrat font-semibold text-sm text-earth-green">
+                AFRICA
+              </span>
+            </div>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={`font-lato font-medium transition-colors duration-200 ${
+                  location.pathname === item.path
+                    ? 'text-burnt-red border-b-2 border-burnt-red'
+                    : scrolled
+                    ? 'text-charcoal hover:text-deep-purple'
+                    : 'text-white hover:text-warm-yellow'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              to="/donate-options"
+              className="bg-warm-yellow text-deep-purple px-6 py-2 rounded-full font-montserrat font-semibold hover:bg-opacity-90 transition-all duration-200 transform hover:scale-105"
+            >
+              Donate Now
+            </Link>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-2 rounded-md ${
+                scrolled ? 'text-charcoal' : 'text-white'
+              }`}
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="md:hidden bg-white shadow-lg rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-3 py-2 rounded-md font-lato font-medium ${
+                    location.pathname === item.path
+                      ? 'text-burnt-red bg-cream'
+                      : 'text-charcoal hover:text-deep-purple hover:bg-cream'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <Link
+                to="/donate-options"
+                onClick={() => setIsOpen(false)}
+                className="block mx-3 mt-4 bg-warm-yellow text-deep-purple px-6 py-2 rounded-full font-montserrat font-semibold text-center"
+              >
+                Donate Now
+              </Link>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
+  );
+};
+
+export default Navigation;
