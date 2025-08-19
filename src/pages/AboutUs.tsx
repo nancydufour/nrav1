@@ -5,14 +5,14 @@ import ParallaxSection from '../components/ParallaxSection';
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <ParallaxSection
         speed={0.3}
-        className="relative py-20 bg-gradient-to-r from-deep-purple to-burnt-red"
+        className="relative h-[30rem] bg-gradient-to-r from-deep-purple to-burnt-red"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* <div className="absolute h-[30rem] inset-0 bg-black bg-opacity-20"></div> */}
+        <div className="relative pt-[10rem] z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft">
             About <span className="text-warm-yellow">Needy Relief Africa</span>
           </h1>
@@ -28,7 +28,7 @@ const AboutUs: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="story-image animate-slideInLeft">
               <img
-                src="https://images.pexels.com/photos/6995122/pexels-photo-6995122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                src="https://unsplash.com/photos/Glt7d_fofLQ/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fEElMjB2b2x1bnRlZXIlMjBrbmVlbGluZyUyMHRvJTIwc2VydmUlMjBmb29kJTIwdG8lMjBhJTIwc21pbGluZyUyMGNoaWxkfGVufDB8fHx8MTc1NTYzNDM3Nnww&force=true"
                 alt="Children in Africa"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -71,11 +71,11 @@ const AboutUs: React.FC = () => {
       <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
+            {/* <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
               Our Core <span className="text-deep-purple border-b-4 border-warm-yellow">Belief</span>
-            </h2>
+            </h2> */}
             <div className="max-w-4xl mx-auto">
-              <p className="font-montserrat font-bold text-2xl md:text-3xl text-burnt-red leading-relaxed animate-scaleIn stagger-2">
+              <p className="font-montserrat font-semibold text-2xl md:text-3xl text-burnt-red leading-relaxed animate-scaleIn stagger-2">
                 Every life matters. Every person deserves to be seen. And together, we can create an Africa where dignity is a right, not a privilege.
               </p>
             </div>

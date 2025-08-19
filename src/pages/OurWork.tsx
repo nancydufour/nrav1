@@ -71,14 +71,14 @@ const OurWork: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <ParallaxSection
         speed={0.4}
-        className="relative py-20 bg-gradient-to-br from-deep-purple to-earth-green"
+        className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-earth-green"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
+        <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft">
             Our <span className="text-warm-yellow">Work</span>
           </h1>
@@ -187,7 +187,7 @@ const OurWork: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scaleIn stagger-3">
             <Link
               to="/donate-options"
-              className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-500 transform hover:scale-110 hover:rotate-1 animate-float"
+              className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-500 transform hover:scale-110 hover:rotate-1"
             >
               Support Our Work
             </Link>

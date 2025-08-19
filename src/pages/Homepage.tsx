@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Users, Home, Guitar as Hospital, GraduationCap, ChevronRight, ArrowRight } from 'lucide-react';
+import { Heart, Users, Home, Guitar as Hospital, CookingPot, ChevronRight, ArrowRight } from 'lucide-react';
 import WebGLBackground from '../components/WebGLBackground';
 import AnimatedCard from '../components/AnimatedCard';
 import ParallaxSection from '../components/ParallaxSection';
@@ -8,7 +8,7 @@ import ParallaxSection from '../components/ParallaxSection';
 const Homepage: React.FC = () => {
   const impactHighlights = [
     {
-      icon: <GraduationCap className="h-8 w-8" />,
+      icon: <CookingPot className="h-8 w-8" />,
       stat: "1,000+",
       text: "Meals Served",
       description: "and counting, to children in underserved schools",
@@ -41,23 +41,22 @@ const Homepage: React.FC = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <ParallaxSection
-        backgroundImage="https://images.pexels.com/photos/6995122/pexels-photo-6995122.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
         speed={0.5}
-        className="relative min-h-screen flex items-center justify-center"
+        className="relative min-h-screen flex items-center pt-[2.9rem] justify-center"
       >
         <WebGLBackground />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-deep-purple via-burnt-red to-earth-green opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-deep-purple via-burnt-red to-earth-green opacity-50"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="hero-content">
-            <div className="mb-8 animate-fadeInUp">
-              <span className="inline-block bg-warm-yellow text-deep-purple px-4 py-2 rounded-full font-montserrat font-semibold text-sm mb-4 animate-pulse-glow">
-                🌍 Transforming Lives Across Africa
+            <div className="mb-1 animate-fadeInUp">
+              <span className="inline-block bg-warm-yellow text-deep-purple px-4 py-2 rounded-full font-montserrat font-semibold text-sm mt-10 mb-4 animate-pulse-glow">
+                Transforming Lives Across Africa
               </span>
             </div>
-            <h1 className="font-montserrat font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight animate-slideInLeft stagger-1">
+            <h1 className="font-montserrat font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 lg:leading-[3rem] animate-slideInLeft stagger-1">
               Restoring Dignity.<br />
-              <span className="text-warm-yellow">Feeding Hope.</span><br />
+              <span className="text-warm-yellow text-5xl">Feeding Hope.</span><br />
               <span className="text-earth-green">Changing Africa</span>
             </h1>
             <p className="font-lato text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed animate-fadeInUp stagger-2">
@@ -71,23 +70,23 @@ const Homepage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-scaleIn stagger-4">
               <Link 
                 to="/donate-options"
-                className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover:rotate-1 flex items-center space-x-2 animate-float"
+                className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover:rotate-1 flex items-center space-x-2"
               >
                 <Heart className="h-5 w-5" />
-                <span>Donate Now 💚</span>
+                <span>Donate Now</span>
               </Link>
               <Link 
                 to="/get-involved"
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-deep-purple transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Users className="h-5 w-5" />
-                <span>Volunteer With Us 🙌</span>
+                <span>Volunteer With Us</span>
               </Link>
               <Link 
                 to="/get-involved"
                 className="bg-earth-green text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
-                <span>Partner With Us 🤝</span>
+                <span>Partner With Us</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
@@ -161,7 +160,7 @@ const Homepage: React.FC = () => {
             <AnimatedCard delay={0}>
               <Link
               to="/about"
-                className="group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-500 transform hover:scale-110 hover:-rotate-1 block"
+                className="group bg-white bg-opacity-10 shadow-inner shadow-white backdrop-blur-sm rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-500 transform hover:scale-110 hover:-rotate-1 block"
             >
               <h3 className="font-montserrat font-bold text-2xl text-white mb-4">
                 Our Story
@@ -179,7 +178,7 @@ const Homepage: React.FC = () => {
             <AnimatedCard delay={150}>
               <Link
               to="/stories"
-                className="group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-500 transform hover:scale-110 hover:rotate-1 block"
+                className="group bg-white bg-opacity-10 shadow-inner shadow-white backdrop-blur-sm rounded-2xl p-8 hover:bg-opacity-20 transition-all duration-500 transform hover:scale-110 hover:rotate-1 block"
             >
               <h3 className="font-montserrat font-bold text-2xl text-white mb-4">
                 Impact Stories
@@ -197,10 +196,10 @@ const Homepage: React.FC = () => {
             <AnimatedCard delay={300}>
               <Link
               to="/green-nose-day"
-                className="group bg-earth-green bg-opacity-20 backdrop-blur-sm rounded-2xl p-8 hover:bg-opacity-30 transition-all duration-500 transform hover:scale-110 hover:-rotate-1 block"
+                className="group bg-white bg-opacity-10 shadow-inner shadow-white backdrop-blur-sm rounded-2xl p-8 hover:bg-opacity-30 transition-all duration-500 transform hover:scale-110 hover:-rotate-1 block"
             >
               <h3 className="font-montserrat font-bold text-2xl text-white mb-4">
-                Green Nose Day Africa 🎈
+                Green Nose Day Africa
               </h3>
               <p className="font-lato text-gray-200 mb-6">
                 Join Africa's biggest day of giving on May 25th, 2025.

@@ -8,7 +8,7 @@ import AnimatedCard from '../components/AnimatedCard';
 const GreenNoseDay: React.FC = () => {
   const pastEvents = [
     {
-      image: "https://images.pexels.com/photos/6995265/pexels-photo-6995265.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://unsplash.com/photos/NlMGyYADWBA/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fFBsYXlncm91bmQlMjBvcGVuaW5nfGVufDB8fHx8MTc1NTY0MzA3NXww&force=true",
       title: "Children's Playground Opening",
       location: "Lagos, Nigeria"
     },
@@ -18,7 +18,7 @@ const GreenNoseDay: React.FC = () => {
       location: "Accra, Ghana"
     },
     {
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://unsplash.com/photos/U-VfflaRpK0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTM2fHxIb3NwaXRhbCUyMGNhcmUlMjBvdXRyZWFjaCUyMGJsYWNrfGVufDB8fHx8MTc1NTY0MzMwNHww&force=true",
       title: "Hospital Care Package Distribution",
       location: "Nairobi, Kenya"
     },
@@ -30,16 +30,15 @@ const GreenNoseDay: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <ParallaxSection
         speed={0.3}
-        className="relative py-20 bg-gradient-to-br from-earth-green via-warm-yellow to-earth-green"
+        className="relative h-[30rem] bg-gradient-to-br from-earth-green via-warm-yellow to-earth-green"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="absolute h-[30rem] inset-0 bg-black bg-opacity-20"></div>
+        <div className="relative pt-[5rem] z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8 animate-fadeInUp">
-            <span className="inline-block text-6xl mb-4 animate-float">🎈</span>
             <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft stagger-1">
               Green Nose Day <span className="text-deep-purple">Africa</span>
             </h1>
@@ -55,7 +54,7 @@ const GreenNoseDay: React.FC = () => {
             
             <div className="flex items-center justify-center space-x-4 text-white mb-8 animate-fadeInUp stagger-4">
               <Calendar className="h-6 w-6" />
-              <span className="font-montserrat font-semibold text-xl">May 25th, 2025</span>
+              <span className="font-montserrat font-semibold text-xl">May 25th, 2026</span>
             </div>
           </div>
         </div>
@@ -74,7 +73,7 @@ const GreenNoseDay: React.FC = () => {
           </div>
 
           <CountdownTimer 
-            targetDate="2025-05-25" 
+            targetDate="2026-05-25" 
             className="max-w-4xl mx-auto mb-12" 
           />
 

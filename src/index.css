@@ -65,6 +65,19 @@
   }
 }
 
+@keyframes kenburns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(-2%, -2%);
+  }
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+
 /* Animation utility classes */
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out forwards;
@@ -88,6 +101,10 @@
 
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-kenburns{
+  animation: kenburns 15s ease-in-out;
 }
 
 /* Stagger animation delays */

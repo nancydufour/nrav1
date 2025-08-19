@@ -1,22 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Users, Handshake, ArrowRight, DollarSign, Calendar, Building } from 'lucide-react';
+import ParallaxSection from '../components/ParallaxSection';
 
 const GetInvolved: React.FC = () => {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-warm-yellow via-burnt-red to-deep-purple">
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6">
-            Get <span className="text-cream">Involved</span>
-          </h1>
-          <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto">
-            Join the movement to restore dignity and hope across Africa. Every action matters, every voice counts.
-          </p>
-        </div>
-      </section>
+      <ParallaxSection
+        speed={0.4}
+        className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-earth-green"
+      >
+        <section className="relative h-[30rem]  bg-transparent">
+          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6">
+              Get <span className="text-cream">Involved</span>
+            </h1>
+            <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto">
+              Join the movement to restore dignity and hope across Africa. Every action matters, every voice counts.
+            </p>
+          </div>
+        </section>
+      </ParallaxSection>
 
       {/* Three Main Ways */}
       <section className="py-20 bg-white">

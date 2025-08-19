@@ -33,15 +33,7 @@ const Navigation: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-burnt-red" />
-            <div className="flex flex-col">
-              <span className="font-montserrat font-bold text-lg text-deep-purple">
-                Needy Relief
-              </span>
-              <span className="font-montserrat font-semibold text-sm text-earth-green">
-                AFRICA
-              </span>
-            </div>
+            <img src="/2.png" className='object-contain h-[3.5rem]' alt="NRA logo" />
           </Link>
 
           {/* Desktop Navigation */}

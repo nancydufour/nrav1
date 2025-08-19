@@ -30,11 +30,11 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-deep-purple to-burnt-red">
+      <section className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-burnt-red">
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl pt-[10rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6">
             Contact <span className="text-warm-yellow">Us</span>
           </h1>
@@ -67,7 +67,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-montserrat font-semibold text-lg text-charcoal">Email</h3>
-                    <p className="font-lato text-gray-600">info@needyreliefafrica.org</p>
+                    <a href='mailto:info@needyreliefafrica.org' className="font-lato text-gray-600">info@needyreliefafrica.org</a>
                   </div>
                 </div>
 
@@ -77,7 +77,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-montserrat font-semibold text-lg text-charcoal">Phone</h3>
-                    <p className="font-lato text-gray-600">+234 XXX XXX XXXX</p>
+                    <a href='tel:+234XXXYYYZZZZ' className="font-lato text-gray-600">+234 XXX XXX XXXX</a>
                   </div>
                 </div>
 
@@ -231,17 +231,9 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Placeholder for Google Map */}
-          <div className="bg-gray-300 rounded-2xl overflow-hidden shadow-lg">
+          <div className="bg-gray-300 w-fit mx-auto rounded-2xl overflow-hidden shadow-lg">
             <div className="h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-16 w-16 text-gray-500 mx-auto mb-4" />
-                <h3 className="font-montserrat font-semibold text-xl text-gray-700 mb-2">
-                  Interactive Map
-                </h3>
-                <p className="font-lato text-gray-600">
-                  Google Maps integration would be embedded here
-                </p>
-              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d654.6542322092911!2d3.4134133676955476!3d6.457672673804566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b365e68643d%3A0x4e785353d86fd9c0!2s54B%20Itafaji%20Rd%2C%20Dolphin%20Estate%2C%20Lagos%20106104%2C%20Lagos!5e1!3m2!1sen!2sng!4v1755644994653!5m2!1sen!2sng" width="600" height="450" style={{border:"0"}}  loading="lazy"></iframe>
             </div>
           </div>
         </div>

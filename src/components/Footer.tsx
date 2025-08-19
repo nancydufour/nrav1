@@ -9,16 +9,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Mission */}
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <Heart className="h-10 w-10 text-burnt-red" />
-              <div className="flex flex-col">
-                <span className="font-montserrat font-bold text-2xl">
-                  Needy Relief
-                </span>
-                <span className="font-montserrat font-semibold text-warm-yellow">
-                  AFRICA
-                </span>
-              </div>
+            <Link to="/" className="flex items-center space-x-[2rem] mb-4 w-fit">
+              <img src="/2.png" className='object-contain h-[4.9rem]' alt="NRA logo" />
+              <div className="text-sm opacity-70 font-montserrat text-warm-yellow">powered&nbsp;by</div>
+              <img src="/1.png" className='object-contain h-[6.9rem]' alt="Her logo" />
             </Link>
             <p className="font-lato text-gray-300 mb-6 max-w-md">
               Restoring dignity, feeding hope, and changing Africa — one meal, one child, one village at a time.
@@ -52,14 +46,14 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-montserrat font-semibold text-lg mb-4">Contact Us</h3>
             <div className="space-y-3 font-lato text-gray-300">
-              <div className="flex items-center space-x-3">
+              <a href='mailto:info@needyreliefafrica.org' className="flex items-center space-x-3 hover:underline">
                 <Mail className="h-5 w-5 text-warm-yellow" />
                 <span>info@needyreliefafrica.org</span>
-              </div>
-              <div className="flex items-center space-x-3">
+              </a>
+              <a href='tel:+234 XXX XXX XXXX' className="flex items-center space-x-3 hover:underline">
                 <Phone className="h-5 w-5 text-warm-yellow" />
                 <span>+234 XXX XXX XXXX</span>
-              </div>
+              </a>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-warm-yellow" />
                 <span>Lagos, Nigeria</span>

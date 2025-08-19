@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { difference } from 'three/tsl';
 
 interface TimeLeft {
   days: number;
@@ -28,21 +29,22 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
 
     const interval = setInterval(() => {
       const now = new Date().getTime();
+      // console.log(target)
       const difference = target - now;
 
       if (difference > 0) {
         setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+          days: Math.floor(Math.abs(difference) / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((Math.abs(difference) % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((Math.abs(difference) % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((Math.abs(difference) % (1000 * 60)) / 1000)
         });
       }
     }, 1000);
-
+    
     return () => clearInterval(interval);
   }, [targetDate]);
-
+  
   const timeUnits = [
     { label: 'Days', value: timeLeft.days, color: 'bg-earth-green' },
     { label: 'Hours', value: timeLeft.hours, color: 'bg-warm-yellow text-deep-purple' },
