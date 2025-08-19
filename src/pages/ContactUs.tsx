@@ -231,7 +231,7 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Placeholder for Google Map */}
-          <div className="bg-gray-300 w-fit mx-auto rounded-2xl overflow-hidden shadow-lg">
+          <div className="bg-gray-300 md:w-fit mx-auto rounded-2xl overflow-hidden shadow-lg">
             <div className="h-96 flex items-center justify-center">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d654.6542322092911!2d3.4134133676955476!3d6.457672673804566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b365e68643d%3A0x4e785353d86fd9c0!2s54B%20Itafaji%20Rd%2C%20Dolphin%20Estate%2C%20Lagos%20106104%2C%20Lagos!5e1!3m2!1sen!2sng!4v1755644994653!5m2!1sen!2sng" width="600" height="450" style={{border:"0"}}  loading="lazy"></iframe>
             </div>
