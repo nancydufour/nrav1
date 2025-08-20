@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        mmd: '1040px', 
+      },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
         'lato': ['Lato', 'sans-serif'],

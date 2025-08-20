@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme{
+  --breakpoint-mmd: 1040px;
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {

@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden mmd:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -62,7 +62,7 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="mmd:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-md ${
@@ -76,7 +76,7 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden bg-white shadow-lg rounded-lg mt-2">
+          <div className="mmd:hidden bg-white shadow-lg rounded-lg mt-2">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <Link

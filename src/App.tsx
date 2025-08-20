@@ -17,11 +17,13 @@ import Blog from './pages/Blog';
 import PhotoStories from './pages/PhotoStories';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import ScrollToTop from './util/ScrollToTop';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-cream">
+        <ScrollToTop />
         <Navigation />
         <Routes>
           <Route path="/" element={<Homepage />} />
