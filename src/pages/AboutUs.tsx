@@ -39,7 +39,8 @@ const AboutUs: React.FC = () => {
               </h2>
               <div className="space-y-6 font-lato text-lg text-gray-700 leading-relaxed animate-fadeInUp stagger-1">
                 <p className="animate-fadeInUp stagger-2">
-                  Needy Relief Africa was born from a simple but urgent truth: no one should have to beg for dignity. Across Africa, millions of children go to bed hungry, elderly people die unseen, and entire communities suffer in silence.
+                  Needy Relief Africa exists to restore dignity, hope, and healing to communities across Africa by meeting urgent humanitarian needs and building long-term solutions — one meal, one child, one village at a time.
+
                 </p>
                 <p className="font-semibold text-deep-purple animate-fadeInUp stagger-3">
                   We are here to change that.
@@ -118,6 +119,20 @@ const AboutUs: React.FC = () => {
               </p>
             </AnimatedCard>
           </div>
+        </div>
+      </section>
+
+      <section className='min-h-screen relative p-10' style={{ backgroundSize: "cover", backgroundPosition: "center"}}>
+        <img src="./public/About1.jpg" alt="" className='absolute inset-0 w-full h-full object-cover' />
+        <div className='bg-black absolute inset-0 opacity-50'></div>
+        <h1 className='relative z-10 text-black/90 text-2xl bg-yellow-600 w-fit px-20 font-bold italic'>Aim and Objective</h1>
+        <div className='absolute bottom-10 right-10 backdrop-blur-lg bg-yellow-600/20 z-10 px-10 py-5 w-[40rem]'>
+          <h2 className='text-black/90 font-extrabold mb-5 text-2xl'>To Alleviate Hunger and Malnutrition</h2>
+          <ul className='list-disc list-inside'>
+            <li>Establish sustainable feeding programs, starting with primary school children in underserved communities.</li>
+            <li>Set up community kitchens, food banks, and mobile food trucks to reach those in slums, IDP camps, hospitals, orphanages, and rural villages.</li>
+            <li>Reduce child starvation and promote school attendance by ensuring no child learns on an empty stomach.</li>
+          </ul>
         </div>
       </section>
 

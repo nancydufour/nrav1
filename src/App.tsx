@@ -18,6 +18,7 @@ import PhotoStories from './pages/PhotoStories';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './util/ScrollToTop';
+import Donate from './components/Donate';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/photos" element={<PhotoStories />} />
         </Routes>
+        <Donate />
         <Footer />
       </div>
     </Router>

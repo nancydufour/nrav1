@@ -48,7 +48,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
 
       {/* Foreground Content Layer: Children move DOWN */}
       <div
-        className="relative z-10"
+        className="relative w-screen h-auto lg:h-screen z-10"
         style={{
           transform: `translateY(${offsetY * -0.2}px)`,
           willChange: 'transform',

@@ -42,12 +42,12 @@ const Homepage: React.FC = () => {
       {/* Hero Section */}
       <ParallaxSection
         speed={0.5}
-        className="relative min-h-screen flex items-center pt-[2.9rem] justify-center"
+        className="relative min-h-screen flex items-center justify-center"
       >
         <WebGLBackground />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-deep-purple via-burnt-red to-earth-green opacity-50"></div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 pt-[3.9rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="hero-content">
             <div className="mb-1 animate-fadeInUp">
               <span className="inline-block bg-warm-yellow text-deep-purple px-4 py-2 rounded-full font-montserrat font-semibold text-sm mt-10 mb-4 animate-pulse-glow">
