@@ -22,7 +22,7 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🏗️ Build project
+      - name: Build project
         run: npm run build
 
       - name: Sync files via FTP
