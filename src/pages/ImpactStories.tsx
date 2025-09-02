@@ -155,7 +155,7 @@ const ImpactStories: React.FC = () => {
       {stories.map((story, index) => (
         <section
           key={story.id}
-          ref={(el) => (sectionRefs.current[index] = el)}
+          ref={(el) => (sectionRefs.current[index] = el as HTMLDivElement | null)}
           className="relative min-h-screen flex items-center"
         >
           {/* Background Image with Parallax */}
@@ -166,7 +166,6 @@ const ImpactStories: React.FC = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundAttachment: 'fixed',
-              transform: activeStory === index ? 'scale(1.1)' : 'scale(1)',
               filter: activeStory === index ? 'brightness(0.7)' : 'brightness(0.5)',
             }}
           />
