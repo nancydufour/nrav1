@@ -28,7 +28,7 @@ const AboutUs: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="story-image animate-slideInLeft">
               <img
-                src="https://unsplash.com/photos/Glt7d_fofLQ/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fEElMjB2b2x1bnRlZXIlMjBrbmVlbGluZyUyMHRvJTIwc2VydmUlMjBmb29kJTIwdG8lMjBhJTIwc21pbGluZyUyMGNoaWxkfGVufDB8fHx8MTc1NTYzNDM3Nnww&force=true"
+                src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734802/SO6_gssywc.jpg"
                 alt="Children in Africa"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover hover:scale-105 transition-transform duration-700"
               />

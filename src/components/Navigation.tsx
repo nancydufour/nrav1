@@ -46,7 +46,7 @@ const Navigation: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/2.png"
+              src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734789/2_rgkois.png"
               className="object-contain h-[4rem]"
               alt="NRA logo"
             />

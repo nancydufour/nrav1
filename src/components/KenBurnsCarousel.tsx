@@ -9,9 +9,9 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 SwiperCore.use([Autoplay, EffectFade]);
 
 const images = [
-  'https://unsplash.com/photos/QdK6aujOLYs/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NHx8aGFwcHklMjBhZnJpY2FuJTIwY2hpbGRyZW58ZW58MHx8fHwxNzU1NjI0NzE4fDA&force=true',
-  'https://unsplash.com/photos/7MD4DR9jbP0/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MjB8fGhhcHB5JTIwYWZyaWNhbiUyMGNoaWxkcmVufGVufDB8fHx8MTc1NTYyNDcxOHww&force=true',
-  'https://unsplash.com/photos/lPPkJ4NfQtQ/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MjN8fGhhcHB5JTIwYWZyaWNhbiUyMGNoaWxkcmVufGVufDB8fHx8MTc1NTYyNDgxN3ww&force=true',
+  'https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg',
+  'https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg',
+  'https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734802/SO6_gssywc.jpg',
 ];
 
 const KenBurnsCarousel: React.FC = () => {
