@@ -10,9 +10,9 @@ const Footer: React.FC = () => {
           {/* Logo and Mission */}
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-[2rem] mb-4 w-fit">
-              <img src="/2.png" className='object-contain h-[3.5rem] min-[400px]:h-[4.9rem]' alt="NRA logo" />
+              <img src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734789/2_rgkois.png" className='object-contain h-[3.5rem] min-[400px]:h-[4.9rem]' alt="NRA logo" />
               <div className="text-sm opacity-70 font-montserrat max-[400px]:hidden text-warm-yellow">powered&nbsp;by</div>
-              <img src="/1.png" className='object-contain h-[3.5rem] min-[400px]:h-[4.9rem]' alt="Her logo" />
+              <img src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734789/1_d3ksez.png" className='object-contain h-[3.5rem] min-[400px]:h-[4.9rem]' alt="Her logo" />
             </Link>
             <p className="font-lato text-gray-300 mb-6 max-w-md">
               Restoring dignity, feeding hope, and changing Africa — one meal, one child, one village at a time.
