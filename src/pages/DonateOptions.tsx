@@ -8,8 +8,9 @@ const DonateOptions: React.FC = () => {
   const [customAmount, setCustomAmount] = useState('');
   const [donationType, setDonationType] = useState<'one-time' | 'monthly'>('one-time');
   const [selectedCause, setSelectedCause] = useState<string>('general');
+  const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
 
-  const quickAmounts = [500, 1000, 2500, 5000, 10000, 25000];
+  const quickAmounts = [10500, 50000, 100500, 200000, 300000, 500000];
   
   const causes = [
     {
@@ -43,12 +44,12 @@ const DonateOptions: React.FC = () => {
   ];
 
   const impactExamples = [
-    { amount: '₦500', impact: 'Provides a nutritious meal for 2 children' },
-    { amount: '₦1,000', impact: 'Feeds a child for a week' },
-    { amount: '₦2,500', impact: 'Provides care packages for 5 hospital patients' },
-    { amount: '₦5,000', impact: 'Feeds 10 children for a week' },
-    { amount: '₦10,000', impact: 'Provides emergency shelter supplies for a family' },
-    { amount: '₦25,000', impact: 'Funds a community kitchen for a month' }
+    { amount: '₦10,500', impact: 'Provides a nutritious meal for 2 children' },
+    { amount: '₦50,000', impact: 'Feeds a child for a week' },
+    { amount: '₦100,500', impact: 'Provides care packages for 5 hospital patients' },
+    { amount: '₦200,000', impact: 'Feeds 10 children for a week' },
+    { amount: '₦300,000', impact: 'Provides emergency shelter supplies for a family' },
+    { amount: '₦500,000', impact: 'Funds a community kitchen for a month' }
   ];
 
   const handleAmountSelect = (amount: number) => {
@@ -67,9 +68,15 @@ const DonateOptions: React.FC = () => {
 
   const getCurrentImpact = () => {
     const amount = getCurrentAmount();
-    const impact = impactExamples.find(example => 
-      parseInt(example.amount.replace('₦', '').replace(',', '')) <= amount
-    );
+    // Find the highest amount that is less than or equal to the selected amount
+    const impact = impactExamples
+        .filter(example => parseInt(example.amount.replace('₦', '').replace(',', '')) <= amount)
+        .reduce((highest, current) => {
+            const currentAmount = parseInt(current.amount.replace('₦', '').replace(',', ''));
+            const highestAmount = parseInt(highest.amount.replace('₦', '').replace(',', ''));
+            return currentAmount > highestAmount ? current : highest;
+        }, impactExamples[0]);
+
     return impact?.impact || 'Every donation makes a difference';
   };
 
@@ -156,7 +163,7 @@ const DonateOptions: React.FC = () => {
                 value={customAmount}
                 onChange={handleCustomAmountChange}
                 placeholder="Enter custom amount"
-                className="w-full px-6 py-4 border-2 border-gray-300 rounded-xl font-lato text-lg focus:border-deep-purple focus:outline-none transition-colors duration-300"
+                className="w-full pl-20 pr-6 py-4 border-2 border-gray-300 rounded-xl font-lato text-lg focus:border-deep-purple focus:outline-none transition-colors duration-300"
               />
               <span className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500 font-lato text-lg pointer-events-none">
                 ₦
@@ -238,7 +245,7 @@ const DonateOptions: React.FC = () => {
               <div className="bg-cream rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
                 <Smartphone className="h-12 w-12 text-earth-green mx-auto mb-4" />
                 <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-2">
-                  Mobile Money
+                  SMS Payement
                 </h4>
                 <p className="font-lato text-gray-600 text-sm">
                   MTN, Airtel, 9mobile
@@ -518,42 +525,84 @@ const DonateOptions: React.FC = () => {
             </h2>
           </div>
 
-          <div className="space-y-6 animate-fadeInUp stagger-2">
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-3">
-                Is my donation tax-deductible?
-              </h4>
-              <p className="font-lato text-gray-600">
-                Yes, as a registered NGO, all donations are tax-deductible. We'll provide you with a receipt for your records.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-3">
-                How much of my donation goes to programs?
-              </h4>
-              <p className="font-lato text-gray-600">
-                Over 85% of every donation goes directly to our programs. Administrative costs are kept to a minimum.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-3">
-                Can I cancel my monthly donation?
-              </h4>
-              <p className="font-lato text-gray-600">
-                Absolutely. You can modify or cancel your monthly donation at any time by contacting us.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-md">
-              <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-3">
-                Will I receive updates on my donation's impact?
-              </h4>
-              <p className="font-lato text-gray-600">
-                Yes! We send regular impact reports and stories showing how your donation is making a difference.
-              </p>
-            </div>
+          <div className="space-y-4 animate-fadeInUp stagger-2">
+            {/*
+            {
+              id: 'tax',
+              question: 'Is my donation tax-deductible?',
+              answer: 'Yes, as a registered NGO, all donations are tax-deductible. We'll provide you with a receipt for your records.'
+            },
+            {
+              id: 'programs',
+              question: 'How much of my donation goes to programs?',
+              answer: 'Over 85% of every donation goes directly to our programs. Administrative costs are kept to a minimum.'
+            },
+            {
+              id: 'cancel',
+              question: 'Can I cancel my monthly donation?',
+              answer: 'Absolutely. You can modify or cancel your monthly donation at any time by contacting us.'
+            },
+            {
+              id: 'updates',
+              question: 'Will I receive updates on my donation's impact?',
+              answer: 'Yes! We send regular impact reports and stories showing how your donation is making a difference.'
+            }
+          */}
+            { [
+                {
+                  id: 'tax',
+                  question: 'Is my donation tax-deductible?',
+                  answer: 'Yes, as a registered NGO, all donations are tax-deductible. We\'ll provide you with a receipt for your records.'
+                },
+                {
+                  id: 'programs',
+                  question: 'How much of my donation goes to programs?',
+                  answer: 'Over 85% of every donation goes directly to our programs. Administrative costs are kept to a minimum.'
+                },
+                {
+                  id: 'cancel',
+                  question: 'Can I cancel my monthly donation?',
+                  answer: 'Absolutely. You can modify or cancel your monthly donation at any time by contacting us.'
+                },
+                {
+                  id: 'updates',
+                  question: 'Will I receive updates on my donation\'s impact?',
+                  answer: 'Yes! We send regular impact reports and stories showing how your donation is making a difference.'
+                }
+              ].map((faq) => (
+                <div key={faq.id} className="bg-white rounded-xl shadow-md overflow-hidden">
+                  <button
+                    onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
+                    className="w-full px-6 py-4 flex justify-between items-center text-left"
+                  >
+                    <h4 className="font-montserrat font-semibold text-lg text-charcoal">
+                      {faq.question}
+                    </h4>
+                    <span className={`transform transition-transform duration-300 ${
+                      expandedFaq === faq.id ? 'rotate-180' : ''
+                    }`}>
+                      <svg 
+                        className="w-5 h-5 text-deep-purple"
+                        fill="none" 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth="2" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor"
+                      >
+                        <path d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    expandedFaq === faq.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                    <p className="px-6 pb-4 font-lato text-gray-600">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              )) }
           </div>
         </div>
       </section>

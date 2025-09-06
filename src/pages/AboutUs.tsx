@@ -122,7 +122,8 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
-      <section className='min-h-screen relative p-10' style={{ backgroundSize: "cover", backgroundPosition: "center"}}>
+      {/* AIM AND OBJECTIVES */}
+      {/* <section className='min-h-screen relative p-10' style={{ backgroundSize: "cover", backgroundPosition: "center"}}>
         <img src="./public/About1.jpg" alt="" className='absolute inset-0 w-full h-full object-cover' />
         <div className='bg-black absolute inset-0 opacity-50'></div>
         <h1 className='relative z-10 text-black/90 text-2xl bg-yellow-600 w-fit px-20 font-bold italic'>Aim and Objective</h1>
@@ -134,7 +135,7 @@ const AboutUs: React.FC = () => {
             <li>Reduce child starvation and promote school attendance by ensuring no child learns on an empty stomach.</li>
           </ul>
         </div>
-      </section>
+      </section> */}
 
       {/* Call to Action */}
       <section className="py-20 bg-deep-purple">

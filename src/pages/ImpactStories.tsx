@@ -287,11 +287,11 @@ const ImpactStories: React.FC = () => {
       ))}
 
       {/* Story Navigation */}
-      <ScrollProgressIndicator
+      {/* <ScrollProgressIndicator
         stories={stories}
         activeStory={activeStory}
         onStorySelect={scrollToStory}
-      />
+      /> */}
 
       {/* Summary Section */}
       <section className="py-20 bg-white">
@@ -306,7 +306,7 @@ const ImpactStories: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <AnimatedCard delay={0} className="text-center">
+            <AnimatedCard delay={0} className="text-center py-10 flex flex-col justify-center items-center rounded-lg">
               <div className="bg-warm-yellow bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <div className="text-3xl font-montserrat font-bold text-warm-yellow">
                   5
@@ -320,7 +320,7 @@ const ImpactStories: React.FC = () => {
               </p>
             </AnimatedCard>
 
-            <AnimatedCard delay={150} className="text-center">
+            <AnimatedCard delay={150} className="text-center py-10 flex flex-col justify-center items-center rounded-lg">
               <div className="bg-earth-green bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <div className="text-3xl font-montserrat font-bold text-earth-green">
                   2K+
@@ -334,7 +334,7 @@ const ImpactStories: React.FC = () => {
               </p>
             </AnimatedCard>
 
-            <AnimatedCard delay={300} className="text-center">
+            <AnimatedCard delay={300} className="text-center py-10 flex flex-col justify-center items-center rounded-lg">
               <div className="bg-burnt-red bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <div className="text-3xl font-montserrat font-bold text-burnt-red">
                   100%
@@ -348,7 +348,7 @@ const ImpactStories: React.FC = () => {
               </p>
             </AnimatedCard>
 
-            <AnimatedCard delay={450} className="text-center">
+            <AnimatedCard delay={450} className="text-center py-10 flex flex-col justify-center items-center rounded-lg">
               <div className="bg-deep-purple bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <div className="text-3xl font-montserrat font-bold text-deep-purple">
                   ∞

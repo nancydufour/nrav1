@@ -60,54 +60,55 @@ const GetInvolved: React.FC = () => {
                 </div>
               </div>
             </Link>
-
-            {/* Volunteer Banner */}
-            <Link
-              to="/contact"
-              className="group block bg-gradient-to-r from-earth-green to-green-600 rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                <div className="bg-white bg-opacity-20 p-6 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Users className="h-16 w-16 text-white" />
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">
-                    Volunteer
-                  </h3>
-                  <p className="font-lato text-xl text-gray-100 mb-6">
-                    Be part of the movement. Join our on-ground projects, from food distribution to hospital outreach, and witness the impact first-hand.
-                  </p>
-                  <div className="flex items-center text-white font-montserrat font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300">
-                    <span>Join Our Team</span>
-                    <ArrowRight className="h-6 w-6 ml-2" />
+            <div className="flex justify-center items-center gap-5">
+              {/* Volunteer Banner */}
+              <Link
+                to="/contact"
+                className="group block bg-gradient-to-r from-earth-green to-green-600 rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+                  <div className="bg-white bg-opacity-20 p-6 rounded-full group-hover:scale-110 transition-transform duration-300">
+                    <Users className="h-16 w-16 text-white" />
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">
+                      Volunteer
+                    </h3>
+                    <p className="font-lato text-xl text-gray-100 mb-6">
+                      Be part of the movement. Join our on-ground projects, from food distribution to hospital outreach, and witness the impact first-hand.
+                    </p>
+                    <div className="flex items-center text-white font-montserrat font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300">
+                      <span>Join Our Team</span>
+                      <ArrowRight className="h-6 w-6 ml-2" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
 
-            {/* Partner Banner */}
-            <Link
-              to="/contact"
-              className="group block bg-gradient-to-r from-burnt-red to-red-600 rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-            >
-              <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
-                <div className="bg-white bg-opacity-20 p-6 rounded-full group-hover:scale-110 transition-transform duration-300">
-                  <Handshake className="h-16 w-16 text-white" />
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">
-                    Partner
-                  </h3>
-                  <p className="font-lato text-xl text-gray-100 mb-6">
-                    Businesses, NGOs, schools, and faith communities — we invite you to collaborate with us. Together, we can multiply our reach and impact.
-                  </p>
-                  <div className="flex items-center text-white font-montserrat font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300">
-                    <span>Let's Collaborate</span>
-                    <ArrowRight className="h-6 w-6 ml-2" />
+              {/* Partner Banner */}
+              <Link
+                to="/contact"
+                className="group block bg-gradient-to-r from-burnt-red to-red-600 rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+                  <div className="bg-white bg-opacity-20 p-6 rounded-full group-hover:scale-110 transition-transform duration-300">
+                    <Handshake className="h-16 w-16 text-white" />
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">
+                      Partner
+                    </h3>
+                    <p className="font-lato text-xl text-gray-100 mb-6">
+                      Businesses, NGOs, schools, and faith communities — we invite you to collaborate with us. Together, we can multiply our reach and impact.
+                    </p>
+                    <div className="flex items-center text-white font-montserrat font-semibold text-lg group-hover:translate-x-2 transition-transform duration-300">
+                      <span>Let's Collaborate</span>
+                      <ArrowRight className="h-6 w-6 ml-2" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
