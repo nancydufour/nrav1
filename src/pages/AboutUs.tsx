@@ -122,20 +122,211 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
-      {/* AIM AND OBJECTIVES */}
-      {/* <section className='min-h-screen relative p-10' style={{ backgroundSize: "cover", backgroundPosition: "center"}}>
-        <img src="./public/About1.jpg" alt="" className='absolute inset-0 w-full h-full object-cover' />
-        <div className='bg-black absolute inset-0 opacity-50'></div>
-        <h1 className='relative z-10 text-black/90 text-2xl bg-yellow-600 w-fit px-20 font-bold italic'>Aim and Objective</h1>
-        <div className='absolute bottom-10 right-10 backdrop-blur-lg bg-yellow-600/20 z-10 px-10 py-5 w-[40rem]'>
-          <h2 className='text-black/90 font-extrabold mb-5 text-2xl'>To Alleviate Hunger and Malnutrition</h2>
-          <ul className='list-disc list-inside'>
-            <li>Establish sustainable feeding programs, starting with primary school children in underserved communities.</li>
-            <li>Set up community kitchens, food banks, and mobile food trucks to reach those in slums, IDP camps, hospitals, orphanages, and rural villages.</li>
-            <li>Reduce child starvation and promote school attendance by ensuring no child learns on an empty stomach.</li>
-          </ul>
+      {/* Aims and Objectives Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 animate-fadeInUp">
+            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-6">
+              Our <span className="text-deep-purple">Aims & Objectives</span>
+            </h2>
+            <div className="max-w-4xl mx-auto">
+              <p className="font-lato text-lg text-gray-700 leading-relaxed mb-8">
+                Needy Relief Africa exists to restore dignity, hope, and healing to communities across Africa by meeting urgent humanitarian needs and building long-term solutions — one meal, one child, one village at a time.
+              </p>
+              <p className="font-montserrat font-semibold text-xl text-burnt-red">
+                Our aims and objectives are as follows:
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-12">
+            {/* Objective 1 */}
+            <AnimatedCard delay={0} className="bg-cream rounded-2xl p-8 shadow-lg">
+              <div className="flex items-start space-x-6">
+                <div className="text-4xl">🌍</div>
+                <div className="flex-1">
+                  <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
+                    1. To Alleviate Hunger and Malnutrition
+                  </h3>
+                  <ul className="space-y-3 font-lato text-gray-700">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-warm-yellow rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Establish sustainable feeding programs, starting with primary school children in underserved communities.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-warm-yellow rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Set up community kitchens, food banks, and mobile food trucks to reach those in slums, IDP camps, hospitals, orphanages, and rural villages.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-warm-yellow rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Reduce child starvation and promote school attendance by ensuring no child learns on an empty stomach.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimatedCard>
+
+            {/* Objective 2 */}
+            <AnimatedCard delay={150} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="flex items-start space-x-6">
+                <div className="text-4xl">🏥</div>
+                <div className="flex-1">
+                  <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
+                    2. To Support the Sick, Elderly, and Forgotten
+                  </h3>
+                  <ul className="space-y-3 font-lato text-gray-700">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Organize regular outreach to hospitals, care homes, and psychiatric facilities with medical supplies, hygiene packs, and emotional support.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Provide free transportation for rural patients in need of urgent care.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Offer dignity visits and care support to the elderly and neglected in society.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimatedCard>
+
+            {/* Objective 3 */}
+            <AnimatedCard delay={300} className="bg-cream rounded-2xl p-8 shadow-lg">
+              <div className="flex items-start space-x-6">
+                <div className="text-4xl">🏠</div>
+                <div className="flex-1">
+                  <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
+                    3. To Provide Shelter and Support for the Homeless
+                  </h3>
+                  <ul className="space-y-3 font-lato text-gray-700">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-earth-green rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Partner with local communities to build temporary shelter spaces for displaced individuals and homeless families.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-earth-green rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Distribute blankets, clothes, and care kits to those living under bridges, on the streets, or in abandoned areas.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-earth-green rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Collaborate with social workers to reintegrate vulnerable people into society with dignity.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimatedCard>
+
+            {/* Objective 4 */}
+            <AnimatedCard delay={450} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="flex items-start space-x-6">
+                <div className="text-4xl">🎠</div>
+                <div className="flex-1">
+                  <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
+                    4. To Build Safe Spaces for Children
+                  </h3>
+                  <ul className="space-y-3 font-lato text-gray-700">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-deep-purple rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Construct child-friendly parks, playgrounds, and recreational areas in low-income communities.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-deep-purple rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Launch "Green Nose Day Africa" as an annual event to raise funds across the continent for child-focused projects.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-deep-purple rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Provide psychosocial support and safe spaces for children who have experienced trauma, abuse, or abandonment.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimatedCard>
+
+            {/* Objective 5 */}
+            <AnimatedCard delay={600} className="bg-cream rounded-2xl p-8 shadow-lg">
+              <div className="flex items-start space-x-6">
+                <div className="text-4xl">💡</div>
+                <div className="flex-1">
+                  <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
+                    5. To Inspire a Culture of Giving Across Africa
+                  </h3>
+                  <ul className="space-y-3 font-lato text-gray-700">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-warm-yellow rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Mobilize celebrities, influencers, schools, and individuals to participate in acts of kindness and donation campaigns.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-warm-yellow rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Launch community volunteer programs and empower citizens to become agents of relief and restoration in their own villages.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-warm-yellow rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Promote transparency, impact tracking, and public trust through honest reporting and real-time storytelling.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimatedCard>
+
+            {/* Objective 6 */}
+            <AnimatedCard delay={750} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+              <div className="flex items-start space-x-6">
+                <div className="text-4xl">🕊</div>
+                <div className="flex-1">
+                  <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
+                    6. To Heal, Rebuild and Reform Through Grassroots Action
+                  </h3>
+                  <ul className="space-y-3 font-lato text-gray-700">
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Provide emotional, spiritual, and psychological support through faith-based healing programs and storytelling initiatives.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Address root causes of poverty by partnering on education, entrepreneurship, and employment opportunities.</span>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
+                      <span>Ensure every intervention reflects dignity, not pity — and that every life touched knows: you matter, you are seen, and you are not forgotten.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </AnimatedCard>
+          </div>
+
+          {/* Green Nose Day Special Section */}
+          <div className="mt-16">
+            <AnimatedCard delay={900} className="bg-gradient-to-r from-earth-green to-warm-yellow rounded-2xl p-8 text-white">
+              <div className="text-center">
+                <h3 className="font-montserrat font-bold text-2xl mb-4">
+                  Green Nose Day Africa - Special Initiatives
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <h4 className="font-montserrat font-semibold mb-3">Community Resources</h4>
+                    <ul className="space-y-2 font-lato text-sm">
+                      <li>• School & workplace packs: downloadable resources, posters, quizzes, bunting</li>
+                      <li>• "Non-uniform day" and sponsored challenges</li>
+                      <li>• Giant menu of fundraising ideas for schools and communities</li>
+                    </ul>
+                  </div>
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                    <h4 className="font-montserrat font-semibold mb-3">Donation & Merchandise</h4>
+                    <ul className="space-y-2 font-lato text-sm">
+                      <li>• Simple donation rails: web cards, phone/text donations</li>
+                      <li>• Text "TEN" to 70702 to give ₦100</li>
+                      <li>• Merch drops: green noses, T-shirts via e-shop</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </AnimatedCard>
+          </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Call to Action */}
       <section className="py-20 bg-deep-purple">
