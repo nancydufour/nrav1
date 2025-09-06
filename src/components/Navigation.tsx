@@ -32,6 +32,7 @@ const Navigation: React.FC = () => {
       ],
     },
     { name: 'Stories', path: '/stories' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
   ];
 
