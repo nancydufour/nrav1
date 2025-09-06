@@ -54,7 +54,7 @@ const GreenNoseDay: React.FC = () => {
             
             <div className="flex items-center justify-center space-x-4 text-white mb-8 animate-fadeInUp stagger-4">
               <Calendar className="h-6 w-6" />
-              <span className="font-montserrat font-semibold text-xl">May 25th, 2026</span>
+              <span className="font-montserrat font-semibold text-xl">May 25th, 2025</span>
             </div>
           </div>
         </div>
