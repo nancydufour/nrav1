@@ -181,7 +181,7 @@ const ImpactStories: React.FC = () => {
                 <div className={`transition-all duration-1000 ${
                   activeStory === index 
                     ? 'translate-x-0 opacity-100' 
-                    : 'translate-x-[-50px] opacity-70'
+                    : 'lg:translate-x-[-50px] opacity-70'
                 }`}>
                   <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
                     <div className="flex items-center space-x-4 mb-6">
@@ -239,7 +239,7 @@ const ImpactStories: React.FC = () => {
                 <div className={`transition-all duration-1000 delay-300 ${
                   activeStory === index 
                     ? 'translate-x-0 opacity-100' 
-                    : 'translate-x-[50px] opacity-70'
+                    : 'lg:translate-x-[50px] opacity-70'
                 }`}>
                   <div className="bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
                     <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6 text-center">
