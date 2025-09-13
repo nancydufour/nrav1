@@ -77,7 +77,11 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-montserrat font-semibold text-lg text-charcoal">Phone</h3>
-                    <a href='tel:+234XXXYYYZZZZ' className="font-lato text-gray-600">+234 XXX XXX XXXX</a>
+                    <div className="font-lato text-gray-600 space-y-1">
+                      <a href='tel:+2348165289455' className="block hover:underline">+234 816 528 9455</a>
+                      <a href='tel:+2347080921501' className="block hover:underline">+234 708 092 1501</a>
+                      <a href='tel:+2347047771945' className="block hover:underline">+234 704 777 1945</a>
+                    </div>
                   </div>
                 </div>
 
@@ -87,7 +91,10 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-montserrat font-semibold text-lg text-charcoal">Location</h3>
-                    <p className="font-lato text-gray-600">Lagos, Nigeria</p>
+                    <div className="font-lato text-gray-600">
+                      <p>Brown Street Soluyi-Gbagada Lagos</p>
+                      <p className="text-sm mt-1">IBADAN: No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo</p>
+                    </div>
                   </div>
                 </div>
 
@@ -181,12 +188,24 @@ const ContactUs: React.FC = () => {
                   >
                     <option value="">Select a subject</option>
                     <option value="volunteer">Volunteer Opportunities</option>
-                    <option value="partnership">Partnership Inquiry</option>
                     <option value="donation">Donation Questions</option>
                     <option value="media">Media & Press</option>
                     <option value="general">General Inquiry</option>
                     <option value="support">Support Request</option>
                   </select>
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block font-lato font-semibold text-charcoal mb-2">
+                    Phone Number (Optional)
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    placeholder="Enter your phone number"
+                  />
                 </div>
 
                 <div>
@@ -250,7 +269,7 @@ const ContactUs: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+234XXXXXXX"
+              href="tel:+2348165289455"
               className="bg-white text-burnt-red px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
             >
               <Phone className="h-5 w-5" />

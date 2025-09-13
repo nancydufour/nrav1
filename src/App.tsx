@@ -9,6 +9,13 @@ import ContactUs from './pages/ContactUs';
 import ImpactStories from './pages/ImpactStories';
 import DonateOptions from './pages/DonateOptions';
 import PhotoStories from './pages/PhotoStories';
+import Partners from './pages/Partners';
+import HungerProgram from './pages/work/HungerProgram';
+import HealthcareProgram from './pages/work/HealthcareProgram';
+import ShelterProgram from './pages/work/ShelterProgram';
+import ChildrenProgram from './pages/work/ChildrenProgram';
+import CultureProgram from './pages/work/CultureProgram';
+import RebuildingProgram from './pages/work/RebuildingProgram';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './util/ScrollToTop';
@@ -30,6 +37,13 @@ function App() {
           <Route path="/stories" element={<ImpactStories />} />
           <Route path="/donate-options" element={<DonateOptions />} />
           <Route path="/gallery" element={<PhotoStories />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/work/hunger" element={<HungerProgram />} />
+          <Route path="/work/healthcare" element={<HealthcareProgram />} />
+          <Route path="/work/shelter" element={<ShelterProgram />} />
+          <Route path="/work/children" element={<ChildrenProgram />} />
+          <Route path="/work/culture" element={<CultureProgram />} />
+          <Route path="/work/rebuilding" element={<RebuildingProgram />} />
         </Routes>
         <Donate />
         <Footer />

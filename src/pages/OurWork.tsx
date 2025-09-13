@@ -21,7 +21,8 @@ const OurWork: React.FC = () => {
       color: "bg-warm-yellow",
       textColor: "text-warm-yellow",
       bgColor: "bg-warm-yellow bg-opacity-10",
-      link: "/work/hunger"
+      link: "/work/hunger",
+      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
       icon: <Heart className="h-12 w-12" />,
@@ -30,7 +31,8 @@ const OurWork: React.FC = () => {
       color: "bg-burnt-red",
       textColor: "text-burnt-red",
       bgColor: "bg-burnt-red bg-opacity-10",
-      link: "/work/healthcare"
+      link: "/work/healthcare",
+      image: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
       icon: <Home className="h-12 w-12" />,
@@ -39,7 +41,8 @@ const OurWork: React.FC = () => {
       color: "bg-earth-green",
       textColor: "text-earth-green",
       bgColor: "bg-earth-green bg-opacity-10",
-      link: "/work/shelter"
+      link: "/work/shelter",
+      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
       icon: <Gamepad2 className="h-12 w-12" />,
@@ -48,7 +51,8 @@ const OurWork: React.FC = () => {
       color: "bg-deep-purple",
       textColor: "text-deep-purple",
       bgColor: "bg-deep-purple bg-opacity-10",
-      link: "/work/children"
+      link: "/work/children",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg"
     },
     {
       icon: <Users className="h-12 w-12" />,
@@ -57,7 +61,8 @@ const OurWork: React.FC = () => {
       color: "bg-burnt-red",
       textColor: "text-burnt-red",
       bgColor: "bg-burnt-red bg-opacity-10",
-      link: "/work/culture"
+      link: "/work/culture",
+      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
     },
     {
       icon: <Lightbulb className="h-12 w-12" />,
@@ -66,7 +71,8 @@ const OurWork: React.FC = () => {
       color: "bg-warm-yellow",
       textColor: "text-warm-yellow",
       bgColor: "bg-warm-yellow bg-opacity-10",
-      link: "/work/rebuilding"
+      link: "/work/rebuilding",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg"
     }
   ];
 
@@ -105,8 +111,17 @@ const OurWork: React.FC = () => {
               <AnimatedCard
                 key={index}
                 delay={index * 100}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 hover:rotate-1 border border-gray-100"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 hover:rotate-1 border border-gray-100"
               >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={program.image} 
+                    alt={program.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                
+                <div className="p-8">
                 <div className={`${program.bgColor} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500`}>
                   <div className={program.textColor}>
                     {program.icon}
@@ -128,6 +143,7 @@ const OurWork: React.FC = () => {
                   Learn More
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Link>
+                </div>
               </AnimatedCard>
             ))}
           </div>

@@ -38,27 +38,55 @@ const Footer: React.FC = () => {
               <li><Link to="/work" className="text-gray-300 hover:text-warm-yellow transition-colors">Our Work</Link></li>
               <li><Link to="/stories" className="text-gray-300 hover:text-warm-yellow transition-colors">Impact Stories</Link></li>
               <li><Link to="/green-nose-day" className="text-gray-300 hover:text-warm-yellow transition-colors">Green Nose Day</Link></li>
-              <li><Link to="/blog" className="text-gray-300 hover:text-warm-yellow transition-colors">Blog</Link></li>
+              <li><Link to="/partners" className="text-gray-300 hover:text-warm-yellow transition-colors">Partner With Us</Link></li>
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
             <h3 className="font-montserrat font-semibold text-lg mb-4">Contact Us</h3>
-            <div className="space-y-3 font-lato text-gray-300">
+            <div className="space-y-3  font-lato text-gray-300">
               <a href='mailto:info@needyreliefafrica.org' className="flex items-center space-x-3 hover:underline">
                 <Mail className="h-5 w-5 text-warm-yellow" />
                 <span>info@needyreliefafrica.org</span>
               </a>
-              <a href='tel:+234 XXX XXX XXXX' className="flex items-center space-x-3 hover:underline">
+              <div className="flex items-start justify-start">
                 <Phone className="h-5 w-5 text-warm-yellow" />
-                <span>+234 XXX XXX XXXX</span>
-              </a>
+                <div className="ml-3">
+                  <a href='tel:+2348165289455' className="block hover:underline">+234 816 528 9455</a>
+                </div>
+              </div>
+              <div className="flex items-start justify-start">
+                <Phone className="h-5 w-5 text-warm-yellow" />
+                <div className="ml-3">
+                  <a href='tel:+2347080921501' className="block hover:underline">+234 708 092 1501</a>
+                </div>
+              </div>
+              <div className="flex items-start justify-start">
+                <Phone className="h-5 w-5 text-warm-yellow" />
+                <div className="ml-3">
+                  <a href='tel:+2347047771945' className="block hover:underline">+234 704 777 1945</a>
+                </div>
+              </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-warm-yellow" />
-                <span>Lagos, Nigeria</span>
+                <div>
+                  <p className="text-sm">LAGOS: Brown Street Soluyi-Gbagada Lagos</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3">
+                <MapPin className="w-[4rem] text-warm-yellow" />
+                <div>
+                  <p className="text-sm">IBADAN: No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo</p>
+                </div>
               </div>
             </div>
+            
+            {/* <div className="mt-6">
+              <Link to="/partners" className="text-warm-yellow hover:underline font-montserrat font-semibold">
+                Partner With Us
+              </Link>
+            </div> */}
           </div>
         </div>
 
