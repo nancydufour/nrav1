@@ -87,7 +87,7 @@ const GetInvolved: React.FC = () => {
 
               {/* Partner Banner */}
               <Link
-                to="/contact"
+                to="/partners"
                 className="group block bg-gradient-to-r from-burnt-red to-red-600 rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
@@ -173,7 +173,7 @@ const GetInvolved: React.FC = () => {
                 Partner with us for CSR initiatives and employee engagement programs.
               </p>
               <Link
-                to="/contact"
+                to="/partners"
                 className="text-burnt-red font-montserrat font-semibold hover:underline"
               >
                 Explore Partnership →
