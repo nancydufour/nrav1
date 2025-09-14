@@ -6,10 +6,11 @@ interface AnimatedCardProps {
   delay?: number;
 }
 
-const AnimatedCard: React.FC<AnimatedCardProps> = ({ 
+const AnimatedCard: React.FC<AnimatedCardProps & React.HTMLAttributes<HTMLDivElement>> = ({ 
   children, 
   className = '', 
-  delay = 0 
+  delay = 0,
+  ...divProps
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -33,6 +34,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
         ${className}
       `}
       style={{ transitionDelay: `${delay}ms` }}
+      {...divProps}
     >
       {children}
     </div>
