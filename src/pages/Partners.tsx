@@ -187,8 +187,8 @@ const Partners: React.FC = () => {
       </section>
 
       {/* Partnership Form */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white w-full">
+        <div className="max-w-[90vw] mx-[2rem] px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fadeInUp">
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
               Start a <span className="text-deep-purple">Partnership</span>
@@ -198,7 +198,7 @@ const Partners: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
             {/* Contact Information */}
             <div className="space-y-8 animate-fadeInUp stagger-2">
               <div>
@@ -251,7 +251,7 @@ const Partners: React.FC = () => {
             </div>
 
             {/* Partnership Form */}
-            <div className="bg-cream rounded-2xl p-8 animate-fadeInUp stagger-3">
+            <div className="bg-cream  rounded-2xl p-8 animate-fadeInUp stagger-3">
               <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6">
                 Partnership Inquiry
               </h3>
