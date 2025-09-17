@@ -96,7 +96,7 @@ const Homepage: React.FC = () => {
                 <span>Volunteer With Us</span>
               </Link>
               <Link
-                to="/get-involved"
+                to="/partners"
                 className="bg-earth-green text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <span>Partner With Us</span>

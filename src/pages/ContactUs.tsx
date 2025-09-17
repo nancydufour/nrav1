@@ -92,8 +92,12 @@ const ContactUs: React.FC = () => {
                   <div>
                     <h3 className="font-montserrat font-semibold text-lg text-charcoal">Location</h3>
                     <div className="font-lato text-gray-600">
-                      <p>Brown Street Soluyi-Gbagada Lagos</p>
-                      <p className="text-sm mt-1">IBADAN: No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo</p>
+                      <p className="text-sm mt-1 mb-2 ">
+                        <span className="font-semibold">LAGOS:</span> Brown Street Soluyi-Gbagada Lagos
+                      </p>
+                      <p className="text-sm mt-1">
+                        <span className="font-semibold">IBADAN:</span> No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo
+                      </p>
                     </div>
                   </div>
                 </div>

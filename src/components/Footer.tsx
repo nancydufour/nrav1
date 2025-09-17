@@ -45,49 +45,50 @@ const Footer: React.FC = () => {
           {/* Contact Info */}
           <div>
             <h3 className="font-montserrat font-semibold text-lg mb-4">Contact Us</h3>
-            <div className="space-y-3  font-lato text-gray-300">
-              <a href='mailto:info@needyreliefafrica.org' className="flex items-center space-x-3 hover:underline">
-                <Mail className="h-5 w-5 text-warm-yellow" />
+            <div className="space-y-5 font-lato text-gray-300">
+              {/* Email */}
+              <a 
+                href="mailto:info@needyreliefafrica.org" 
+                className="flex items-center space-x-3 hover:underline"
+              >
+                <Mail className="w-6 h-6 text-warm-yellow flex-shrink-0" />
                 <span>info@needyreliefafrica.org</span>
               </a>
-              <div className="flex items-start justify-start">
-                <Phone className="h-5 w-5 text-warm-yellow" />
-                <div className="ml-3">
-                  <a href='tel:+2348165289455' className="block hover:underline">+234 816 528 9455</a>
+
+              {/* Phone Section */}
+              <div className="flex items-start space-x-3">
+                <Phone className="w-6 h-6 text-warm-yellow flex-shrink-0 mt-1" />
+                <div className="space-y-2">
+                  <a href="tel:+2348165289455" className="block hover:underline">
+                    +234 816 528 9455
+                  </a>
+                  <a href="tel:+2347080921501" className="block hover:underline">
+                    +234 708 092 1501
+                  </a>
+                  <a href="tel:+2347047771945" className="block hover:underline">
+                    +234 704 777 1945
+                  </a>
                 </div>
               </div>
-              <div className="flex items-start justify-start">
-                <Phone className="h-5 w-5 text-warm-yellow" />
-                <div className="ml-3">
-                  <a href='tel:+2347080921501' className="block hover:underline">+234 708 092 1501</a>
-                </div>
-              </div>
-              <div className="flex items-start justify-start">
-                <Phone className="h-5 w-5 text-warm-yellow" />
-                <div className="ml-3">
-                  <a href='tel:+2347047771945' className="block hover:underline">+234 704 777 1945</a>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="h-5 w-5 text-warm-yellow" />
-                <div>
-                  <p className="text-sm">LAGOS: Brown Street Soluyi-Gbagada Lagos</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <MapPin className="w-[4rem] text-warm-yellow" />
-                <div>
-                  <p className="text-sm">IBADAN: No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo</p>
+
+              {/* Location Section */}
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-6 h-6 text-warm-yellow flex-shrink-0 mt-1" />
+                <div className="space-y-2 text-sm leading-snug">
+                  <p>
+                    <span className="font-semibold">LAGOS:</span> Brown Street
+                    Soluyi-Gbagada Lagos
+                  </p>
+                  <p>
+                    <span className="font-semibold">IBADAN:</span> No. 10 Animashaun Street
+                    beside Christ Apostolic Church, Iyana Cele Idi Oya, Tipper Garage, off
+                    Akala express, Ibadan, Oyo
+                  </p>
                 </div>
               </div>
             </div>
-            
-            {/* <div className="mt-6">
-              <Link to="/partners" className="text-warm-yellow hover:underline font-montserrat font-semibold">
-                Partner With Us
-              </Link>
-            </div> */}
           </div>
+
         </div>
 
         <div className="border-t border-gray-600 mt-8 pt-8 text-center">
