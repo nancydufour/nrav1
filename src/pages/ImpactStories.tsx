@@ -15,7 +15,7 @@ const ImpactStories: React.FC = () => {
       location: "Lagos, Nigeria",
       date: "December 2024",
       beneficiaries: "500+ children",
-      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734811/SO8_u3nil8.jpg",
       description: "In the heart of Lagos, we launched our school feeding program at three primary schools in underserved communities. What started as a simple meal distribution became a transformation story.",
       impact: [
         "500+ children now receive daily nutritious meals",
@@ -34,7 +34,7 @@ const ImpactStories: React.FC = () => {
       location: "Accra, Ghana",
       date: "November 2024",
       beneficiaries: "200+ patients",
-      image: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg",
       description: "Our hospital outreach program brought care packages, toys, and most importantly, human connection to children battling illness in Accra's largest public hospital.",
       impact: [
         "200+ children received care packages",
@@ -72,7 +72,7 @@ const ImpactStories: React.FC = () => {
       location: "Cape Town, South Africa",
       date: "September 2024",
       beneficiaries: "150+ individuals",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
       description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
       impact: [
         "150+ people received emergency shelter",
@@ -91,7 +91,7 @@ const ImpactStories: React.FC = () => {
       location: "Kampala, Uganda",
       date: "August 2024",
       beneficiaries: "800+ families",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg",
       description: "We established a community kitchen in one of Kampala's largest slums, providing not just meals but a gathering place where hope is served alongside food.",
       impact: [
         "800+ families receive regular meals",

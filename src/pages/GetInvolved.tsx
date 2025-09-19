@@ -60,7 +60,7 @@ const GetInvolved: React.FC = () => {
                 </div>
               </div>
             </Link>
-            <div className="flex justify-center items-center gap-5">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-5">
               {/* Volunteer Banner */}
               <Link
                 to="/contact"

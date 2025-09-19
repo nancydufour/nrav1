@@ -11,21 +11,21 @@ const ShelterProgram: React.FC = () => {
       title: "Emergency Shelters",
       description: "Temporary shelter spaces for displaced individuals and homeless families",
       impact: "150+ people sheltered monthly",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg"
     },
     {
       icon: <Shirt className="h-8 w-8" />,
       title: "Care Kit Distribution",
       description: "Blankets, clothes, and essential items for those living on the streets",
       impact: "500+ care kits distributed",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299531/FAK.jpg_svsduk.jpg  "
     },
     {
       icon: <HandHeart className="h-8 w-8" />,
       title: "Reintegration Support",
       description: "Working with social workers to help vulnerable people reintegrate into society",
       impact: "80+ people reintegrated",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734791/About2_lyz7bp.jpg"
     }
   ];
 

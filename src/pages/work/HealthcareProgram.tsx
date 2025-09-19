@@ -11,7 +11,7 @@ const HealthcareProgram: React.FC = () => {
       title: "Hospital Outreach",
       description: "Regular visits to hospitals with medical supplies, hygiene packs, and emotional support",
       impact: "50+ hospitals visited monthly",
-      image: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg"
     },
     {
       icon: <Truck className="h-8 w-8" />,
@@ -25,7 +25,7 @@ const HealthcareProgram: React.FC = () => {
       title: "Elderly Care Visits",
       description: "Dignity visits and care support to elderly and neglected members of society",
       impact: "300+ elderly visited monthly",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299169/8D4A0511_t4ucem.jpg"
     }
   ];
 
