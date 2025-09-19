@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Calendar, Users, Heart } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
-import ScrollProgressIndicator from '../components/ScrollProgressIndicator';
 
 const ImpactStories: React.FC = () => {
   const [activeStory, setActiveStory] = useState(0);
@@ -15,7 +14,7 @@ const ImpactStories: React.FC = () => {
       location: "Lagos, Nigeria",
       date: "December 2024",
       beneficiaries: "500+ children",
-      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734811/SO8_u3nil8.jpg",
       description: "In the heart of Lagos, we launched our school feeding program at three primary schools in underserved communities. What started as a simple meal distribution became a transformation story.",
       impact: [
         "500+ children now receive daily nutritious meals",
@@ -34,7 +33,7 @@ const ImpactStories: React.FC = () => {
       location: "Accra, Ghana",
       date: "November 2024",
       beneficiaries: "200+ patients",
-      image: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg",
       description: "Our hospital outreach program brought care packages, toys, and most importantly, human connection to children battling illness in Accra's largest public hospital.",
       impact: [
         "200+ children received care packages",
@@ -72,7 +71,7 @@ const ImpactStories: React.FC = () => {
       location: "Cape Town, South Africa",
       date: "September 2024",
       beneficiaries: "150+ individuals",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
       description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
       impact: [
         "150+ people received emergency shelter",
@@ -91,7 +90,7 @@ const ImpactStories: React.FC = () => {
       location: "Kampala, Uganda",
       date: "August 2024",
       beneficiaries: "800+ families",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg",
       description: "We established a community kitchen in one of Kampala's largest slums, providing not just meals but a gathering place where hope is served alongside food.",
       impact: [
         "800+ families receive regular meals",
@@ -127,12 +126,6 @@ const ImpactStories: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToStory = (index: number) => {
-    const element = sectionRefs.current[index];
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -146,7 +139,7 @@ const ImpactStories: React.FC = () => {
             Impact <span className="text-warm-yellow">Stories</span>
           </h1>
           <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed.
+            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed. These powerful journeys are testaments to what’s possible when compassion meets action — where forgotten voices are heard, basic needs are met, and people are empowered to build brighter futures. Through education, access to resources, and the unwavering support of those who care, individuals and families are rising from the ashes of hardship and stepping into lives filled with renewed purpose, opportunity, and self-worth. Each story is a reminder that real change is not only possible, it's happening.
           </p>
         </div>
       </ParallaxSection>
@@ -215,8 +208,8 @@ const ImpactStories: React.FC = () => {
                         Impact Achieved:
                       </h4>
                       <ul className="space-y-2">
-                        {story.impact.map((item, idx) => (
-                          <li key={idx} className="flex items-start space-x-3">
+                        {story.impact.map((item) => (
+                          <li key={item} className="flex items-start space-x-3">
                             <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
                             <span className="font-lato text-gray-700">{item}</span>
                           </li>

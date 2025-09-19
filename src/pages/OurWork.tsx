@@ -22,7 +22,7 @@ const OurWork: React.FC = () => {
       textColor: "text-warm-yellow",
       bgColor: "bg-warm-yellow bg-opacity-10",
       link: "/work/hunger",
-      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734813/SO1_juzm58.jpg"
     },
     {
       icon: <Heart className="h-12 w-12" />,
@@ -32,7 +32,7 @@ const OurWork: React.FC = () => {
       textColor: "text-burnt-red",
       bgColor: "bg-burnt-red bg-opacity-10",
       link: "/work/healthcare",
-      image: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg"
     },
     {
       icon: <Home className="h-12 w-12" />,
@@ -42,7 +42,7 @@ const OurWork: React.FC = () => {
       textColor: "text-earth-green",
       bgColor: "bg-earth-green bg-opacity-10",
       link: "/work/shelter",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg"
     },
     {
       icon: <Gamepad2 className="h-12 w-12" />,
@@ -52,7 +52,7 @@ const OurWork: React.FC = () => {
       textColor: "text-deep-purple",
       bgColor: "bg-deep-purple bg-opacity-10",
       link: "/work/children",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg"
     },
     {
       icon: <Users className="h-12 w-12" />,
@@ -62,7 +62,7 @@ const OurWork: React.FC = () => {
       textColor: "text-burnt-red",
       bgColor: "bg-burnt-red bg-opacity-10",
       link: "/work/culture",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758298730/8D4A0426_rs62tr.jpg"
     },
     {
       icon: <Lightbulb className="h-12 w-12" />,
@@ -72,7 +72,7 @@ const OurWork: React.FC = () => {
       textColor: "text-warm-yellow",
       bgColor: "bg-warm-yellow bg-opacity-10",
       link: "/work/rebuilding",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734813/SO1_juzm58.jpg"
     }
   ];
 

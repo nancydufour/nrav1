@@ -6,26 +6,26 @@ import AnimatedCard from '../../components/AnimatedCard';
 
 const CultureProgram: React.FC = () => {
   const programs = [
-    {
-      icon: <Megaphone className="h-8 w-8" />,
-      title: "Celebrity Mobilization",
-      description: "Engaging celebrities and influencers to amplify our message and inspire giving",
-      impact: "50+ influencers engaged",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-    },
+    // {
+    //   icon: <Megaphone className="h-8 w-8" />,
+    //   title: "Celebrity Mobilization",
+    //   description: "Engaging celebrities and influencers to amplify our message and inspire giving",
+    //   impact: "50+ influencers engaged",
+    //   image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+    // },
     {
       icon: <HandHeart className="h-8 w-8" />,
       title: "Community Volunteer Programs",
       description: "Training and empowering local volunteers to become agents of change in their communities",
       impact: "500+ volunteers trained",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758300435/8D4A0475_rprohx.jpg"
     },
     {
       icon: <Star className="h-8 w-8" />,
-      title: "Transparency Initiatives",
+      title: "Transparency Initiative",
       description: "Real-time impact tracking and storytelling to build public trust and accountability",
       impact: "100% transparency rate",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758300678/Transparency_zxywsx.jpg"
     }
   ];
 

@@ -11,22 +11,22 @@ const HungerProgram: React.FC = () => {
       title: "School Feeding Programs",
       description: "Daily nutritious meals for children in underserved schools",
       impact: "500+ children fed daily",
-      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734811/SO8_u3nil8.jpg"
     },
     {
       icon: <Utensils className="h-8 w-8" />,
       title: "Community Kitchens",
       description: "Permanent cooking facilities in high-need communities",
       impact: "800+ families served weekly",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg"
     },
-    {
-      icon: <Truck className="h-8 w-8" />,
-      title: "Mobile Food Trucks",
-      description: "Reaching remote areas and emergency situations",
-      impact: "200+ locations visited monthly",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
-    }
+    // {
+    //   icon: <Truck className="h-8 w-8" />,
+    //   title: "Mobile Food Trucks",
+    //   description: "Reaching remote areas and emergency situations",
+    //   impact: "200+ locations visited monthly",
+    //   image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+    // }
   ];
 
   const impactStats = [
