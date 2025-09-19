@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { MapPin, Calendar, Users, Heart } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
-import ScrollProgressIndicator from '../components/ScrollProgressIndicator';
 
 const ImpactStories: React.FC = () => {
   const [activeStory, setActiveStory] = useState(0);
@@ -127,12 +126,6 @@ const ImpactStories: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToStory = (index: number) => {
-    const element = sectionRefs.current[index];
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -146,7 +139,7 @@ const ImpactStories: React.FC = () => {
             Impact <span className="text-warm-yellow">Stories</span>
           </h1>
           <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed.
+            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed. These powerful journeys are testaments to what’s possible when compassion meets action — where forgotten voices are heard, basic needs are met, and people are empowered to build brighter futures. Through education, access to resources, and the unwavering support of those who care, individuals and families are rising from the ashes of hardship and stepping into lives filled with renewed purpose, opportunity, and self-worth. Each story is a reminder that real change is not only possible, it's happening.
           </p>
         </div>
       </ParallaxSection>
@@ -215,8 +208,8 @@ const ImpactStories: React.FC = () => {
                         Impact Achieved:
                       </h4>
                       <ul className="space-y-2">
-                        {story.impact.map((item, idx) => (
-                          <li key={idx} className="flex items-start space-x-3">
+                        {story.impact.map((item) => (
+                          <li key={item} className="flex items-start space-x-3">
                             <div className="w-2 h-2 bg-burnt-red rounded-full mt-2 flex-shrink-0"></div>
                             <span className="font-lato text-gray-700">{item}</span>
                           </li>
