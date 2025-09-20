@@ -13,7 +13,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 1,
       title: "Alleviate Hunger and Malnutrition",
       summary: "Establishing sustainable feeding programs and community kitchens to ensure no child learns on an empty stomach.",
-      image: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734813/SO1_juzm58.jpg",
       color: "bg-warm-yellow",
       details: [
         "Establish sustainable feeding programs, starting with primary school children in underserved communities.",
@@ -25,7 +25,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 2,
       title: "Support the Sick, Elderly, and Forgotten",
       summary: "Providing medical supplies, transportation, and dignity visits to those who need care most.",
-      image: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg",
       color: "bg-burnt-red",
       details: [
         "Organize regular outreach to hospitals, care homes, and psychiatric facilities with medical supplies, hygiene packs, and emotional support.",
@@ -37,7 +37,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 3,
       title: "Provide Shelter and Support for the Homeless",
       summary: "Building temporary shelters and distributing care kits to help vulnerable individuals reintegrate into society.",
-      image: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
       color: "bg-earth-green",
       details: [
         "Partner with local communities to build temporary shelter spaces for displaced individuals and homeless families.",
@@ -49,7 +49,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 4,
       title: "Build Safe Spaces for Children",
       summary: "Creating child-friendly parks and recreational areas while providing psychosocial support for traumatized children.",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg",
       color: "bg-deep-purple",
       details: [
         "Construct child-friendly parks, playgrounds, and recreational areas in low-income communities.",
@@ -61,7 +61,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 5,
       title: "Inspire a Culture of Giving Across Africa",
       summary: "Mobilizing celebrities, influencers, and communities to participate in acts of kindness and donation campaigns.",
-      image: "https://images.pexels.com/photos/6646971/pexels-photo-6646971.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758298730/8D4A0426_rs62tr.jpg",
       color: "bg-warm-yellow",
       details: [
         "Mobilize celebrities, influencers, schools, and individuals to participate in acts of kindness and donation campaigns.",
@@ -73,7 +73,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 6,
       title: "Heal, Rebuild and Reform Through Grassroots Action",
       summary: "Addressing root causes of poverty through education, entrepreneurship, and faith-based healing programs.",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734813/SO1_juzm58.jpg",
       color: "bg-burnt-red",
       details: [
         "Provide emotional, spiritual, and psychological support through faith-based healing programs and storytelling initiatives.",
