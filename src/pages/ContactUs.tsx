@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from "sonner";
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Send, Clock, Globe } from 'lucide-react';
 
 const ContactUs: React.FC = () => {
@@ -16,18 +17,37 @@ const ContactUs: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("https://backend-long-frog-8592.fly.dev/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     });
-  };
+
+    const result = await response.json();
+
+    if (response.ok) {
+      toast.success("Message sent successfully! We will get back to you soon.");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      toast.error(`Submission failed: ${result.message || "Please try again later."}`);
+    }
+  } catch (error) {
+    console.error("❌ Error submitting contact form:", error);
+    toast.error(" An error occurred while submitting the form. Please try again later.");
+  }
+};
+
 
   return (
     <div className="min-h-screen">
