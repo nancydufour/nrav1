@@ -21,72 +21,96 @@ type Story = {
 };
 
 const sampleData: Story[] = [
+  // {
+  //   id: 1,
+  //   type: "image",
+  //   title: "Clean Water Project - Lagos Community",
+  //   campaign: "Water & Sanitation",
+  //   year: 2024,
+  //   photographer: "Ada Okafor",
+  //   img: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+  //   alt: "children collecting clean water",
+  //   impact: { beneficiaries: 120, story: "New well reduced walking time by 2 hours per day and provided clean water access to 120 families." },
+  // },
   {
     id: 1,
     type: "image",
-    title: "Clean Water Project - Lagos Community",
-    campaign: "Water & Sanitation",
-    year: 2024,
-    photographer: "Ada Okafor",
-    img: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-    alt: "children collecting clean water",
-    impact: { beneficiaries: 120, story: "New well reduced walking time by 2 hours per day and provided clean water access to 120 families." },
+    title: "School Feeding Program Launch",
+    campaign: "Education & Nutrition",
+    year: 2025,
+    photographer: "Tunde Adebayo",
+    img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299689/_DSC0696_yrkiud.jpg",
+    alt: "children receiving school meals",
+    impact: { beneficiaries: 300, story: "School attendance increased by 40% after implementing daily meal programs." },
   },
   {
     id: 2,
-    type: "image",
+    type: "video",
     title: "School Feeding Program Launch",
     campaign: "Education & Nutrition",
-    year: 2024,
-    photographer: "Tunde Adebayo",
-    img: "https://images.pexels.com/photos/6647047/pexels-photo-6647047.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
+    year: 2025,
+    photographer: "Ngozi Okwu",
+    poster: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg",
+    video: "https://res.cloudinary.com/drnwxb8cm/video/upload/v1759420322/Vid4_RoyDek_Academy_k7mysg.mp4",
     alt: "children receiving school meals",
     impact: { beneficiaries: 300, story: "School attendance increased by 40% after implementing daily meal programs." },
   },
   {
     id: 3,
-    type: "video",
-    title: "Green Nose Day 2024 - Community Outreach",
-    campaign: "Green Nose Day",
-    year: 2024,
-    photographer: "Ngozi Okwu",
-    poster: "https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    alt: "green nose day volunteers in action",
-    impact: { beneficiaries: 450, story: "Mass mobilization across 5 cities brought hope and resources to vulnerable communities." },
+    type: "image",
+    title: "Senior Health & Wellness Drive",
+    campaign: "Healthcare Support",
+    year: 2025,
+    photographer: "Kemi Adeyemi",
+    img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg",
+    alt: "volunteers distributing care packages",
+    impact: { beneficiaries: 100, story: "Care packages brought comfort and essential supplies to patients and families." },
   },
   {
     id: 4,
     type: "image",
-    title: "Hospital Care Package Distribution",
-    campaign: "Healthcare Support",
-    year: 2024,
-    photographer: "Kemi Adeyemi",
-    img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg",
-    alt: "volunteers distributing care packages",
-    impact: { beneficiaries: 200, story: "Care packages brought comfort and essential supplies to patients and families." },
-  },
-  {
-    id: 5,
-    type: "image",
-    title: "Playground Construction - Abuja",
+    title: "Playground Construction",
     campaign: "Child Safety",
-    year: 2023,
+    year: 2025,
     photographer: "Samuel Okon",
-    img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg",
+    img: "https://images.unsplash.com/photo-1575783970733-1aaedde1db74?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGxheWdyb3VuZHxlbnwwfHwwfHx8MA%3D%3D",
     alt: "children playing on new playground",
     impact: { beneficiaries: 500, story: "Safe playground provides recreational space for over 500 children in the community." },
   },
+  // {
+  //   id: 6,
+  //   type: "image",
+  //   title: "Emergency Shelter Support",
+  //   campaign: "Housing & Shelter",
+  //   year: 2023,
+  //   photographer: "Grace Nwosu",
+  //   img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg",
+  //   alt: "families receiving shelter support",
+  //   impact: { beneficiaries: 80, story: "Emergency shelter and supplies provided to displaced families during crisis." },
+  // },
+  {
+    id: 5,
+    type: "video",
+    title: "Gbagada General Hospital - Hospital Outreach",
+    campaign: "Healthcare Support",
+    year: 2025,
+    photographer: "Ngozi Okwu",
+    poster: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg",
+    video: "https://res.cloudinary.com/drnwxb8cm/video/upload/v1759420309/Vid2_Gbagada_GH_klj6ey.mp4",
+    alt: "hospital outreach at Gbagada general Hosipital",
+    impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
+  },
   {
     id: 6,
-    type: "image",
-    title: "Emergency Shelter Support",
-    campaign: "Housing & Shelter",
-    year: 2023,
-    photographer: "Grace Nwosu",
-    img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg",
-    alt: "families receiving shelter support",
-    impact: { beneficiaries: 80, story: "Emergency shelter and supplies provided to displaced families during crisis." },
+    type: "video",
+    title: "Abeokuta - Community Outreach",
+    campaign: "Community Outreach",
+    year: 2025,
+    photographer: "Ngozi Okwu",
+    poster: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg",
+    video: "https://res.cloudinary.com/drnwxb8cm/video/upload/v1759420311/Vid3_Abeokuta_trqjml.mp4",
+    alt: "Community outreach at Abeokuta, Ogun State",
+    impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
   },
 ];
 
@@ -131,7 +155,7 @@ export default function PhotoStories() {
   return () => observer.disconnect();
 }, [visible]);
 
-  const campaigns = ["All", "Water & Sanitation", "Education & Nutrition", "Green Nose Day", "Healthcare Support", "Child Safety", "Housing & Shelter"];
+  const campaigns = ["All", "Community Outreach", "Education & Nutrition", "Green Nose Day", "Healthcare Support", "Child Safety"];
   const years = ["All", "2024", "2023", "2022"];
 
   return (
@@ -241,7 +265,7 @@ export default function PhotoStories() {
 
         {/* Featured Stories Strip */}
         <motion.div 
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0.6, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-8"
@@ -251,7 +275,7 @@ export default function PhotoStories() {
             {sampleData.slice(0, 6).map((s, index) => (
               <motion.article
                 key={s.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0.6, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="min-w-[280px] bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer relative group"
@@ -286,7 +310,7 @@ export default function PhotoStories() {
 
         {/* Main Gallery */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0.6 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
@@ -297,7 +321,7 @@ export default function PhotoStories() {
                   key={item.id}
                   id={`item-${item.id}`}
                   data-animate
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0.8, y: 30 }}
                   animate={{ 
                     opacity: isVisible[`item-${item.id}`] ? 1 : 0.3,
                     y: isVisible[`item-${item.id}`] ? 0 : 30 
@@ -357,9 +381,9 @@ export default function PhotoStories() {
                   key={item.id}
                   id={`grid-${item.id}`}
                   data-animate
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0.7, scale: 0.9 }}
                   animate={{ 
-                    opacity: isVisible[`grid-${item.id}`] ? 1 : 0.3,
+                    opacity: isVisible[`grid-${item.id}`] ? 1 : 0.8,
                     scale: isVisible[`grid-${item.id}`] ? 1 : 0.9 
                   }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -401,7 +425,7 @@ export default function PhotoStories() {
                   key={item.id}
                   id={`timeline-${item.id}`}
                   data-animate
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0.8, x: -30 }}
                   animate={{ 
                     opacity: isVisible[`timeline-${item.id}`] ? 1 : 0.3,
                     x: isVisible[`timeline-${item.id}`] ? 0 : -30 

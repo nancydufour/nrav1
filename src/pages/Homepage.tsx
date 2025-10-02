@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   Heart,
   Users,
@@ -12,8 +13,13 @@ import {
 import WebGLBackground from "../components/WebGLBackground";
 import AnimatedCard from "../components/AnimatedCard";
 import ParallaxSection from "../components/ParallaxSection";
+import LiveDonationTicker from "../components/LiveDonationTicker";
+import EventCountdown from "../components/EventCountdown";
+import TicketModal from "../components/TicketModal";
 
 const Homepage: React.FC = () => {
+  const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
+
   const impactHighlights = [
     {
       icon: <CookingPot className="h-8 w-8" />,
@@ -111,6 +117,23 @@ const Homepage: React.FC = () => {
           <ChevronRight className="h-6 w-6 text-white transform rotate-90" />
         </div>
       </ParallaxSection>
+
+      {/* Live Event Countdown & Donation Ticker */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Event Countdown */}
+            <div className="animate-fadeInUp">
+              <EventCountdown onGetTicket={() => setIsTicketModalOpen(true)} />
+            </div>
+            
+            {/* Live Donation Ticker */}
+            <div className="animate-fadeInUp stagger-2">
+              <LiveDonationTicker />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Mission Statement */}
       <section className="py-20 bg-cream">
@@ -233,6 +256,12 @@ const Homepage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Ticket Modal */}
+      <TicketModal 
+        isOpen={isTicketModalOpen} 
+        onClose={() => setIsTicketModalOpen(false)} 
+      />
     </div>
   );
 };

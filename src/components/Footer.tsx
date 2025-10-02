@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Heart, Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Heart, Mail, Phone, MapPin, Instagram } from 'lucide-react';
+import { SiTiktok, SiWhatsapp } from 'react-icons/si';
 
 const Footer: React.FC = () => {
   return (
@@ -18,14 +19,14 @@ const Footer: React.FC = () => {
               Restoring dignity, feeding hope, and changing Africa — one meal, one child, one village at a time.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-warm-yellow transition-colors">
+              <a href="https://www.instagram.com/needyreliefafrica/" className="text-gray-300 hover:text-warm-yellow transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-300 hover:text-warm-yellow transition-colors">
-                <Facebook className="h-6 w-6" />
+                <SiWhatsapp className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-warm-yellow transition-colors">
-                <Twitter className="h-6 w-6" />
+              <a href="https://www.tiktok.com/@needreliefafrica/" className="text-gray-300 hover:text-warm-yellow transition-colors">
+                <SiTiktok className="h-6 w-6" />
               </a>
             </div>
           </div>
@@ -38,6 +39,7 @@ const Footer: React.FC = () => {
               <li><Link to="/work" className="text-gray-300 hover:text-warm-yellow transition-colors">Our Work</Link></li>
               <li><Link to="/stories" className="text-gray-300 hover:text-warm-yellow transition-colors">Impact Stories</Link></li>
               <li><Link to="/green-nose-day" className="text-gray-300 hover:text-warm-yellow transition-colors">Green Nose Day</Link></li>
+              <li><Link to="/clinic" className="text-gray-300 hover:text-warm-yellow transition-colors">Needy Relief Clinic</Link></li>
               <li><Link to="/partners" className="text-gray-300 hover:text-warm-yellow transition-colors">Partner With Us</Link></li>
             </ul>
           </div>

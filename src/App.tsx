@@ -10,6 +10,7 @@ import ImpactStories from './pages/ImpactStories';
 import DonateOptions from './pages/DonateOptions';
 import PhotoStories from './pages/PhotoStories';
 import Partners from './pages/Partners';
+import NeedyReliefClinic from './pages/NeedyReliefClinic';
 import HungerProgram from './pages/work/HungerProgram';
 import HealthcareProgram from './pages/work/HealthcareProgram';
 import ShelterProgram from './pages/work/ShelterProgram';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/donate-options" element={<DonateOptions />} />
           <Route path="/gallery" element={<PhotoStories />} />
           <Route path="/partners" element={<Partners />} />
+          <Route path="/clinic" element={<NeedyReliefClinic />} />
           <Route path="/work/hunger" element={<HungerProgram />} />
           <Route path="/work/healthcare" element={<HealthcareProgram />} />
           <Route path="/work/shelter" element={<ShelterProgram />} />

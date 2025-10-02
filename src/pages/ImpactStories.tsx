@@ -29,12 +29,12 @@ const ImpactStories: React.FC = () => {
     },
     {
       id: 2,
-      title: "Bringing Joy to Sick Children",
-      location: "Accra, Ghana",
+      title: "Hospital visitation and care giving",
+      location: "Lagos, Nigeria",
       date: "November 2024",
       beneficiaries: "200+ patients",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg",
-      description: "Our hospital outreach program brought care packages, toys, and most importantly, human connection to children battling illness in Accra's largest public hospital.",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg",
+      description: "H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support.",
       impact: [
         "200+ children received care packages",
         "50+ families got emotional support",
@@ -49,11 +49,11 @@ const ImpactStories: React.FC = () => {
     {
       id: 3,
       title: "Building Dreams: New Playground Opens",
-      location: "Nairobi, Kenya",
+      location: "Lagos, Nigeria",
       date: "October 2024",
       beneficiaries: "1,000+ children",
       image: "https://unsplash.com/photos/NlMGyYADWBA/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fFBsYXlncm91bmQlMjBvcGVuaW5nfGVufDB8fHx8MTc1NTY0MzA3NXww&force=true",
-      description: "In a community where children played in dangerous streets, we built a safe playground that became the heart of the neighborhood. The opening day was pure magic.",
+      description: "In a community where children played in streets, we built a safe playground that became the heart of the neighborhood. The opening day was pure magic.",
       impact: [
         "1,000+ children now have a safe place to play",
         "Community gatherings and events increased",
@@ -65,33 +65,33 @@ const ImpactStories: React.FC = () => {
         author: "Grace, Community Leader"
       }
     },
+    // {
+    //   id: 4,
+    //   title: "Shelter from the Storm",
+    //   location: "Cape Town, South Africa",
+    //   date: "September 2024",
+    //   beneficiaries: "150+ individuals",
+    //   image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
+    //   description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
+    //   impact: [
+    //     "150+ people received emergency shelter",
+    //     "300+ warm meals served daily",
+    //     "50+ individuals connected to social services",
+    //     "20+ people found permanent housing solutions"
+    //   ],
+    //   quote: {
+    //     text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
+    //     author: "Michael, Beneficiary"
+    //   }
+    // },
     {
       id: 4,
-      title: "Shelter from the Storm",
-      location: "Cape Town, South Africa",
-      date: "September 2024",
-      beneficiaries: "150+ individuals",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
-      description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
-      impact: [
-        "150+ people received emergency shelter",
-        "300+ warm meals served daily",
-        "50+ individuals connected to social services",
-        "20+ people found permanent housing solutions"
-      ],
-      quote: {
-        text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
-        author: "Michael, Beneficiary"
-      }
-    },
-    {
-      id: 5,
-      title: "Community Kitchen Transforms Lives",
-      location: "Kampala, Uganda",
+      title: "Elderly Visitation and Care Giving",
+      location: "Ogun State, Nigeria",
       date: "August 2024",
       beneficiaries: "800+ families",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg",
-      description: "We established a community kitchen in one of Kampala's largest slums, providing not just meals but a gathering place where hope is served alongside food.",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg",
+      description: "This snippet captures our visit to Abeokuta Ogun State, where our mission came alive through service, compassion, and connection. At Need Relief Africa, by H.E.R Foundation, every visit is more than just a stop — it is a step toward lasting change.",
       impact: [
         "800+ families receive regular meals",
         "Local women trained in food preparation and nutrition",
