@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from "sonner";
 import { Handshake, Building, Users, Heart, CheckCircle, ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
@@ -21,20 +22,39 @@ const Partners: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Partnership form submitted:', formData);
-    // Reset form
-    setFormData({
-      organizationName: '',
-      contactPerson: '',
-      email: '',
-      phone: '',
-      organizationType: '',
-      partnershipType: '',
-      message: ''
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("https://backend-long-frog-8592.fly.dev/partnership", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     });
-  };
+
+    const result = await response.json();
+
+    if (response.ok) {
+      toast.success("Partnership inquiry submitted successfully!, We will get back to you soon.");
+      setFormData({
+        organizationName: "",
+        contactPerson: "",
+        email: "",
+        phone: "",
+        organizationType: "",
+        partnershipType: "",
+        message: "",
+      });
+    } else {
+      toast.error(`Submission failed: ${result.message || "Please try again later."}`);
+    }
+  } catch (error) {
+    console.error("❌ Error submitting partnership form:", error);
+    toast.error("An error occurred while submitting the form. Please try again later.");
+  }
+};
 
   const partnershipTypes = [
     {
@@ -217,7 +237,7 @@ const Partners: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-montserrat font-semibold text-lg text-charcoal">Email</h4>
-                    <a href='mailto:partnerships@needyreliefafrica.org' className="font-lato text-gray-600 hover:underline">partnerships@needyreliefafrica.org</a>
+                    <a href='mailto:info@needyreliefafrica.org' className="font-lato text-gray-600 hover:underline">info@needyreliefafrica.org</a>
                   </div>
                 </div>
 
@@ -242,8 +262,12 @@ const Partners: React.FC = () => {
                   <div>
                     <h4 className="font-montserrat font-semibold text-lg text-charcoal">Location</h4>
                     <div className="font-lato text-gray-600">
-                      <p>Brown Street Soluyi-Gbagada Lagos</p>
-                      <p className="text-sm mt-1">IBADAN: No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo</p>
+                      <p className="text-sm mt-1 mb-2 ">
+                        <span className="font-semibold">LAGOS:</span> Brown Street Soluyi-Gbagada Lagos
+                      </p>
+                      <p className="text-sm mt-1">
+                        <span className="font-semibold">IBADAN:</span> No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo
+                      </p>                    
                     </div>
                   </div>
                 </div>

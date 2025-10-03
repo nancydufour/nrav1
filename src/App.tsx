@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster, toast } from "sonner";
 import Homepage from './pages/Homepage';
 import AboutUs from './pages/AboutUs';
 import OurWork from './pages/OurWork';
@@ -49,6 +50,8 @@ function App() {
         </Routes>
         <Donate />
         <Footer />
+
+        <Toaster position="top-right" richColors />
       </div>
     </Router>
   );

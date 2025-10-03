@@ -33,7 +33,26 @@ const ContactUs: React.FC = () => {
       subject: defaultSubject,
       message: ''
     });
-  };
+
+    const result = await response.json();
+
+    if (response.ok) {
+      toast.success("Message sent successfully! We will get back to you soon.");
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } else {
+      toast.error(`Submission failed: ${result.message || "Please try again later."}`);
+    }
+  } catch (error) {
+    console.error("❌ Error submitting contact form:", error);
+    toast.error(" An error occurred while submitting the form. Please try again later.");
+  }
+};
+
 
   return (
     <div className="min-h-screen">
