@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Calendar, Users, Heart } from 'lucide-react';
+import { MapPin, Calendar, Users, Heart, ArrowRight } from 'lucide-react';
+import { Link } from "react-router-dom";
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
 
@@ -133,14 +134,38 @@ const ImpactStories: React.FC = () => {
         speed={0.3}
         className="relative h-screen bg-gradient-to-br from-burnt-red to-deep-purple"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft">
             Impact <span className="text-warm-yellow">Stories</span>
           </h1>
-          <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed. These powerful journeys are testaments to what’s possible when compassion meets action — where forgotten voices are heard, basic needs are met, and people are empowered to build brighter futures. Through education, access to resources, and the unwavering support of those who care, individuals and families are rising from the ashes of hardship and stepping into lives filled with renewed purpose, opportunity, and self-worth. Each story is a reminder that real change is not only possible, it's happening.
+          <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp my-[2rem] stagger-2">
+            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed through compassion, education, and unwavering support.
           </p>
+          {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-scaleIn stagger-4 mt-[6rem]">
+              <Link
+                to="/donate-options"
+                className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover:rotate-1 flex items-center space-x-2"
+              >
+                <Heart className="h-5 w-5" />
+                <span>Donate Now</span>
+              </Link>
+              <Link
+                to="/contact?subject=volunteer"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-deep-purple transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+              >
+                <Users className="h-5 w-5" />
+                <span>Volunteer With Us</span>
+              </Link>
+              <Link
+                to="/partners"
+                className="bg-earth-green text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+              >
+                <span>Partner With Us</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
         </div>
       </ParallaxSection>
 

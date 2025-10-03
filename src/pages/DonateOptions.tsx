@@ -294,7 +294,7 @@ const DonateOptions: React.FC = () => {
               Why Your <span className="text-burnt-red">Donation</span> Matters
             </h2>
             <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-              Every naira you give goes directly to transforming lives and restoring dignity across Africa.
+              Every amount you give goes directly to transforming lives and restoring dignity across Africa.
             </p>
           </div>
 

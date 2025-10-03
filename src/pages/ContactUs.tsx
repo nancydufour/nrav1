@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Send, Clock, Globe } from 'lucide-react';
 
 const ContactUs: React.FC = () => {
+  const [searchParams] = useSearchParams()
+  const subjectParam = searchParams.get('subject')
+
+  const defaultSubject = typeof subjectParam === 'string' ? subjectParam : ''
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    subject: defaultSubject,
     message: ''
   });
 
@@ -24,7 +30,7 @@ const ContactUs: React.FC = () => {
     setFormData({
       name: '',
       email: '',
-      subject: '',
+      subject: defaultSubject,
       message: ''
     });
   };
@@ -280,7 +286,7 @@ const ContactUs: React.FC = () => {
               <span>Emergency Hotline</span>
             </a>
             <a
-              href="mailto:urgent@needyreliefafrica.org"
+              href="mailto:info@needyreliefafrica.org"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-burnt-red transition-all duration-300 flex items-center space-x-2"
             >
               <Mail className="h-5 w-5" />

@@ -20,7 +20,7 @@ const Navigation: React.FC = () => {
     {
       name: 'Who We Are',
       children: [
-        { name: 'About', path: '/about' },
+        { name: 'About Us', path: '/about' },
         { name: 'Our Work', path: '/work' },
       ],
     },
@@ -29,6 +29,7 @@ const Navigation: React.FC = () => {
       children: [
         { name: 'Get Involved', path: '/get-involved' },
         { name: 'Green Nose Day', path: '/green-nose-day' },
+        { name: 'Partner With Us', path: '/partners' },
       ],
     },
     { name: 'Stories', path: '/stories' },

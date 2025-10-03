@@ -74,7 +74,7 @@ const Homepage: React.FC = () => {
               <br />
               <span className="text-warm-yellow text-5xl">Feeding Hope.</span>
               <br />
-              <span className="text-earth-green">Changing Africa</span>
+              <span className="text-warm-yellow">Changing Africa</span>
             </h1>
             <p className="font-lato text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed animate-fadeInUp stagger-2">
               One Meal, One Child, One Village at a Time
@@ -95,7 +95,7 @@ const Homepage: React.FC = () => {
                 <span>Donate Now</span>
               </Link>
               <Link
-                to="/get-involved"
+                to="/contact?subject=volunteer"
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-deep-purple transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Users className="h-5 w-5" />
@@ -114,7 +114,7 @@ const Homepage: React.FC = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronRight className="h-6 w-6 text-white transform rotate-90" />
+          <ChevronRight className="h-[2.3rem] w-[2.3rem] text-white transform rotate-90" />
         </div>
       </ParallaxSection>
 

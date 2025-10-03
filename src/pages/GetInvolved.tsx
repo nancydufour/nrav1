@@ -12,7 +12,7 @@ const GetInvolved: React.FC = () => {
         className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-earth-green"
       >
         <section className="relative h-[30rem]  bg-transparent">
-          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
           <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6">
               Get <span className="text-cream">Involved</span>
@@ -63,7 +63,7 @@ const GetInvolved: React.FC = () => {
             <div className="flex flex-col lg:flex-row justify-center items-center gap-5">
               {/* Volunteer Banner */}
               <Link
-                to="/contact"
+                to="/contact?subject=volunteer"
                 className="group block bg-gradient-to-r from-earth-green to-green-600 rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">

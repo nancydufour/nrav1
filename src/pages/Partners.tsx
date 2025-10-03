@@ -97,7 +97,7 @@ const Partners: React.FC = () => {
         speed={0.4}
         className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-earth-green"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft">
             Partner <span className="text-warm-yellow">With Us</span>
