@@ -1,53 +1,89 @@
-import React, { useState } from 'react';
-import { toast } from "sonner";
-import { Mail, Phone, MapPin, Instagram, Facebook, Twitter, Send, Clock, Globe } from 'lucide-react';
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  Facebook,
+  Twitter,
+  Send,
+  Clock,
+} from "lucide-react";
+import { toast } from "react-hot-toast";
+import { SiTiktok, SiWhatsapp } from "react-icons/si";
+
+// Add phone to formData interface
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  phone: string;
+}
 
 const ContactUs: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+  const [searchParams] = useSearchParams();
+  const subjectParam = searchParams.get("subject");
+
+  const defaultSubject = typeof subjectParam === "string" ? subjectParam : "";
+
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    subject: defaultSubject,
+    message: "",
+    phone: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await fetch("https://backend-long-frog-8592.fly.dev/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      toast.success("Message sent successfully! We will get back to you soon.");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-    } else {
-      toast.error(`Submission failed: ${result.message || "Please try again later."}`);
-    }
-  } catch (error) {
-    console.error("❌ Error submitting contact form:", error);
-    toast.error(" An error occurred while submitting the form. Please try again later.");
-  }
-};
 
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success(
+          "Message sent successfully! We will get back to you soon."
+        );
+        setFormData({
+          name: "",
+          email: "",
+          subject: defaultSubject,
+          message: "",
+          phone: "",
+        });
+      } else {
+        toast.error(
+          `Submission failed: ${result.message || "Please try again later."}`
+        );
+      }
+    } catch (error) {
+      console.error("❌ Error submitting contact form:", error);
+      toast.error(
+        "An error occurred while submitting the form. Please try again later."
+      );
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -59,7 +95,8 @@ const ContactUs: React.FC = () => {
             Contact <span className="text-warm-yellow">Us</span>
           </h1>
           <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto">
-            Get in touch with our team. We'd love to hear from you and explore how we can work together to transform lives across Africa.
+            Get in touch with our team. We'd love to hear from you and explore
+            how we can work together to transform lives across Africa.
           </p>
         </div>
       </section>
@@ -75,7 +112,8 @@ const ContactUs: React.FC = () => {
                   Get in <span className="text-burnt-red">Touch</span>
                 </h2>
                 <p className="font-lato text-lg text-gray-600 mb-8">
-                  Whether you want to volunteer, partner with us, or just learn more about our work, we're here to help.
+                  Whether you want to volunteer, partner with us, or just learn
+                  more about our work, we're here to help.
                 </p>
               </div>
 
@@ -86,8 +124,15 @@ const ContactUs: React.FC = () => {
                     <Mail className="h-6 w-6 text-warm-yellow" />
                   </div>
                   <div>
-                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">Email</h3>
-                    <a href='mailto:info@needyreliefafrica.org' className="font-lato text-gray-600">info@needyreliefafrica.org</a>
+                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:info@needyreliefafrica.org"
+                      className="font-lato text-gray-600"
+                    >
+                      info@needyreliefafrica.org
+                    </a>
                   </div>
                 </div>
 
@@ -96,11 +141,28 @@ const ContactUs: React.FC = () => {
                     <Phone className="h-6 w-6 text-earth-green" />
                   </div>
                   <div>
-                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">Phone</h3>
+                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">
+                      Phone
+                    </h3>
                     <div className="font-lato text-gray-600 space-y-1">
-                      <a href='tel:+2348165289455' className="block hover:underline">+234 816 528 9455</a>
-                      <a href='tel:+2347080921501' className="block hover:underline">+234 708 092 1501</a>
-                      <a href='tel:+2347047771945' className="block hover:underline">+234 704 777 1945</a>
+                      <a
+                        href="tel:+2348165289455"
+                        className="block hover:underline"
+                      >
+                        +234 816 528 9455
+                      </a>
+                      <a
+                        href="tel:+2347080921501"
+                        className="block hover:underline"
+                      >
+                        +234 708 092 1501
+                      </a>
+                      <a
+                        href="tel:+2347047771945"
+                        className="block hover:underline"
+                      >
+                        +234 704 777 1945
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -110,13 +172,19 @@ const ContactUs: React.FC = () => {
                     <MapPin className="h-6 w-6 text-burnt-red" />
                   </div>
                   <div>
-                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">Location</h3>
+                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">
+                      Location
+                    </h3>
                     <div className="font-lato text-gray-600">
                       <p className="text-sm mt-1 mb-2 ">
-                        <span className="font-semibold">LAGOS:</span> Brown Street Soluyi-Gbagada Lagos
+                        <span className="font-semibold">LAGOS:</span> Brown
+                        Street Soluyi-Gbagada Lagos
                       </p>
                       <p className="text-sm mt-1">
-                        <span className="font-semibold">IBADAN:</span> No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo
+                        <span className="font-semibold">IBADAN:</span> No. 10
+                        Animashaun street beside christ apostolic church Iyana
+                        Cele Idi Oya, tipper garage, off Akala express, Ibadan,
+                        Oyo
                       </p>
                     </div>
                   </div>
@@ -127,33 +195,39 @@ const ContactUs: React.FC = () => {
                     <Clock className="h-6 w-6 text-deep-purple" />
                   </div>
                   <div>
-                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">Office Hours</h3>
-                    <p className="font-lato text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM WAT</p>
+                    <h3 className="font-montserrat font-semibold text-lg text-charcoal">
+                      Office Hours
+                    </h3>
+                    <p className="font-lato text-gray-600">
+                      Monday - Friday: 9:00 AM - 6:00 PM WAT
+                    </p>
                   </div>
                 </div>
               </div>
 
               {/* Social Media */}
               <div>
-                <h3 className="font-montserrat font-semibold text-lg text-charcoal mb-4">Follow Us</h3>
+                <h3 className="font-montserrat font-semibold text-lg text-charcoal mb-4">
+                  Follow Us
+                </h3>
                 <div className="flex space-x-4">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/needyreliefafrica/"
                     className="bg-warm-yellow bg-opacity-10 p-3 rounded-full hover:bg-warm-yellow hover:text-white transition-colors duration-300"
                   >
                     <Instagram className="h-6 w-6 text-warm-yellow hover:text-white" />
                   </a>
                   <a
-                    href="#"
+                    href="https://wa.me/+2347047771945"
                     className="bg-earth-green bg-opacity-10 p-3 rounded-full hover:bg-earth-green hover:text-white transition-colors duration-300"
                   >
-                    <Facebook className="h-6 w-6 text-earth-green hover:text-white" />
+                    <SiWhatsapp className="h-6 w-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.tiktok.com/@needreliefafrica/"
                     className="bg-burnt-red bg-opacity-10 p-3 rounded-full hover:bg-burnt-red hover:text-white transition-colors duration-300"
                   >
-                    <Twitter className="h-6 w-6 text-burnt-red hover:text-white" />
+                    <SiTiktok className="h-6 w-6" />
                   </a>
                 </div>
               </div>
@@ -164,10 +238,13 @@ const ContactUs: React.FC = () => {
               <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6">
                 Send us a Message
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block font-lato font-semibold text-charcoal mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block font-lato font-semibold text-charcoal mb-2"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -183,7 +260,10 @@ const ContactUs: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block font-lato font-semibold text-charcoal mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block font-lato font-semibold text-charcoal mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -199,7 +279,10 @@ const ContactUs: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block font-lato font-semibold text-charcoal mb-2">
+                  <label
+                    htmlFor="subject"
+                    className="block font-lato font-semibold text-charcoal mb-2"
+                  >
                     Subject *
                   </label>
                   <select
@@ -220,20 +303,28 @@ const ContactUs: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block font-lato font-semibold text-charcoal mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block font-lato font-semibold text-charcoal mb-2"
+                  >
                     Phone Number (Optional)
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
                     placeholder="Enter your phone number"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block font-lato font-semibold text-charcoal mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block font-lato font-semibold text-charcoal mb-2"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -276,7 +367,16 @@ const ContactUs: React.FC = () => {
           {/* Placeholder for Google Map */}
           <div className="bg-gray-300 md:w-fit mx-auto rounded-2xl overflow-hidden shadow-lg">
             <div className="h-96 flex items-center justify-center">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.2976623991976!2d3.381939074405756!3d6.564252922689641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d7e78c0000f%3A0xae85fad4713ab876!2sBrown%20St%2C%20Ifako%2C%20Ifako%2FSoluyi%20105102%2C%20Lagos!5e1!3m2!1sen!2sng!4v1757883699131!5m2!1sen!2sng" width="600" height="450" style={{border: 0}} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.2976623991976!2d3.381939074405756!3d6.564252922689641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d7e78c0000f%3A0xae85fad4713ab876!2sBrown%20St%2C%20Ifako%2C%20Ifako%2FSoluyi%20105102%2C%20Lagos!5e1!3m2!1sen!2sng!4v1757883699131!5m2!1sen!2sng"
+                width="600"
+                height="450"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="NRA Office Location"
+                className="w-full h-full"
+              />
             </div>
           </div>
         </div>
@@ -286,10 +386,12 @@ const ContactUs: React.FC = () => {
       <section className="py-20 bg-burnt-red">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-6">
-            Emergency or Urgent <span className="text-warm-yellow">Support?</span>
+            Emergency or Urgent{" "}
+            <span className="text-warm-yellow">Support?</span>
           </h2>
           <p className="font-lato text-xl text-gray-200 mb-8">
-            If you're in immediate need of assistance or know someone who is, please don't hesitate to reach out to us directly.
+            If you're in immediate need of assistance or know someone who is,
+            please don't hesitate to reach out to us directly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -300,7 +402,7 @@ const ContactUs: React.FC = () => {
               <span>Emergency Hotline</span>
             </a>
             <a
-              href="mailto:urgent@needyreliefafrica.org"
+              href="mailto:info@needyreliefafrica.org"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-burnt-red transition-all duration-300 flex items-center space-x-2"
             >
               <Mail className="h-5 w-5" />

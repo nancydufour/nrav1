@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { MapPin, Calendar, Users, Heart } from 'lucide-react';
+import { MapPin, Calendar, Users, Heart, ArrowRight } from 'lucide-react';
+import { Link } from "react-router-dom";
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
 
@@ -29,12 +30,12 @@ const ImpactStories: React.FC = () => {
     },
     {
       id: 2,
-      title: "Bringing Joy to Sick Children",
-      location: "Accra, Ghana",
+      title: "Hospital visitation and care giving",
+      location: "Lagos, Nigeria",
       date: "November 2024",
       beneficiaries: "200+ patients",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg",
-      description: "Our hospital outreach program brought care packages, toys, and most importantly, human connection to children battling illness in Accra's largest public hospital.",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg",
+      description: "H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support.",
       impact: [
         "200+ children received care packages",
         "50+ families got emotional support",
@@ -49,11 +50,11 @@ const ImpactStories: React.FC = () => {
     {
       id: 3,
       title: "Building Dreams: New Playground Opens",
-      location: "Nairobi, Kenya",
+      location: "Lagos, Nigeria",
       date: "October 2024",
       beneficiaries: "1,000+ children",
       image: "https://unsplash.com/photos/NlMGyYADWBA/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fFBsYXlncm91bmQlMjBvcGVuaW5nfGVufDB8fHx8MTc1NTY0MzA3NXww&force=true",
-      description: "In a community where children played in dangerous streets, we built a safe playground that became the heart of the neighborhood. The opening day was pure magic.",
+      description: "In a community where children played in streets, we built a safe playground that became the heart of the neighborhood. The opening day was pure magic.",
       impact: [
         "1,000+ children now have a safe place to play",
         "Community gatherings and events increased",
@@ -65,33 +66,33 @@ const ImpactStories: React.FC = () => {
         author: "Grace, Community Leader"
       }
     },
+    // {
+    //   id: 4,
+    //   title: "Shelter from the Storm",
+    //   location: "Cape Town, South Africa",
+    //   date: "September 2024",
+    //   beneficiaries: "150+ individuals",
+    //   image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
+    //   description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
+    //   impact: [
+    //     "150+ people received emergency shelter",
+    //     "300+ warm meals served daily",
+    //     "50+ individuals connected to social services",
+    //     "20+ people found permanent housing solutions"
+    //   ],
+    //   quote: {
+    //     text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
+    //     author: "Michael, Beneficiary"
+    //   }
+    // },
     {
       id: 4,
-      title: "Shelter from the Storm",
-      location: "Cape Town, South Africa",
-      date: "September 2024",
-      beneficiaries: "150+ individuals",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
-      description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
-      impact: [
-        "150+ people received emergency shelter",
-        "300+ warm meals served daily",
-        "50+ individuals connected to social services",
-        "20+ people found permanent housing solutions"
-      ],
-      quote: {
-        text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
-        author: "Michael, Beneficiary"
-      }
-    },
-    {
-      id: 5,
-      title: "Community Kitchen Transforms Lives",
-      location: "Kampala, Uganda",
+      title: "Elderly Visitation and Care Giving",
+      location: "Ogun State, Nigeria",
       date: "August 2024",
       beneficiaries: "800+ families",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg",
-      description: "We established a community kitchen in one of Kampala's largest slums, providing not just meals but a gathering place where hope is served alongside food.",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg",
+      description: "This snippet captures our visit to Abeokuta Ogun State, where our mission came alive through service, compassion, and connection. At Need Relief Africa, by H.E.R Foundation, every visit is more than just a stop — it is a step toward lasting change.",
       impact: [
         "800+ families receive regular meals",
         "Local women trained in food preparation and nutrition",
@@ -133,14 +134,38 @@ const ImpactStories: React.FC = () => {
         speed={0.3}
         className="relative h-screen bg-gradient-to-br from-burnt-red to-deep-purple"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft">
             Impact <span className="text-warm-yellow">Stories</span>
           </h1>
-          <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed. These powerful journeys are testaments to what’s possible when compassion meets action — where forgotten voices are heard, basic needs are met, and people are empowered to build brighter futures. Through education, access to resources, and the unwavering support of those who care, individuals and families are rising from the ashes of hardship and stepping into lives filled with renewed purpose, opportunity, and self-worth. Each story is a reminder that real change is not only possible, it's happening.
+          <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp my-[2rem] stagger-2">
+            Real stories of transformation from the communities we serve. Every story represents lives changed, hope restored, and dignity reclaimed through compassion, education, and unwavering support.
           </p>
+          {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-scaleIn stagger-4 mt-[6rem]">
+              <Link
+                to="/donate-options"
+                className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover:rotate-1 flex items-center space-x-2"
+              >
+                <Heart className="h-5 w-5" />
+                <span>Donate Now</span>
+              </Link>
+              <Link
+                to="/contact?subject=volunteer"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-deep-purple transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+              >
+                <Users className="h-5 w-5" />
+                <span>Volunteer With Us</span>
+              </Link>
+              <Link
+                to="/partners"
+                className="bg-earth-green text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
+              >
+                <span>Partner With Us</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
         </div>
       </ParallaxSection>
 

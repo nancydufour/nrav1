@@ -36,7 +36,7 @@ const GreenNoseDay: React.FC = () => {
         speed={0.3}
         className="relative h-[30rem] bg-gradient-to-br from-earth-green via-warm-yellow to-earth-green"
       >
-        <div className="absolute h-[30rem] inset-0 bg-black bg-opacity-20"></div>
+        <div className="absolute h-[30rem] inset-0 bg-black bg-opacity-60"></div>
         <div className="relative pt-[5rem] z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8 animate-fadeInUp">
             <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft stagger-1">
@@ -49,12 +49,12 @@ const GreenNoseDay: React.FC = () => {
           
           <div className="max-w-4xl mx-auto">
             <p className="font-lato text-lg text-gray-100 mb-8 leading-relaxed animate-fadeInUp stagger-3">
-              Every May 25th — Africa Day — the entire continent will unite for Green Nose Day Africa, raising funds for community projects in every country. From school feeding to playground construction, each country keeps the money it raises to transform its own communities.
+              Every May 23rd — Africa Day — the entire continent will unite for Green Nose Day Africa, raising funds for community projects in every country. From school feeding to playground construction, each country keeps the money it raises to transform its own communities.
             </p>
             
             <div className="flex items-center justify-center space-x-4 text-white mb-8 animate-fadeInUp stagger-4">
               <Calendar className="h-6 w-6" />
-              <span className="font-montserrat font-semibold text-xl">May 25th, 2025</span>
+              <span className="font-montserrat font-semibold text-xl">May 23rd, 2025</span>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@ const GreenNoseDay: React.FC = () => {
           </div>
 
           <CountdownTimer 
-            targetDate="2026-05-25" 
+            targetDate="2026-05-23" 
             className="max-w-4xl mx-auto mb-12" 
           />
 
@@ -107,7 +107,7 @@ const GreenNoseDay: React.FC = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="font-lato text-xl text-gray-700 leading-relaxed">
-                Because we believe kindness should be visible — and fun. On May 25th, wear your green nose, share your photos, and donate to change lives.
+                Because we believe kindness should be visible and fun. On May 23rd, wear your green nose, share your photos, and donate to change lives.
               </p>
             </div>
           </div>

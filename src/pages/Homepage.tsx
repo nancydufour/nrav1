@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   Heart,
   Users,
@@ -12,8 +13,13 @@ import {
 import WebGLBackground from "../components/WebGLBackground";
 import AnimatedCard from "../components/AnimatedCard";
 import ParallaxSection from "../components/ParallaxSection";
+import LiveDonationTicker from "../components/LiveDonationTicker";
+import EventCountdown from "../components/EventCountdown";
+import TicketModal from "../components/TicketModal";
 
 const Homepage: React.FC = () => {
+  const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
+
   const impactHighlights = [
     {
       icon: <CookingPot className="h-8 w-8" />,
@@ -68,7 +74,7 @@ const Homepage: React.FC = () => {
               <br />
               <span className="text-warm-yellow text-5xl">Feeding Hope.</span>
               <br />
-              <span className="text-earth-green">Changing Africa</span>
+              <span className="text-warm-yellow">Changing Africa</span>
             </h1>
             <p className="font-lato text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed animate-fadeInUp stagger-2">
               One Meal, One Child, One Village at a Time
@@ -89,7 +95,7 @@ const Homepage: React.FC = () => {
                 <span>Donate Now</span>
               </Link>
               <Link
-                to="/get-involved"
+                to="/contact?subject=volunteer"
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-deep-purple transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Users className="h-5 w-5" />
@@ -108,9 +114,26 @@ const Homepage: React.FC = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ChevronRight className="h-6 w-6 text-white transform rotate-90" />
+          <ChevronRight className="h-[2.3rem] w-[2.3rem] text-white transform rotate-90" />
         </div>
       </ParallaxSection>
+
+      {/* Live Event Countdown & Donation Ticker */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Event Countdown */}
+            <div className="animate-fadeInUp">
+              <EventCountdown onGetTicket={() => setIsTicketModalOpen(true)} />
+            </div>
+            
+            {/* Live Donation Ticker */}
+            <div className="animate-fadeInUp stagger-2">
+              <LiveDonationTicker />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Mission Statement */}
       <section className="py-20 bg-cream">
@@ -233,6 +256,12 @@ const Homepage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Ticket Modal */}
+      <TicketModal 
+        isOpen={isTicketModalOpen} 
+        onClose={() => setIsTicketModalOpen(false)} 
+      />
     </div>
   );
 };
