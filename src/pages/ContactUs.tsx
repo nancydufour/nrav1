@@ -11,6 +11,7 @@ import {
   Clock,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
+import { SiTiktok, SiWhatsapp } from "react-icons/si";
 
 // Add phone to formData interface
 interface FormData {
@@ -211,22 +212,22 @@ const ContactUs: React.FC = () => {
                 </h3>
                 <div className="flex space-x-4">
                   <a
-                    href="#"
+                    href="https://www.instagram.com/needyreliefafrica/"
                     className="bg-warm-yellow bg-opacity-10 p-3 rounded-full hover:bg-warm-yellow hover:text-white transition-colors duration-300"
                   >
                     <Instagram className="h-6 w-6 text-warm-yellow hover:text-white" />
                   </a>
                   <a
-                    href="#"
+                    href="https://wa.me/+2347047771945"
                     className="bg-earth-green bg-opacity-10 p-3 rounded-full hover:bg-earth-green hover:text-white transition-colors duration-300"
                   >
-                    <Facebook className="h-6 w-6 text-earth-green hover:text-white" />
+                    <SiWhatsapp className="h-6 w-6" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.tiktok.com/@needreliefafrica/"
                     className="bg-burnt-red bg-opacity-10 p-3 rounded-full hover:bg-burnt-red hover:text-white transition-colors duration-300"
                   >
-                    <Twitter className="h-6 w-6 text-burnt-red hover:text-white" />
+                    <SiTiktok className="h-6 w-6" />
                   </a>
                 </div>
               </div>
