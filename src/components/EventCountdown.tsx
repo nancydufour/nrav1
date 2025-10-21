@@ -48,7 +48,7 @@ const EventCountdown: React.FC<EventCountdownProps> = ({ onGetTicket }) => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-deep-purple to-burnt-red rounded-2xl p-8 text-white shadow-2xl">
+    <div className="bg-gradient-to-br from-deep-purple to-burnt-red rounded-2xl p-8 text-white shadow-2xl h-full">
       <div className="text-center mb-8">
         <div className="flex items-center justify-center space-x-2 mb-4">
           <Calendar className="h-6 w-6 text-warm-yellow" />
@@ -95,6 +95,8 @@ const EventCountdown: React.FC<EventCountdownProps> = ({ onGetTicket }) => {
           </div>
         ))}
       </div>
+
+      <img src="/logoUnilag.png" alt="Unilag's Logo" className='object-contain h-[8rem] flex justify-self-center mb-5' />
 
       {/* Get Ticket Button */}
       <div className="text-center">
