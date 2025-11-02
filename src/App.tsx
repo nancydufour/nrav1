@@ -1,6 +1,5 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 import Homepage from './pages/Homepage';
 import AboutUs from './pages/AboutUs';
 import OurWork from './pages/OurWork';
@@ -22,11 +21,13 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './util/ScrollToTop';
 import Donate from './components/Donate';
+import BackgroundMusic from './components/BackgroundMusic';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-cream">
+        <BackgroundMusic src='/bgMusic.mp3' />
         <ScrollToTop />
         <Navigation />
         <Routes>

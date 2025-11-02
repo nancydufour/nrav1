@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, MapPin, Heart, Users, Camera, Gift } from 'lucide-react';
 import CountdownTimer from '../components/CountdownTimer';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
+import WhyGreenNoses from '../components/WhyGreenNoses';
 
 const GreenNoseDay: React.FC = () => {
   const pastEvents = [
@@ -99,7 +100,7 @@ const GreenNoseDay: React.FC = () => {
       </section>
 
       {/* Why Green Noses Section */}
-      <section className="py-20 bg-cream">
+      {/* <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-6">
@@ -144,7 +145,9 @@ const GreenNoseDay: React.FC = () => {
             </AnimatedCard>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      <WhyGreenNoses/>
 
       {/* Past Events Gallery */}
       <section className="py-20 bg-white">

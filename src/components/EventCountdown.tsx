@@ -20,7 +20,7 @@ const EventCountdown: React.FC<EventCountdownProps> = ({ onGetTicket }) => {
     seconds: 0
   });
 
-  const targetDate = new Date('2026-05-23T10:00:00').getTime();
+  const targetDate = new Date('2026-05-23T14:00:00').getTime();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -66,7 +66,7 @@ const EventCountdown: React.FC<EventCountdownProps> = ({ onGetTicket }) => {
           </div>
           <div className="flex items-center space-x-1">
             <Clock className="h-4 w-4" />
-            <span>10:00 AM</span>
+            <span>2:00 PM</span>
           </div>
           <div className="flex items-center space-x-1">
             <MapPin className="h-4 w-4" />

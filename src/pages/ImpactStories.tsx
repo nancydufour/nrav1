@@ -3,6 +3,7 @@ import { MapPin, Calendar, Users, Heart, ArrowRight } from 'lucide-react';
 import { Link } from "react-router-dom";
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
+import QuoteCarousel from '../components/QuoteCarousel';
 
 const ImpactStories: React.FC = () => {
   const [activeStory, setActiveStory] = useState(0);
@@ -23,10 +24,20 @@ const ImpactStories: React.FC = () => {
         "Teachers report improved concentration and learning",
         "Parents can focus on work knowing their children are fed"
       ],
-      quote: {
-        text: "Before the feeding program, my daughter would come home from school crying because she was hungry. Now she comes home excited about what she learned. This program didn't just feed her body, it fed her dreams.",
-        author: "Amina, Parent"
+      quote: [
+        {
+          text: "Before the feeding program, my daughter would come home from school crying because she was hungry. Now she comes home excited about what she learned. This program didn't just feed her body, it fed her dreams.",
+          author: "Amina, Parent"
+        },
+        {
+          text: "Before the feeding program, my daughter would come home from school crying because she was hungry. Now she comes home excited about what she learned. This program didn't just feed her body, it fed her dreams.",
+          author: "Amina, Parent"
+        },
+         {
+        text: "The meals have made such a difference. My children are healthier and more energetic. I can see them thriving.",
+        author: "Blessing, Parent"
       }
+      ] 
     },
     {
       id: 2,
@@ -42,10 +53,20 @@ const ImpactStories: React.FC = () => {
         "Hospital staff received supplies and encouragement",
         "Smiles returned to faces that had forgotten how to hope"
       ],
-      quote: {
-        text: "When the volunteers came with toys and spent time playing with my son, I saw him smile for the first time in months. They didn't just bring gifts, they brought love.",
-        author: "Kwame, Father"
-      }
+      quote: [
+        {
+          text: "When the volunteers came with toys and spent time playing with my son, I saw him smile for the first time in months. They didn't just bring gifts, they brought love.",
+          author: "Kwame, Father"
+        },
+        {
+          text: "When the volunteers came with toys and spent time playing with my son, I saw him smile for the first time in months. They didn't just bring gifts, they brought love.",
+          author: "Kwame, Father"
+        },
+        {
+          text: "When the volunteers came with toys and spent time playing with my son, I saw him smile for the first time in months. They didn't just bring gifts, they brought love.",
+          author: "Kwame, Father"
+        },
+      ] 
     },
     {
       id: 3,
@@ -61,10 +82,20 @@ const ImpactStories: React.FC = () => {
         "Local crime rates decreased by 30%",
         "Parents feel safer letting children play outside"
       ],
-      quote: {
-        text: "This playground is more than swings and slides. It's where our children dream, laugh, and believe in a better tomorrow. Thank you for giving us back our childhood.",
-        author: "Grace, Community Leader"
-      }
+      quote: [
+        {
+          text: "This playground is more than swings and slides. It's where our children dream, laugh, and believe in a better tomorrow. Thank you for giving us back our childhood.",
+          author: "Grace, Community Leader"
+        },
+        {
+          text: "This playground is more than swings and slides. It's where our children dream, laugh, and believe in a better tomorrow. Thank you for giving us back our childhood.",
+          author: "Grace, Community Leader"
+        },
+        {
+          text: "This playground is more than swings and slides. It's where our children dream, laugh, and believe in a better tomorrow. Thank you for giving us back our childhood.",
+          author: "Grace, Community Leader"
+        },
+      ] 
     },
     // {
     //   id: 4,
@@ -81,10 +112,19 @@ const ImpactStories: React.FC = () => {
     //     "20+ people found permanent housing solutions"
     //   ],
     //   quote: {
-    //     text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
+      //     text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
+    //     author: "Michael, Beneficiary"
+    //   }
+   // },
+      //     text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
     //     author: "Michael, Beneficiary"
     //   }
     // },
+      //     text: "I had been sleeping on the streets for two years. When they gave me a warm bed and treated me like a human being, I remembered that I matter. Now I have a job and my own place.",
+    //     author: "Michael, Beneficiary"
+    //   }
+    // },
+    
     {
       id: 4,
       title: "Elderly Visitation and Care Giving",
@@ -99,12 +139,22 @@ const ImpactStories: React.FC = () => {
         "Community meetings and support groups formed",
         "Children's malnutrition rates dropped by 60%"
       ],
-      quote: {
-        text: "This kitchen saved my family. When my husband lost his job, we didn't know where our next meal would come from. Now my children are healthy and I've learned skills to help other families too.",
-        author: "Sarah, Community Member"
-      }
+      quote: [
+        {
+          text: "This kitchen saved my family. When my husband lost his job, we didn't know where our next meal would come from. Now my children are healthy and I've learned skills to help other families too.",
+          author: "Sarah, Community Member"
+        },
+        {
+          text: "This kitchen saved my family. When my husband lost his job, we didn't know where our next meal would come from. Now my children are healthy and I've learned skills to help other families too.",
+          author: "Sarah, Community Member"
+        },
+        {
+          text: "This kitchen saved my family. When my husband lost his job, we didn't know where our next meal would come from. Now my children are healthy and I've learned skills to help other families too.",
+          author: "Sarah, Community Member"
+        },
+      ] 
     }
-  ];
+  ]; 
 
   useEffect(() => {
     const handleScroll = () => {
@@ -242,14 +292,16 @@ const ImpactStories: React.FC = () => {
                       </ul>
                     </div>
 
-                    <div className="bg-cream rounded-xl p-6 border-l-4 border-burnt-red">
+                    {/* <div className="bg-cream rounded-xl p-6 border-l-4 border-burnt-red">
                       <p className="font-lato text-lg text-gray-700 italic mb-3">
                         "{story.quote.text}"
                       </p>
                       <p className="font-montserrat font-semibold text-burnt-red">
                         — {story.quote.author}
                       </p>
-                    </div>
+                    </div> */}
+                    <QuoteCarousel quotes={story.quote} />
+
                   </div>
                 </div>
 

@@ -426,13 +426,13 @@ const DonateOptions: React.FC = () => {
                 </h4>
                 <div className="space-y-3 font-lato text-gray-200">
                   <div>
-                    <span className="text-warm-yellow font-semibold">Bank Name:</span> Access Bank
+                    <span className="text-warm-yellow font-semibold">Bank Name:</span> TBA
                   </div>
                   <div>
                     <span className="text-warm-yellow font-semibold">Account Name:</span> Needy Relief Africa
                   </div>
                   <div>
-                    <span className="text-warm-yellow font-semibold">Account Number:</span> 1234567890
+                    <span className="text-warm-yellow font-semibold">Account Number:</span> TBA
                   </div>
                 </div>
               </div>
@@ -443,10 +443,10 @@ const DonateOptions: React.FC = () => {
                 </h4>
                 <div className="space-y-3 font-lato text-gray-200">
                   <div>
-                    <span className="text-warm-yellow font-semibold">SWIFT Code:</span> ABNGNGLA
+                    <span className="text-warm-yellow font-semibold">SWIFT Code:</span> TBA
                   </div>
                   <div>
-                    <span className="text-warm-yellow font-semibold">USD Account:</span> 0987654321
+                    <span className="text-warm-yellow font-semibold">USD Account:</span> TBA
                   </div>
                   <div>
                     <span className="text-warm-yellow font-semibold">Routing:</span> Available on request
