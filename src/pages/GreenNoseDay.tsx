@@ -5,6 +5,9 @@ import CountdownTimer from '../components/CountdownTimer';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
 import WhyGreenNoses from '../components/WhyGreenNoses';
+import GreenNoseAbout from '../components/GreenNoseAbout';
+import GreenNoseHowItWorks from '../components/GreenNoseHowItWorks';
+import GreenNoseCTA from '../components/GreenNoseCTA';
 
 const GreenNoseDay: React.FC = () => {
   const pastEvents = [
@@ -81,7 +84,7 @@ const GreenNoseDay: React.FC = () => {
           <div className="text-center animate-scaleIn stagger-2">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/donate-options"
+                to="/green-nose-details"
                 className="bg-earth-green text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-500 transform hover:scale-110 hover:rotate-1 flex items-center space-x-2 animate-float"
               >
                 <Gift className="h-5 w-5" />
@@ -146,8 +149,9 @@ const GreenNoseDay: React.FC = () => {
           </div>
         </div>
       </section> */}
-
+      <GreenNoseAbout/>
       <WhyGreenNoses/>
+      <GreenNoseCTA/>
 
       {/* Past Events Gallery */}
       <section className="py-20 bg-white">
@@ -188,7 +192,7 @@ const GreenNoseDay: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-earth-green">
+      {/* <section className="py-20 bg-earth-green">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-6 animate-fadeInUp">
             Ready to Join <span className="text-warm-yellow">Africa's Biggest Day of Giving?</span>
@@ -213,7 +217,7 @@ const GreenNoseDay: React.FC = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

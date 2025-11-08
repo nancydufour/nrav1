@@ -22,6 +22,9 @@ import Footer from './components/Footer';
 import ScrollToTop from './util/ScrollToTop';
 import Donate from './components/Donate';
 import BackgroundMusic from './components/BackgroundMusic';
+import Events from './pages/Events';
+import GreenNoseDetails from './pages/GreenNoseDetails';
+
 
 function App() {
   return (
@@ -36,6 +39,7 @@ function App() {
           <Route path="/work" element={<OurWork />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/green-nose-day" element={<GreenNoseDay />} />
+          <Route path="/green-nose-details" element={<GreenNoseDetails />} />{' '}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/stories" element={<ImpactStories />} />
           <Route path="/donate-options" element={<DonateOptions />} />
@@ -48,6 +52,7 @@ function App() {
           <Route path="/work/children" element={<ChildrenProgram />} />
           <Route path="/work/culture" element={<CultureProgram />} />
           <Route path="/work/rebuilding" element={<RebuildingProgram />} />
+          <Route path="/events" element={<Events />} />
         </Routes>
         <Donate />
         <Footer />

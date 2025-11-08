@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,36 +11,37 @@ const Navigation: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', path: '/' },
+    { name: "Home", path: "/" },
     {
-      name: 'Who We Are',
+      name: "Who We Are",
       children: [
-        { name: 'About Us', path: '/about' },
-        { name: 'Our Work', path: '/work' },
+        { name: "About", path: "/about" },
+        { name: "Our Work", path: "/work" },
+        { name: 'Gallery', path: '/gallery' },
       ],
     },
     {
-      name: 'Get Involved',
+      name: "Get Involved",
       children: [
-        { name: 'Get Involved', path: '/get-involved' },
-        { name: 'Green Nose Day', path: '/green-nose-day' },
-        { name: 'Partner With Us', path: '/partners' },
+        { name: "Get Involved", path: "/get-involved" },
+        { name: "Green Nose Day", path: "/green-nose-day" },
+        { name: "Partner With Us", path: "/partners" },
       ],
     },
-    { name: 'Stories', path: '/stories' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Stories", path: "/stories" },
+    { name: "Events", path: "/events" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        scrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,8 +63,8 @@ const Navigation: React.FC = () => {
                   <span
                     className={`cursor-pointer font-lato font-medium transition-colors duration-200 ${
                       scrolled
-                        ? 'text-charcoal hover:text-deep-purple'
-                        : 'text-white hover:text-warm-yellow'
+                        ? "text-charcoal hover:text-deep-purple"
+                        : "text-white hover:text-warm-yellow"
                     }`}
                   >
                     {item.name}
@@ -75,8 +76,8 @@ const Navigation: React.FC = () => {
                         to={child.path}
                         className={`block px-4 py-2 text-charcoal hover:text-deep-purple hover:bg-cream ${
                           location.pathname === child.path
-                            ? 'bg-cream text-burnt-red'
-                            : ''
+                            ? "bg-cream text-burnt-red"
+                            : ""
                         }`}
                       >
                         {child.name}
@@ -90,10 +91,10 @@ const Navigation: React.FC = () => {
                   to={item.path}
                   className={`font-lato font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? 'text-burnt-red border-b-2 border-burnt-red'
+                      ? "text-burnt-red border-b-2 border-burnt-red"
                       : scrolled
-                      ? 'text-charcoal hover:text-deep-purple'
-                      : 'text-white hover:text-warm-yellow'
+                      ? "text-charcoal hover:text-deep-purple"
+                      : "text-white hover:text-warm-yellow"
                   }`}
                 >
                   {item.name}
@@ -114,10 +115,14 @@ const Navigation: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-md ${
-                scrolled ? 'text-charcoal' : 'text-white'
+                scrolled ? "text-charcoal" : "text-white"
               }`}
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -136,8 +141,8 @@ const Navigation: React.FC = () => {
                       onClick={() => setIsOpen(false)}
                       className={`block px-3 py-2 rounded-md font-lato font-medium ${
                         location.pathname === child.path
-                          ? 'text-burnt-red bg-cream'
-                          : 'text-charcoal hover:text-deep-purple hover:bg-cream'
+                          ? "text-burnt-red bg-cream"
+                          : "text-charcoal hover:text-deep-purple hover:bg-cream"
                       }`}
                     >
                       {child.name}
@@ -150,8 +155,8 @@ const Navigation: React.FC = () => {
                     onClick={() => setIsOpen(false)}
                     className={`block px-3 py-2 rounded-md font-lato font-medium ${
                       location.pathname === item.path
-                        ? 'text-burnt-red bg-cream'
-                        : 'text-charcoal hover:text-deep-purple hover:bg-cream'
+                        ? "text-burnt-red bg-cream"
+                        : "text-charcoal hover:text-deep-purple hover:bg-cream"
                     }`}
                   >
                     {item.name}
