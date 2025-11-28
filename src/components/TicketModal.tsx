@@ -5,9 +5,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface TicketModalProps {
   isOpen: boolean;
   onClose: () => void;
+  event: string;
 }
 
-const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => {
+const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose, event }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -15,7 +16,8 @@ const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => {
     organization: '',
     attendeeType: '',
     dietaryRequirements: '',
-    accessibilityNeeds: ''
+    accessibilityNeeds: '',
+    events: event,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,7 +50,8 @@ const TicketModal: React.FC<TicketModalProps> = ({ isOpen, onClose }) => {
         organization: '',
         attendeeType: '',
         dietaryRequirements: '',
-        accessibilityNeeds: ''
+        accessibilityNeeds: '',
+        events: event,
       });
       onClose();
     }, 3000);

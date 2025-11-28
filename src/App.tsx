@@ -1,6 +1,5 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Toaster, toast } from "sonner";
+import { Toaster } from "sonner";
 import Homepage from './pages/Homepage';
 import AboutUs from './pages/AboutUs';
 import OurWork from './pages/OurWork';
@@ -22,11 +21,16 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import ScrollToTop from './util/ScrollToTop';
 import Donate from './components/Donate';
+import BackgroundMusic from './components/BackgroundMusic';
+import Events from './pages/Events';
+import GreenNoseDetails from './pages/GreenNoseDetails';
+
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-cream">
+        <BackgroundMusic src='/bgMusic.mp3' />
         <ScrollToTop />
         <Navigation />
         <Routes>
@@ -35,6 +39,7 @@ function App() {
           <Route path="/work" element={<OurWork />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/green-nose-day" element={<GreenNoseDay />} />
+          <Route path="/green-nose-details" element={<GreenNoseDetails />} />{' '}
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/stories" element={<ImpactStories />} />
           <Route path="/donate-options" element={<DonateOptions />} />
@@ -47,6 +52,7 @@ function App() {
           <Route path="/work/children" element={<ChildrenProgram />} />
           <Route path="/work/culture" element={<CultureProgram />} />
           <Route path="/work/rebuilding" element={<RebuildingProgram />} />
+          <Route path="/events" element={<Events />} />
         </Routes>
         <Donate />
         <Footer />

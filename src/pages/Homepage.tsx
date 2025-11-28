@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Heart,
   Users,
@@ -13,12 +12,41 @@ import {
 import WebGLBackground from "../components/WebGLBackground";
 import AnimatedCard from "../components/AnimatedCard";
 import ParallaxSection from "../components/ParallaxSection";
-import LiveDonationTicker from "../components/LiveDonationTicker";
 import EventCountdown from "../components/EventCountdown";
 import TicketModal from "../components/TicketModal";
+import { events as allEvents } from "../data/events"; // Import events data
+import LiveDonationTicker from "../components/LiveDonationTicker";
 
 const Homepage: React.FC = () => {
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
+  const [nextEvent, setNextEvent] = useState<any>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Find the next upcoming event
+    const now = new Date();
+    const upcomingEvents = allEvents
+      .map((event) => ({
+        ...event,
+        dateObj: new Date(event.date),
+      }))
+      .filter((event) => event.dateObj > now)
+      .sort((a, b) => a.dateObj.getTime() - b.dateObj.getTime());
+
+    if (upcomingEvents.length > 0) {
+      setNextEvent(upcomingEvents[0]);
+    }
+  }, []);
+
+  const handleGetTicket = () => {
+    if (nextEvent && nextEvent.buttonLink) {
+      // If there's an external link, open it in a new tab
+      window.open(nextEvent.buttonLink, "_blank", "noopener,noreferrer");
+    } else {
+      // Otherwise, open the modal
+      setIsTicketModalOpen(true);
+    }
+  };
 
   const impactHighlights = [
     {
@@ -74,7 +102,7 @@ const Homepage: React.FC = () => {
               <br />
               <span className="text-warm-yellow text-5xl">Feeding Hope.</span>
               <br />
-              <span className="text-warm-yellow">Changing Africa</span>
+              <span className="text-earth-green">Changing Africa</span>
             </h1>
             <p className="font-lato text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed animate-fadeInUp stagger-2">
               One Meal, One Child, One Village at a Time
@@ -95,14 +123,14 @@ const Homepage: React.FC = () => {
                 <span>Donate Now</span>
               </Link>
               <Link
-                to="/contact?subject=volunteer"
+                to="/get-involved"
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-white hover:text-deep-purple transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <Users className="h-5 w-5" />
                 <span>Volunteer With Us</span>
               </Link>
               <Link
-                to="/partners"
+                to="/get-involved"
                 className="bg-earth-green text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
               >
                 <span>Partner With Us</span>
@@ -118,22 +146,43 @@ const Homepage: React.FC = () => {
         </div>
       </ParallaxSection>
 
-      {/* Live Event Countdown & Donation Ticker */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Event Countdown */}
-            <div className="animate-fadeInUp">
-              <EventCountdown onGetTicket={() => setIsTicketModalOpen(true)} />
-            </div>
-            
-            {/* Live Donation Ticker */}
-            <div className="animate-fadeInUp stagger-2">
-              <LiveDonationTicker />
+      {/* Live Event Countdown */}
+      {nextEvent && (
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+              {/* Event Info */}
+              <div className="lg:col-span-2 animate-fadeInUp flex flex-col justify-center">
+                <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
+                  <span className="text-burnt-red">Join Our</span> Next Event
+                </h2>
+                <p className="font-lato text-lg text-gray-700 leading-relaxed mb-6">
+                  {nextEvent.shortDescription}
+                </p>
+                <Link
+                  to="/events"
+                  className="bg-deep-purple text-white px-8 py-4 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 w-fit flex items-center space-x-2"
+                >
+                  <span>View All Events</span>
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </div>
+
+              {/* Event Countdown */}
+              <div className="lg:col-span-3 animate-fadeInUp stagger-2 h-full">
+                <EventCountdown
+                  event={nextEvent}
+                  onGetTicket={handleGetTicket}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      <div className="animate-fadeInUp stagger-2">
+        <LiveDonationTicker />
+      </div>
 
       {/* Mission Statement */}
       <section className="py-20 bg-cream">
@@ -167,16 +216,14 @@ const Homepage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {impactHighlights.map((item, index) => (
               <AnimatedCard key={index} delay={index * 150}>
-                <div
-                  className="group bg-white rounded-2xl p-5 shadow-lg  transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 border border-gray-100 block"
-                >
+                <div className="group bg-white rounded-2xl p-5 shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 border border-gray-100 block">
                   <div className="text-warm-yellow mb-6 group-hover:scale-10 group-hover:rotate-3 transition-transform duration-500">
                     {item.icon}
                   </div>
                   <div className="text-3xl font-montserrat font-bold text-deep-purple mb-2 group-hover:text-burnt-red transition-colors duration-300">
                     {item.stat}
                   </div>
-                  <div className="font-montserrat font-semibold text-[1.2rem] leading-tight  text-charcoal mb-3 group-hover:text-deep-purple transition-colors duration-300">
+                  <div className="font-montserrat font-semibold text-[1.2rem] leading-tight text-charcoal mb-3 group-hover:text-deep-purple transition-colors duration-300">
                     {item.text}
                   </div>
                   <p className="font-lato text-gray-600 text-sm leading-relaxed">
@@ -186,11 +233,12 @@ const Homepage: React.FC = () => {
               </AnimatedCard>
             ))}
           </div>
-          <Link to={'/stories'}>
-            <div className="flex items-center text-burnt-red font-semibold text-sm group-hover:translate-x-1 transition-transform duration-500 w-fit mt-10 mx-auto border rounded-md p-2 border-burnt-red hover:shadow-sm cursor-pointer hover:shadow-burnt-red hover:bg-burnt-red hover:text-white">
-                    <span>Learn More</span>
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </div>
+          <Link
+            to={"/stories"}
+            className="flex items-center text-burnt-red font-semibold text-sm group-hover:translate-x-1 transition-transform duration-500 w-fit mt-10 mx-auto border rounded-md p-2 border-burnt-red hover:shadow-sm cursor-pointer hover:shadow-burnt-red hover:bg-burnt-red hover:text-white"
+          >
+            <span>Learn More</span>
+            <ChevronRight className="h-4 w-4 ml-1" />
           </Link>
         </div>
       </section>
@@ -245,7 +293,7 @@ const Homepage: React.FC = () => {
                   Green Nose Day Africa
                 </h3>
                 <p className="font-lato text-gray-200 mb-6">
-                  Join Africa's biggest day of giving on May 25th, 2025.
+                  Join Africa's biggest day of giving on May 25th, 2026.
                 </p>
                 <div className="flex items-center text-warm-yellow font-semibold group-hover:translate-x-1 transition-transform duration-500">
                   <span>Get Involved</span>
@@ -258,9 +306,10 @@ const Homepage: React.FC = () => {
       </section>
 
       {/* Ticket Modal */}
-      <TicketModal 
-        isOpen={isTicketModalOpen} 
-        onClose={() => setIsTicketModalOpen(false)} 
+      <TicketModal
+        isOpen={isTicketModalOpen}
+        onClose={() => setIsTicketModalOpen(false)}
+        event={nextEvent}
       />
     </div>
   );
