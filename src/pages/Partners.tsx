@@ -1,60 +1,75 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
 import { toast } from "sonner";
 import { Handshake, Building, Users, Heart, CheckCircle, ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
 
+// Validation schema
+const validationSchema = Yup.object().shape({
+  organizationName: Yup.string()
+    .min(2, "Organization name must be at least 2 characters")
+    .required("Organization name is required"),
+  contactPerson: Yup.string()
+    .min(2, "Contact person name must be at least 2 characters")
+    .required("Contact person name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email address is required"),
+  phone: Yup.string()
+    .matches(/^[0-9+\-\s()]*$/, "Invalid phone number format")
+    .required("Phone number is required"),
+  organizationType: Yup.string()
+    .required("Organization type is required"),
+  partnershipType: Yup.string()
+    .required("Partnership interest is required"),
+  message: Yup.string()
+    .min(10, "Message must be at least 10 characters")
+    .max(1000, "Message must not exceed 1000 characters")
+    .required("Message is required"),
+});
+
 const Partners: React.FC = () => {
-  const [formData, setFormData] = useState({
-    organizationName: '',
-    contactPerson: '',
-    email: '',
-    phone: '',
-    organizationType: '',
-    partnershipType: '',
-    message: ''
+  const formik = useFormik({
+    initialValues: {
+      organizationName: '',
+      contactPerson: '',
+      email: '',
+      phone: '',
+      organizationType: '',
+      partnershipType: '',
+      message: ''
+    },
+    validationSchema,
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const response = await axios.post(
+          "https://backend-long-frog-8592.fly.dev/partnership",
+          values
+        );
+
+        toast.success("Partnership inquiry submitted successfully! We will get back to you soon.");
+        formik.resetForm();
+      } catch (error) {
+        const errorMessage =
+          axios.isAxiosError(error) && error.response?.data?.message
+            ? error.response.data.message
+            : "Please try again later.";
+        toast.error(`Submission failed: ${errorMessage}`);
+        console.error("❌ Error submitting partnership form:", error);
+      } finally {
+        setSubmitting(false);
+      }
+    },
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const getFieldError = (fieldName: keyof typeof formik.values): string => {
+    return formik.touched[fieldName] && formik.errors[fieldName]
+      ? formik.errors[fieldName]
+      : "";
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  try {
-    const response = await fetch("https://backend-long-frog-8592.fly.dev/partnership", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      toast.success("Partnership inquiry submitted successfully!, We will get back to you soon.");
-      setFormData({
-        organizationName: "",
-        contactPerson: "",
-        email: "",
-        phone: "",
-        organizationType: "",
-        partnershipType: "",
-        message: "",
-      });
-    } else {
-      toast.error(`Submission failed: ${result.message || "Please try again later."}`);
-    }
-  } catch (error) {
-    console.error("❌ Error submitting partnership form:", error);
-    toast.error("An error occurred while submitting the form. Please try again later.");
-  }
-};
 
   const partnershipTypes = [
     {
@@ -275,12 +290,12 @@ const Partners: React.FC = () => {
             </div>
 
             {/* Partnership Form */}
-            <div className="bg-cream  rounded-2xl p-8 animate-fadeInUp stagger-3">
+            <div className="bg-cream rounded-2xl p-8 animate-fadeInUp stagger-3">
               <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6">
                 Partnership Inquiry
               </h3>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={formik.handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="organizationName" className="block font-lato font-semibold text-charcoal mb-2">
                     Organization Name *
@@ -288,13 +303,19 @@ const Partners: React.FC = () => {
                   <input
                     type="text"
                     id="organizationName"
-                    name="organizationName"
-                    value={formData.organizationName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("organizationName")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("organizationName")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter your organization name"
                   />
+                  {getFieldError("organizationName") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("organizationName")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -304,13 +325,19 @@ const Partners: React.FC = () => {
                   <input
                     type="text"
                     id="contactPerson"
-                    name="contactPerson"
-                    value={formData.contactPerson}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("contactPerson")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("contactPerson")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter contact person name"
                   />
+                  {getFieldError("contactPerson") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("contactPerson")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -320,13 +347,19 @@ const Partners: React.FC = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("email")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("email")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter email address"
                   />
+                  {getFieldError("email") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("email")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -336,13 +369,19 @@ const Partners: React.FC = () => {
                   <input
                     type="tel"
                     id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("phone")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("phone")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter phone number"
                   />
+                  {getFieldError("phone") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("phone")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -351,11 +390,12 @@ const Partners: React.FC = () => {
                   </label>
                   <select
                     id="organizationType"
-                    name="organizationType"
-                    value={formData.organizationType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("organizationType")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("organizationType")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                   >
                     <option value="">Select organization type</option>
                     <option value="corporate">Corporate/Business</option>
@@ -365,6 +405,11 @@ const Partners: React.FC = () => {
                     <option value="educational">Educational Institution</option>
                     <option value="other">Other</option>
                   </select>
+                  {getFieldError("organizationType") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("organizationType")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -373,11 +418,12 @@ const Partners: React.FC = () => {
                   </label>
                   <select
                     id="partnershipType"
-                    name="partnershipType"
-                    value={formData.partnershipType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("partnershipType")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("partnershipType")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                   >
                     <option value="">Select partnership type</option>
                     <option value="funding">Funding/Sponsorship</option>
@@ -387,6 +433,11 @@ const Partners: React.FC = () => {
                     <option value="advocacy">Advocacy Partnership</option>
                     <option value="other">Other</option>
                   </select>
+                  {getFieldError("partnershipType") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("partnershipType")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -395,21 +446,28 @@ const Partners: React.FC = () => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
+                    {...formik.getFieldProps("message")}
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato resize-none"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato resize-none ${
+                      getFieldError("message")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Tell us about your organization and partnership interests..."
                   ></textarea>
+                  {getFieldError("message") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("message")}
+                    </p>
+                  )}
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-deep-purple text-white py-3 px-6 rounded-lg font-montserrat font-semibold hover:bg-opacity-90 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  disabled={formik.isSubmitting}
+                  className="w-full bg-deep-purple text-white py-3 px-6 rounded-lg font-montserrat font-semibold hover:bg-opacity-90 transition-colors duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <span>Submit Partnership Inquiry</span>
+                  <span>{formik.isSubmitting ? "Submitting..." : "Submit Partnership Inquiry"}</span>
                   <ArrowRight className="h-5 w-5" />
                 </button>
               </form>

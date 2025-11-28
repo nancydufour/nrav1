@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSearchParams } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 import {
   Mail,
   Phone,
@@ -10,79 +13,75 @@ import {
   Send,
   Clock,
 } from "lucide-react";
-import { toast } from "react-hot-toast";
+import { toast } from "sonner";
 import { SiTiktok, SiWhatsapp } from "react-icons/si";
 
-// Add phone to formData interface
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  phone: string;
-}
+// Validation schema
+const validationSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, "Name must be at least 2 characters")
+    .required("Full name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email address is required"),
+  subject: Yup.string()
+    .required("Subject is required"),
+  message: Yup.string()
+    .min(10, "Message must be at least 10 characters")
+    .required("Message is required"),
+  phone: Yup.string()
+    .matches(/^[0-9+\-\s()]*$/, "Invalid phone number format")
+    .notRequired(),
+});
 
 const ContactUs: React.FC = () => {
   const [searchParams] = useSearchParams();
   const subjectParam = searchParams.get("subject");
-
   const defaultSubject = typeof subjectParam === "string" ? subjectParam : "";
 
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    subject: defaultSubject,
-    message: "",
-    phone: "",
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      subject: defaultSubject,
+      message: "",
+      phone: "",
+    },
+    validationSchema,
+    onSubmit: async (values, { setSubmitting }) => {
+      try {
+        const response = await axios.post(
+          "https://backend-long-frog-8592.fly.dev/contact",
+          values
+        );
+
+        toast.success("Message sent successfully! We will get back to you soon.");
+        formik.resetForm({
+          values: {
+            name: "",
+            email: "",
+            subject: defaultSubject,
+            message: "",
+            phone: "",
+          },
+        });
+      } catch (error) {
+        const errorMessage =
+          axios.isAxiosError(error) && error.response?.data?.message
+            ? error.response.data.message
+            : "Please try again later.";
+        toast.error(`Submission failed: ${errorMessage}`);
+        console.error("❌ Error submitting contact form:", error);
+      } finally {
+        setSubmitting(false);
+      }
+    },
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        toast.success(
-          "Message sent successfully! We will get back to you soon."
-        );
-        setFormData({
-          name: "",
-          email: "",
-          subject: defaultSubject,
-          message: "",
-          phone: "",
-        });
-      } else {
-        toast.error(
-          `Submission failed: ${result.message || "Please try again later."}`
-        );
-      }
-    } catch (error) {
-      console.error("❌ Error submitting contact form:", error);
-      toast.error(
-        "An error occurred while submitting the form. Please try again later."
-      );
-    }
+  const getFieldError = (fieldName: keyof typeof formik.values): string => {
+    return formik.touched[fieldName] && formik.errors[fieldName]
+      ? formik.errors[fieldName]
+      : "";
   };
 
   return (
@@ -239,7 +238,7 @@ const ContactUs: React.FC = () => {
                 Send us a Message
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={formik.handleSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="name"
@@ -250,13 +249,19 @@ const ContactUs: React.FC = () => {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("name")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("name")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter your full name"
                   />
+                  {getFieldError("name") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("name")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -269,13 +274,19 @@ const ContactUs: React.FC = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("email")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("email")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter your email address"
                   />
+                  {getFieldError("email") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("email")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -287,11 +298,12 @@ const ContactUs: React.FC = () => {
                   </label>
                   <select
                     id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("subject")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("subject")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                   >
                     <option value="">Select a subject</option>
                     <option value="volunteer">Volunteer Opportunities</option>
@@ -300,6 +312,11 @@ const ContactUs: React.FC = () => {
                     <option value="general">General Inquiry</option>
                     <option value="support">Support Request</option>
                   </select>
+                  {getFieldError("subject") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("subject")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -312,12 +329,19 @@ const ContactUs: React.FC = () => {
                   <input
                     type="tel"
                     id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato"
+                    {...formik.getFieldProps("phone")}
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
+                      getFieldError("phone")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Enter your phone number"
                   />
+                  {getFieldError("phone") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("phone")}
+                    </p>
+                  )}
                 </div>
 
                 <div>
@@ -329,22 +353,29 @@ const ContactUs: React.FC = () => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
+                    {...formik.getFieldProps("message")}
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato resize-none"
+                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato resize-none ${
+                      getFieldError("message")
+                        ? "border-red-500"
+                        : "border-gray-300"
+                    }`}
                     placeholder="Tell us how we can help you..."
                   ></textarea>
+                  {getFieldError("message") && (
+                    <p className="text-red-500 text-sm mt-1 font-lato">
+                      {getFieldError("message")}
+                    </p>
+                  )}
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-deep-purple text-white py-3 px-6 rounded-lg font-montserrat font-semibold hover:bg-opacity-90 transition-colors duration-300 flex items-center justify-center space-x-2"
+                  disabled={formik.isSubmitting}
+                  className="w-full bg-deep-purple text-white py-3 px-6 rounded-lg font-montserrat font-semibold hover:bg-opacity-90 transition-colors duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="h-5 w-5" />
-                  <span>Send Message</span>
+                  <span>{formik.isSubmitting ? "Sending..." : "Send Message"}</span>
                 </button>
               </form>
             </div>
