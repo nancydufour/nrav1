@@ -17,7 +17,7 @@ const ChildrenProgram: React.FC = () => {
       icon: <Heart className="h-8 w-8" />,
       title: "Green Nose Day Africa",
       description: "Annual fundraising event for child-focused projects across the continent",
-      impact: "1000+ children benefited",
+      impact: "200+ children benefited",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg"
     },
     {

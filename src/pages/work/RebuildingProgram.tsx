@@ -17,23 +17,23 @@ const RebuildingProgram: React.FC = () => {
       icon: <GraduationCap className="h-8 w-8" />,
       title: "Education Support",
       description: "Scholarships, school supplies, and educational infrastructure development",
-      impact: "500+ students supported",
+      impact: "100+ students supported",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299689/_DSC0696_yrkiud.jpg"
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
       title: "Economic Empowerment",
       description: "Entrepreneurship training, microfinance, and employment opportunities",
-      impact: "200+ businesses started",
+      impact: "100+ businesses started",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299931/Womens-Economic-Empowerment-Website-1-e1591292184244_kavm9c.jpg"
     }
   ];
 
   const impactStats = [
-    { number: "300+", label: "People Healed", icon: <Heart className="h-6 w-6" /> },
-    { number: "500+", label: "Students Supported", icon: <GraduationCap className="h-6 w-6" /> },
+    { number: "200+", label: "People Healed", icon: <Heart className="h-6 w-6" /> },
+    { number: "300+", label: "Students Supported", icon: <GraduationCap className="h-6 w-6" /> },
     { number: "200+", label: "Businesses Started", icon: <Briefcase className="h-6 w-6" /> },
-    { number: "50+", label: "Communities Transformed", icon: <MapPin className="h-6 w-6" /> }
+    { number: "10+", label: "Communities Transformed", icon: <MapPin className="h-6 w-6" /> }
   ];
 
   return (

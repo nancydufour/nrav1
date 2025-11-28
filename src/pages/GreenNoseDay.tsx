@@ -44,7 +44,7 @@ const GreenNoseDay: React.FC = () => {
         <div className="relative pt-[5rem] z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-8 animate-fadeInUp">
             <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft stagger-1">
-              Green Nose Day <span className="text-deep-purple">Africa</span>
+              <span className="text-earth-green">Green </span> Nose Day Africa
             </h1>
             <p className="font-montserrat text-2xl md:text-3xl text-white font-semibold mb-8 animate-scaleIn stagger-2">
               One Day. One Africa. One Big Difference.
@@ -53,12 +53,12 @@ const GreenNoseDay: React.FC = () => {
           
           <div className="max-w-4xl mx-auto">
             <p className="font-lato text-lg text-gray-100 mb-8 leading-relaxed animate-fadeInUp stagger-3">
-              Every May 23rd — Africa Day — the entire continent will unite for Green Nose Day Africa, raising funds for community projects in every country. From school feeding to playground construction, each country keeps the money it raises to transform its own communities.
+              Every May 25rd — Africa Day — the entire continent will unite for Green Nose Day Africa, raising funds for community projects in every country. From school feeding to playground construction, each country keeps the money it raises to transform its own communities.
             </p>
             
             <div className="flex items-center justify-center space-x-4 text-white mb-8 animate-fadeInUp stagger-4">
               <Calendar className="h-6 w-6" />
-              <span className="font-montserrat font-semibold text-xl">May 23rd, 2025</span>
+              <span className="font-montserrat font-semibold text-xl">May 25th, 2026</span>
             </div>
           </div>
         </div>

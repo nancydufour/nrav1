@@ -10,30 +10,30 @@ const HealthcareProgram: React.FC = () => {
       icon: <Hospital className="h-8 w-8" />,
       title: "Hospital Outreach",
       description: "Regular visits to hospitals with medical supplies, hygiene packs, and emotional support",
-      impact: "50+ hospitals visited monthly",
+      impact: "50+ hospitals visited",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg"
     },
     {
       icon: <Truck className="h-8 w-8" />,
       title: "Medical Transport",
       description: "Free transportation for rural patients in need of urgent medical care",
-      impact: "200+ patients transported",
+      impact: "50+ patients transported",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg"
     },
     {
       icon: <Home className="h-8 w-8" />,
       title: "Elderly Care Visits",
       description: "Dignity visits and care support to elderly and neglected members of society",
-      impact: "300+ elderly visited monthly",
+      impact: "100+ elderly visited",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299169/8D4A0511_t4ucem.jpg"
     }
   ];
 
   const impactStats = [
     { number: "50+", label: "Healthcare Facilities", icon: <Hospital className="h-6 w-6" /> },
-    { number: "1,000+", label: "Patients Supported", icon: <Users className="h-6 w-6" /> },
+    { number: "200+", label: "Patients Supported", icon: <Users className="h-6 w-6" /> },
     { number: "15+", label: "Cities Reached", icon: <MapPin className="h-6 w-6" /> },
-    { number: "200+", label: "Emergency Transports", icon: <Truck className="h-6 w-6" /> }
+    { number: "40+", label: "Emergency Transports", icon: <Truck className="h-6 w-6" /> }
   ];
 
   return (

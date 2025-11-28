@@ -10,14 +10,14 @@ const HungerProgram: React.FC = () => {
       icon: <School className="h-8 w-8" />,
       title: "School Feeding Programs",
       description: "Daily nutritious meals for children in underserved schools",
-      impact: "500+ children fed daily",
+      impact: "300+ children fed",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734811/SO8_u3nil8.jpg"
     },
     {
       icon: <Utensils className="h-8 w-8" />,
       title: "Community Kitchens",
       description: "Permanent cooking facilities in high-need communities",
-      impact: "800+ families served weekly",
+      impact: "200+ families served",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg"
     },
     // {
@@ -30,7 +30,7 @@ const HungerProgram: React.FC = () => {
   ];
 
   const impactStats = [
-    { number: "1,500+", label: "Children Fed Daily", icon: <Users className="h-6 w-6" /> },
+    { number: "1,500+", label: "Children Fed", icon: <Users className="h-6 w-6" /> },
     { number: "50+", label: "Schools Reached", icon: <School className="h-6 w-6" /> },
     { number: "25+", label: "Communities Served", icon: <MapPin className="h-6 w-6" /> },
     { number: "40%", label: "Attendance Increase", icon: <Heart className="h-6 w-6" /> }

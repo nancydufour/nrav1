@@ -314,7 +314,7 @@ const AboutUs: React.FC = () => {
                 <h3 className="font-montserrat font-bold text-2xl mb-4">
                   Green Nose Day Africa - Special Initiatives
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div className="grid grid-cols-1 gap-6 mt-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                     <h4 className="font-montserrat font-semibold mb-3">Community Resources</h4>
                     <ul className="space-y-2 font-lato text-sm">
@@ -323,14 +323,14 @@ const AboutUs: React.FC = () => {
                       <li>• Giant menu of fundraising ideas for schools and communities</li>
                     </ul>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                     <h4 className="font-montserrat font-semibold mb-3">Donation & Merchandise</h4>
                     <ul className="space-y-2 font-lato text-sm">
                       <li>• Simple donation rails: web cards, phone/text donations</li>
                       <li>• Text "TEN" to 70702 to give ₦100</li>
                       <li>• Merch drops: green noses, T-shirts via e-shop</li>
                     </ul>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </AnimatedCard>

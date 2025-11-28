@@ -39,6 +39,6 @@ export const events: EventType[] = [
       "Green Nose Day is a vibrant fundraising event that brings people together to support meaningful community projects. Simply wear your green nose, show up with friends or family, and take part in a day dedicated to generosity and impact. Every contribution goes directly into initiatives that strengthen education, healthcare, and essential services for vulnerable communities. No running, no pressure, just a collective effort to make a visible difference.",
     image:
       'https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg',
-    buttonText: 'Register to Run',
+    buttonText: 'Register Now',
   },
 ];

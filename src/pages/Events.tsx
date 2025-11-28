@@ -4,6 +4,7 @@ import { Calendar, MapPin, Ticket, X } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import { events as allEvents } from '../data/events'; // Import the events data
 import AnimatedCard from '../components/AnimatedCard';
+import TicketModal from '../components/TicketModal';
 
 // Define the event type, matching the data structure
 interface EventType {
@@ -16,6 +17,7 @@ interface EventType {
   longDescription: string;
   image: string;
   buttonText: string;
+  buttonLink?: string | null;
 }
 
 // --- Event Modal Component ---
@@ -25,6 +27,7 @@ interface EventModalProps {
 }
 
 const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
+  const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   // Format the date for display
   const eventDate = new Date(event.date);
   const formattedDate = eventDate.toLocaleDateString(undefined, {
@@ -33,6 +36,14 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
     month: 'long',
     day: 'numeric',
   });
+
+  const handlebuttonClick = (event: EventType) =>{
+    if (event.buttonLink) {
+      window.open(event.buttonLink, '_blank');
+    } else{
+      setIsTicketModalOpen(true);
+    }
+  }
 
   return (
     <div
@@ -78,10 +89,15 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
           </p>
           <button className="mt-8 bg-warm-yellow text-deep-purple px-8 py-3 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
             <Ticket className="h-5 w-5" />
-            <span>{event.buttonText}</span>
+            <span onClick={()=>{handlebuttonClick(event)}}>{event.buttonText}</span>
           </button>
         </div>
       </div>
+      <TicketModal
+        isOpen={isTicketModalOpen}
+        onClose={() => setIsTicketModalOpen(false)}
+        event={event.title}
+      />
     </div>
   );
 };

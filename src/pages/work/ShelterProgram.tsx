@@ -10,7 +10,7 @@ const ShelterProgram: React.FC = () => {
       icon: <Home className="h-8 w-8" />,
       title: "Emergency Shelters",
       description: "Temporary shelter spaces for displaced individuals and homeless families",
-      impact: "150+ people sheltered monthly",
+      impact: "150+ people sheltered",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg"
     },
     {
