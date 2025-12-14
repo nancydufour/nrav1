@@ -20,18 +20,7 @@ type Story = {
   };
 };
 
-const sampleData: Story[] = [
-  // {
-  //   id: 1,
-  //   type: "image",
-  //   title: "Clean Water Project - Lagos Community",
-  //   campaign: "Water & Sanitation",
-  //   year: 2024,
-  //   photographer: "Ada Okafor",
-  //   img: "https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop",
-  //   alt: "children collecting clean water",
-  //   impact: { beneficiaries: 120, story: "New well reduced walking time by 2 hours per day and provided clean water access to 120 families." },
-  // },
+const mediaData: Story[] = [
   {
     id: 1,
     type: "image",
@@ -77,17 +66,6 @@ const sampleData: Story[] = [
     alt: "children playing on new playground",
     impact: { beneficiaries: 500, story: "Safe playground provides recreational space for over 500 children in the community." },
   },
-  // {
-  //   id: 6,
-  //   type: "image",
-  //   title: "Emergency Shelter Support",
-  //   campaign: "Housing & Shelter",
-  //   year: 2023,
-  //   photographer: "Grace Nwosu",
-  //   img: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg",
-  //   alt: "families receiving shelter support",
-  //   impact: { beneficiaries: 80, story: "Emergency shelter and supplies provided to displaced families during crisis." },
-  // },
   {
     id: 5,
     type: "video",
@@ -112,6 +90,30 @@ const sampleData: Story[] = [
     alt: "Community outreach at Abeokuta, Ogun State",
     impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
   },
+  {
+    id: 7,
+    type: "video",
+    title: "Odeda Local Government - Community Outreach",
+    campaign: "Odeda Community Outreach",
+    year: 2025,
+    photographer: "Luyah Media",
+    poster: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg",
+    video: "https://res.cloudinary.com/drnwxb8cm/video/upload/v1765704172/Village_2_Charity_dex4lx.mp4",
+      alt: "Odeda Community Outreach at Abeokuta, Ogun State",
+    impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited the Odeba local government community to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
+  },
+  {
+    id: 8,
+    type: "video",
+    title: "Abeokuta - Community Outreach",
+    campaign: "Community Outreach",
+    year: 2025,
+    photographer: "Luyah Media",
+    poster: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg",
+    video: "https://res.cloudinary.com/drnwxb8cm/video/upload/v1765704177/Village_1_Charity_vto08s.mp4",
+    alt: "Community outreach at Abeokuta, Ogun State",
+    impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
+  },
 ];
 
 export default function PhotoStories() {
@@ -120,12 +122,12 @@ export default function PhotoStories() {
   const [year, setYear] = useState("All");
   const [mediaType, setMediaType] = useState("All");
   const [layout, setLayout] = useState("masonry");
-  const [visible, setVisible] = useState(sampleData);
+  const [visible, setVisible] = useState(mediaData);
   const [selected, setSelected] = useState<Story | null>(null);
   const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
-    let filtered = sampleData.filter((s) => {
+    let filtered = mediaData.filter((s) => {
       if (campaign !== "All" && s.campaign !== campaign) return false;
       if (year !== "All" && String(s.year) !== String(year)) return false;
       if (mediaType !== "All" && s.type !== mediaType) return false;
@@ -272,7 +274,7 @@ export default function PhotoStories() {
         >
           <h3 className="font-montserrat font-semibold text-lg text-charcoal mb-4">Featured Stories</h3>
           <div className="flex gap-4 overflow-x-auto pb-3">
-            {sampleData.slice(0, 6).map((s, index) => (
+            {mediaData.slice(0, 6).map((s, index) => (
               <motion.article
                 key={s.id}
                 initial={{ opacity: 0.6, y: 20 }}
@@ -323,8 +325,8 @@ export default function PhotoStories() {
                   data-animate
                   initial={{ opacity: 0.8, y: 30 }}
                   animate={{ 
-                    opacity: isVisible[`item-${item.id}`] ? 1 : 0.3,
-                    y: isVisible[`item-${item.id}`] ? 0 : 30 
+                    opacity: isVisible[`item-${item.id}`] ? 1 : 1,
+                    y: isVisible[`item-${item.id}`] ? 0 : 100 
                   }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="break-inside-avoid rounded-xl overflow-hidden relative bg-white shadow-lg cursor-pointer group"
@@ -383,7 +385,7 @@ export default function PhotoStories() {
                   data-animate
                   initial={{ opacity: 0.7, scale: 0.9 }}
                   animate={{ 
-                    opacity: isVisible[`grid-${item.id}`] ? 1 : 0.8,
+                    opacity: isVisible[`grid-${item.id}`] ? 1 : 1,
                     scale: isVisible[`grid-${item.id}`] ? 1 : 0.9 
                   }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -427,13 +429,13 @@ export default function PhotoStories() {
                   data-animate
                   initial={{ opacity: 0.8, x: -30 }}
                   animate={{ 
-                    opacity: isVisible[`timeline-${item.id}`] ? 1 : 0.3,
+                    opacity: isVisible[`timeline-${item.id}`] ? 1 : 1,
                     x: isVisible[`timeline-${item.id}`] ? 0 : -30 
                   }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex gap-6 items-center"
                 >
-                  <div className="w-20 hidden md:block">
+                  <div className="w-20 hidden text-center md:block">
                     <div className="font-montserrat font-bold text-lg text-deep-purple">{item.year}</div>
                   </div>
                   <div className="flex-1 bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group" onClick={() => setSelected(item)}>
@@ -480,7 +482,7 @@ export default function PhotoStories() {
           className="mt-8 text-center"
         >
           <p className="font-lato text-gray-600">
-            Showing {visible.length} of {sampleData.length} stories
+            Showing {visible.length} of {mediaData.length} stories
           </p>
         </motion.div>
       </section>
@@ -500,16 +502,16 @@ export default function PhotoStories() {
               animate={{ y: 0, scale: 1, opacity: 1 }}
               exit={{ y: 50, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl overflow-hidden max-w-5xl w-full shadow-2xl max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl overflow-hidden max-w-5xl w-full shadow-2xl min-h-screen lg:min-h-auto lg:max-h-[90vh] overflow-y-auto"
               onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="h-80 lg:h-full bg-black relative">
+              <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen lg:min-h-auto">
+              <div className="h-96 lg:h-full bg-black relative">
                 {selected && selected.type === "image" ? (
                 <img src={selected.img} alt={selected.alt} className="w-full h-full object-cover" />
                 ) : (
                 selected && (
-                  <video controls className="w-full h-full object-contain" src={selected.video} poster={selected.poster} />
+                  <video controls autoPlay loop className="w-full h-full object-contain" src={selected.video} poster={selected.poster} />
                 )
                 )}
                 <button
@@ -557,9 +559,9 @@ export default function PhotoStories() {
                   <Heart className="h-4 w-4" />
                   Support This Cause
                 </a>
-                <button className="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                {/* <button className="px-4 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
                   <Share2 className="h-4 w-4" />
-                </button>
+                </button> */}
                 </div>
               </div>
               </div>
