@@ -89,7 +89,7 @@ const Homepage: React.FC = () => {
       >
         <WebGLBackground />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-deep-purple via-burnt-red to-earth-green opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-deep-purple via-burnt-red to-earth-green opacity-50 top-0"></div>
         <div className="relative z-10 pt-[3.9rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="hero-content">
             <div className="mb-1 animate-fadeInUp">
