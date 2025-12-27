@@ -45,18 +45,45 @@ const Partners: React.FC = () => {
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
+        // Ensure values are properly serialized
+        const formData = JSON.stringify(values);
+        
         const response = await axios.post(
           "https://backend-long-frog-8592.fly.dev/partnership",
-          values
+          values,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            timeout: 30000, // 30 second timeout
+          }
         );
 
-        toast.success("Partnership inquiry submitted successfully! We will get back to you soon.");
-        formik.resetForm();
+        // Check if response was successful
+        if (response.status >= 200 && response.status < 300) {
+          toast.success("Partnership inquiry submitted successfully! We will get back to you soon.");
+          // Reset form after successful submission
+          setTimeout(() => {
+            formik.resetForm();
+          }, 100);
+        }
       } catch (error) {
-        const errorMessage =
-          axios.isAxiosError(error) && error.response?.data?.message
-            ? error.response.data.message
-            : "Please try again later.";
+        let errorMessage = "Please try again later.";
+        
+        if (axios.isAxiosError(error)) {
+          if (error.response?.data?.message) {
+            errorMessage = error.response.data.message;
+          } else if (error.response?.status) {
+            errorMessage = `Server error (${error.response.status}). Please try again later.`;
+          } else if (error.message === "Network Error") {
+            errorMessage = "Network error. Please check your connection and try again.";
+          } else if (error.code === "ECONNABORTED") {
+            errorMessage = "Request timeout. Please try again.";
+          }
+        } else if (error instanceof Error) {
+          errorMessage = error.message;
+        }
+        
         toast.error(`Submission failed: ${errorMessage}`);
         console.error("❌ Error submitting partnership form:", error);
       } finally {
@@ -295,7 +322,10 @@ const Partners: React.FC = () => {
                 Partnership Inquiry
               </h3>
               
-              <form onSubmit={formik.handleSubmit} className="space-y-6">
+              <form onSubmit={(e) => {
+                e.preventDefault();
+                formik.handleSubmit(e);
+              }} className="space-y-6" noValidate>
                 <div>
                   <label htmlFor="organizationName" className="block font-lato font-semibold text-charcoal mb-2">
                     Organization Name *
@@ -303,7 +333,10 @@ const Partners: React.FC = () => {
                   <input
                     type="text"
                     id="organizationName"
-                    {...formik.getFieldProps("organizationName")}
+                    name="organizationName"
+                    value={formik.values.organizationName}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
                       getFieldError("organizationName")
                         ? "border-red-500"
@@ -325,7 +358,10 @@ const Partners: React.FC = () => {
                   <input
                     type="text"
                     id="contactPerson"
-                    {...formik.getFieldProps("contactPerson")}
+                    name="contactPerson"
+                    value={formik.values.contactPerson}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
                       getFieldError("contactPerson")
                         ? "border-red-500"
@@ -347,7 +383,10 @@ const Partners: React.FC = () => {
                   <input
                     type="email"
                     id="email"
-                    {...formik.getFieldProps("email")}
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
                       getFieldError("email")
                         ? "border-red-500"
@@ -367,9 +406,12 @@ const Partners: React.FC = () => {
                     Phone Number *
                   </label>
                   <input
-                    type="tel"
+                    type="text"
                     id="phone"
-                    {...formik.getFieldProps("phone")}
+                    name="phone"
+                    value={formik.values.phone}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-deep-purple focus:border-transparent font-lato ${
                       getFieldError("phone")
                         ? "border-red-500"
