@@ -324,6 +324,7 @@ const Partners: React.FC = () => {
               
               <form onSubmit={(e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 formik.handleSubmit(e);
               }} className="space-y-6" noValidate>
                 <div>
