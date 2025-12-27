@@ -281,7 +281,7 @@ const Partners: React.FC = () => {
                         <span className="font-semibold">LAGOS:</span> Brown Street Soluyi-Gbagada Lagos
                       </p>
                       <p className="text-sm mt-1">
-                        <span className="font-semibold">IBADAN:</span> No. 10 Animashaun street beside christ apostolic church Iyana Cele Idi Oya, tipper garage, off Akala express, Ibadan, Oyo
+                        <span className="font-semibold">IBADAN:</span> No. 10 Animashaun street, off Akala express, Ibadan, Oyo
                       </p>                    
                     </div>
                   </div>
