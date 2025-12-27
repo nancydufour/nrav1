@@ -181,8 +181,7 @@ const ContactUs: React.FC = () => {
                       </p>
                       <p className="text-sm mt-1">
                         <span className="font-semibold">IBADAN:</span> No. 10
-                        Animashaun street beside christ apostolic church Iyana
-                        Cele Idi Oya, tipper garage, off Akala express, Ibadan,
+                        Animashaun street, off Akala express, Ibadan,
                         Oyo
                       </p>
                     </div>
