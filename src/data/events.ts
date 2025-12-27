@@ -40,5 +40,6 @@ export const events: EventType[] = [
     image:
       'https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg',
     buttonText: 'Register Now',
+    buttonLink: 'https://www.eventbrite.com/e/the-healing-session-by-needy-relief-africa-tickets-1797473494609'
   },
 ];

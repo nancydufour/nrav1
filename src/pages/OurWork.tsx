@@ -171,7 +171,7 @@ const OurWork: React.FC = () => {
             </div>
             <div className="text-center transform hover:scale-110 transition-transform duration-500">
               <div className="text-4xl md:text-5xl font-montserrat font-bold text-burnt-red mb-2 animate-pulse">
-                50+
+                5+
               </div>
               <p className="font-lato text-gray-700">Hospitals Reached</p>
             </div>

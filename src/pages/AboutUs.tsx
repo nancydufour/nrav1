@@ -316,11 +316,11 @@ const AboutUs: React.FC = () => {
                 </h3>
                 <div className="grid grid-cols-1 gap-6 mt-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                    <h4 className="font-montserrat font-semibold mb-3">Community Resources</h4>
+                    <h4 className="font-montserrat font-semibold mb-3">A Continent-Wide Movement</h4>
                     <ul className="space-y-2 font-lato text-sm">
-                      <li>• School & workplace packs: downloadable resources, posters, quizzes, bunting</li>
-                      <li>• "Non-uniform day" and sponsored challenges</li>
-                      <li>• Giant menu of fundraising ideas for schools and communities</li>
+                      <li>• The Date: On May 25th (Africa Day), we unite to wear a Green Nose, sparking joy and raising life-changing funds for our children.</li>
+                      <li>• The Meaning: Green symbolizes growth, hope, and potential. Wearing a nose isn't just playful—it’s planting a seed of change across the continent.</li>
+                      <li>• The Impact: Every donation stays within the country it was raised. Your purchase directly funds local projects and impacts your own community.  </li>
                     </ul>
                   </div>
                   {/* <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">

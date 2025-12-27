@@ -87,9 +87,9 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
           <p className="font-lato text-lg text-gray-700 leading-relaxed">
             {event.longDescription}
           </p>
-          <button className="mt-8 bg-warm-yellow text-deep-purple px-8 py-3 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+          <button onClick={()=>{handlebuttonClick(event)}} className="mt-8 bg-warm-yellow text-deep-purple px-8 py-3 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
             <Ticket className="h-5 w-5" />
-            <span onClick={()=>{handlebuttonClick(event)}}>{event.buttonText}</span>
+            <span>{event.buttonText}</span>
           </button>
         </div>
       </div>

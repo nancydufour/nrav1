@@ -50,7 +50,7 @@ const ContactUs: React.FC = () => {
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        const response = await axios.post(
+        await axios.post(
           "https://backend-long-frog-8592.fly.dev/contact",
           values
         );
