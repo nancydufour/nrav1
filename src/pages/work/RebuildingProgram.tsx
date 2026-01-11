@@ -30,9 +30,9 @@ const RebuildingProgram: React.FC = () => {
   ];
 
   const impactStats = [
-    { number: "200+", label: "People Healed", icon: <Heart className="h-6 w-6" /> },
+    { number: "100+", label: "People Healed", icon: <Heart className="h-6 w-6" /> },
     { number: "300+", label: "Students Supported", icon: <GraduationCap className="h-6 w-6" /> },
-    { number: "200+", label: "Businesses Started", icon: <Briefcase className="h-6 w-6" /> },
+    { number: "100+", label: "Businesses Started", icon: <Briefcase className="h-6 w-6" /> },
     { number: "10+", label: "Communities Transformed", icon: <MapPin className="h-6 w-6" /> }
   ];
 

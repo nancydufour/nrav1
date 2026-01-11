@@ -11,7 +11,7 @@ const ShelterProgram: React.FC = () => {
       title: "Emergency Shelters",
       description: "Temporary shelter spaces for displaced individuals and homeless families",
       impact: "150+ people sheltered",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1767139210/TheHomelessShelterNRA_uxnxbg.png"
     },
     {
       icon: <Shirt className="h-8 w-8" />,
@@ -30,10 +30,10 @@ const ShelterProgram: React.FC = () => {
   ];
 
   const impactStats = [
-    { number: "300+", label: "People Sheltered", icon: <Home className="h-6 w-6" /> },
+    { number: "10+", label: "People Sheltered", icon: <Home className="h-6 w-6" /> },
     { number: "500+", label: "Care Kits Distributed", icon: <Shirt className="h-6 w-6" /> },
-    { number: "20+", label: "Shelter Locations", icon: <MapPin className="h-6 w-6" /> },
-    { number: "80+", label: "Successfully Reintegrated", icon: <Users className="h-6 w-6" /> }
+    { number: "10+", label: "Shelter Locations", icon: <MapPin className="h-6 w-6" /> },
+    { number: "10+", label: "Successfully Reintegrated", icon: <Users className="h-6 w-6" /> }
   ];
 
   return (

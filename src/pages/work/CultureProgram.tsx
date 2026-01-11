@@ -17,7 +17,7 @@ const CultureProgram: React.FC = () => {
       icon: <HandHeart className="h-8 w-8" />,
       title: "Community Volunteer Programs",
       description: "Training and empowering local volunteers to become agents of change in their communities",
-      impact: "500+ volunteers trained",
+      impact: "100+ volunteers trained",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758300435/8D4A0475_rprohx.jpg"
     },
     {
@@ -30,9 +30,9 @@ const CultureProgram: React.FC = () => {
   ];
 
   const impactStats = [
-    { number: "50+", label: "Influencers Engaged", icon: <Star className="h-6 w-6" /> },
-    { number: "500+", label: "Volunteers Trained", icon: <Users className="h-6 w-6" /> },
-    { number: "100+", label: "Schools Participating", icon: <MapPin className="h-6 w-6" /> },
+    { number: "10+", label: "Influencers Engaged", icon: <Star className="h-6 w-6" /> },
+    { number: "100+", label: "Volunteers Trained", icon: <Users className="h-6 w-6" /> },
+    { number: "50+", label: "Schools Participating", icon: <MapPin className="h-6 w-6" /> },
     { number: "1M+", label: "People Reached", icon: <Megaphone className="h-6 w-6" /> }
   ];
 

@@ -37,7 +37,7 @@ const AimsObjectivesCards: React.FC = () => {
       id: 3,
       title: "Provide Shelter and Support for the Homeless",
       summary: "Building temporary shelters and distributing care kits to help vulnerable individuals reintegrate into society.",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1767139210/TheHomelessShelterNRA_uxnxbg.png",
       color: "bg-earth-green",
       details: [
         "Partner with local communities to build temporary shelter spaces for displaced individuals and homeless families.",

@@ -33,7 +33,7 @@ const HealthcareProgram: React.FC = () => {
     { number: "50+", label: "Healthcare Facilities", icon: <Hospital className="h-6 w-6" /> },
     { number: "200+", label: "Patients Supported", icon: <Users className="h-6 w-6" /> },
     { number: "15+", label: "Cities Reached", icon: <MapPin className="h-6 w-6" /> },
-    { number: "40+", label: "Emergency Transports", icon: <Truck className="h-6 w-6" /> }
+    { number: "5+", label: "Emergency Transports", icon: <Truck className="h-6 w-6" /> }
   ];
 
   return (

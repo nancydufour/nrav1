@@ -42,7 +42,7 @@ const OurWork: React.FC = () => {
       textColor: "text-earth-green",
       bgColor: "bg-earth-green bg-opacity-10",
       link: "/work/shelter",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg"
+      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1767139210/TheHomelessShelterNRA_uxnxbg.png"
     },
     {
       icon: <Gamepad2 className="h-12 w-12" />,

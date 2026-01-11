@@ -103,7 +103,7 @@ const ImpactStories: React.FC = () => {
     //   location: "Cape Town, South Africa",
     //   date: "September 2024",
     //   beneficiaries: "150+ individuals",
-    //   image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299435/1214_shelter-devens01_kag0ce.jpg",
+    //   image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1767139210/TheHomelessShelterNRA_uxnxbg.png",
     //   description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
     //   impact: [
     //     "150+ people received emergency shelter",

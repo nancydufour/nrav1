@@ -17,7 +17,7 @@ const ChildrenProgram: React.FC = () => {
       icon: <Heart className="h-8 w-8" />,
       title: "Green Nose Day Africa",
       description: "Annual fundraising event for child-focused projects across the continent",
-      impact: "200+ children benefited",
+      impact: "Coming soon",
       image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg"
     },
     {
@@ -30,7 +30,7 @@ const ChildrenProgram: React.FC = () => {
   ];
 
   const impactStats = [
-    { number: "15+", label: "Playgrounds Built", icon: <Gamepad2 className="h-6 w-6" /> },
+    { number: "TBA", label: "Playgrounds Built", icon: <Gamepad2 className="h-6 w-6" /> },
     { number: "1,000+", label: "Children Served", icon: <Users className="h-6 w-6" /> },
     { number: "25+", label: "Communities Reached", icon: <MapPin className="h-6 w-6" /> },
     { number: "200+", label: "Trauma Support Cases", icon: <Heart className="h-6 w-6" /> }

@@ -114,6 +114,18 @@ const mediaData: Story[] = [
     alt: "Community outreach at Abeokuta, Ogun State",
     impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
   },
+  {
+    id: 9,
+    type: "video",
+    title: "Abeokuta - Community Outreach",
+    campaign: "Community Outreach",
+    year: 2025,
+    photographer: "Needy Relief Africa",
+    poster: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg",
+    video: "https://res.cloudinary.com/drnwxb8cm/video/upload/v1768161238/NRA1_v9lpgn.mp4",
+    alt: "Community outreach",
+    impact: { beneficiaries: 450, story: "The Need Relief Africa team, by H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support. This is just the beginning of a story we can’t wait to share — stay tuned as we reveal more about this heartfelt visit and the impact we hope to create. " },
+  },
 ];
 
 export default function PhotoStories() {
