@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Users, MapPin, Heart, Megaphone, HandHeart, Star } from 'lucide-react';
+import { ArrowLeft, Users, MapPin, Megaphone, HandHeart, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ParallaxSection from '../../components/ParallaxSection';
 import AnimatedCard from '../../components/AnimatedCard';
