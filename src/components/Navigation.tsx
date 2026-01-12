@@ -22,7 +22,7 @@ const Navigation: React.FC = () => {
       children: [
         { name: "About", path: "/about" },
         { name: "Our Work", path: "/work" },
-        { name: 'Gallery', path: '/gallery' },
+        { name: "Stories", path: "/stories" },
       ],
     },
     {
@@ -33,7 +33,7 @@ const Navigation: React.FC = () => {
         { name: "Partner With Us", path: "/partners" },
       ],
     },
-    { name: "Stories", path: "/stories" },
+    { name: 'Gallery', path: '/gallery' },
     { name: "Events", path: "/events" },
     { name: "Contact", path: "/contact" },
   ];
