@@ -301,7 +301,13 @@ export default function PhotoStories() {
                     <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   ) : (
                     <>
-                      <img src={s.poster} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <video 
+                        src={s.video} 
+                        poster={s.poster} 
+                        className="w-full h-full max-h-40 object-cover group-hover:scale-110 transition-transform duration-500" 
+                        muted 
+                        playsInline
+                      />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-black/50 rounded-full p-3 group-hover:bg-warm-yellow/80 transition-colors duration-300">
                           <Play className="h-6 w-6 text-white" />
@@ -352,12 +358,13 @@ export default function PhotoStories() {
                       className="w-full object-cover group-hover:scale-105 transition-transform duration-500" 
                     />
                   ) : (
-                    <div className="relative">
-                      <img 
-                        src={item.poster} 
-                        alt={item.alt} 
-                        loading="lazy" 
-                        className="w-full object-cover h-64 group-hover:scale-105 transition-transform duration-500" 
+                    <div className="relative h-64 max-h-64 overflow-hidden">
+                      <video 
+                        src={item.video}
+                        poster={item.poster} 
+                        className="w-full h-full max-h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
+                        muted
+                        playsInline
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-black/50 rounded-full p-3 group-hover:bg-warm-yellow/80 transition-colors duration-300">
@@ -407,8 +414,14 @@ export default function PhotoStories() {
                   {item.type === "image" ? (
                     <img src={item.img} alt={item.alt} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
-                    <div className="relative h-56">
-                      <img src={item.poster} alt={item.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="relative h-56 max-h-56 overflow-hidden">
+                      <video 
+                        src={item.video}
+                        poster={item.poster} 
+                        className="w-full h-full max-h-56 object-cover group-hover:scale-105 transition-transform duration-500" 
+                        muted
+                        playsInline
+                      />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="bg-black/50 rounded-full p-3 group-hover:bg-warm-yellow/80 transition-colors duration-300">
                           <Play className="h-8 w-8 text-white" />
@@ -455,8 +468,14 @@ export default function PhotoStories() {
                       {item.type === "image" ? (
                         <img src={item.img} alt={item.alt} className="w-full h-48 md:h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
-                        <div className="relative">
-                          <img src={item.poster} alt={item.alt} className="w-full h-48 md:h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <div className="relative h-48 md:h-40 max-h-48 overflow-hidden">
+                          <video 
+                            src={item.video}
+                            poster={item.poster} 
+                            className="w-full h-full max-h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
+                            muted
+                            playsInline
+                          />
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="bg-black/50 rounded-full p-2">
                               <Play className="h-6 w-6 text-white" />
@@ -514,16 +533,16 @@ export default function PhotoStories() {
               animate={{ y: 0, scale: 1, opacity: 1 }}
               exit={{ y: 50, scale: 0.95, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-white rounded-2xl overflow-hidden max-w-5xl w-full shadow-2xl min-h-screen lg:min-h-auto lg:max-h-[90vh] overflow-y-auto"
+              className="bg-white rounded-2xl overflow-hidden max-w-5xl w-full shadow-2xl max-h-[90vh] overflow-y-auto"
               onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation()}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen lg:min-h-auto">
-              <div className="h-96 lg:h-full bg-black relative">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div className="h-auto max-h-[50vh] lg:max-h-[82vh] bg-black relative flex items-center justify-center">
                 {selected && selected.type === "image" ? (
-                <img src={selected.img} alt={selected.alt} className="w-full h-full object-cover" />
+                <img src={selected.img} alt={selected.alt} className="w-full h-auto max-h-[50vh] lg:max-h-[82vh] object-contain" />
                 ) : (
                 selected && (
-                  <video controls autoPlay loop className="w-full h-full object-contain" src={selected.video} poster={selected.poster} />
+                  <video controls autoPlay loop className="w-full h-auto max-h-[50vh] lg:max-h-[82vh] object-contain" src={selected.video} poster={selected.poster} />
                 )
                 )}
                 <button
