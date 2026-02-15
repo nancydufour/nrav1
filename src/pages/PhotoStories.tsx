@@ -22,7 +22,7 @@ export default function PhotoStories() {
       if (query && !s.title.toLowerCase().includes(query.toLowerCase())) return false;
       return true;
     });
-    setVisible(filtered);
+    setVisible([...filtered].reverse());
   }, [query, campaign, year, mediaType]);
 
   useEffect(() => {
@@ -162,7 +162,7 @@ export default function PhotoStories() {
         >
           <h3 className="font-montserrat font-semibold text-lg text-charcoal mb-4">Featured Stories</h3>
           <div className="flex gap-4 overflow-x-auto pb-3">
-            {mediaData.slice(0, 6).map((s, index) => (
+            {[...mediaData].reverse().slice(0, 6).map((s, index) => (
               <motion.article
                 key={s.id}
                 initial={{ opacity: 0.6, y: 20 }}

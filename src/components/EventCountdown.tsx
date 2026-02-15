@@ -126,15 +126,22 @@ const EventCountdown: React.FC<EventCountdownProps> = ({
       <div className="text-center">
         <button
           onClick={onGetTicket}
-          className="bg-warm-yellow text-deep-purple px-8 py-4 rounded-full font-montserrat font-bold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 hover:rotate-1 flex items-center space-x-3 mx-auto shadow-lg"
+          disabled={event.buttonLink === '#'}
+          className={`px-8 py-4 rounded-full font-montserrat font-bold text-lg transition-all duration-300 flex items-center space-x-3 mx-auto shadow-lg ${
+            event.buttonLink === '#'
+              ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+              : 'bg-warm-yellow text-deep-purple hover:bg-opacity-90 transform hover:scale-105 hover:rotate-1'
+          }`}
         >
           <Ticket className="h-6 w-6" />
-          <span>{event.buttonText}</span>
+          <span>{event.buttonLink === '#' ? 'No Registration Needed' : event.buttonText}</span>
         </button>
         <p className="font-lato text-sm text-gray-300 mt-3">
-          {event.buttonLink
-            ? 'Click to register on Eventbrite'
-            : 'Registration required for entry'}
+          {event.buttonLink === '#'
+            ? 'This event is open to all — just show up!'
+            : event.buttonLink
+              ? 'Click to register on Eventbrite'
+              : 'Registration required for entry'}
         </p>
       </div>
     </div>

@@ -87,10 +87,25 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
           <p className="font-lato text-lg text-gray-700 leading-relaxed">
             {event.longDescription}
           </p>
-          <button onClick={()=>{handlebuttonClick(event)}} className="mt-8 bg-warm-yellow text-deep-purple px-8 py-3 rounded-full font-montserrat font-semibold text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+          <button
+            onClick={() => { handlebuttonClick(event) }}
+            disabled={event.buttonLink === '#'}
+            className={`mt-8 px-8 py-3 rounded-full font-montserrat font-semibold text-lg transition-all duration-300 flex items-center space-x-2 ${
+              event.buttonLink === '#'
+                ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+                : 'bg-warm-yellow text-deep-purple hover:bg-opacity-90 transform hover:scale-105'
+            }`}
+          >
             <Ticket className="h-5 w-5" />
-            <span>{event.buttonText}</span>
+            <span>{event.buttonLink === '#' ? 'No Registration Needed' : event.buttonText}</span>
           </button>
+          <p className="font-lato text-sm text-gray-500 mt-2">
+            {event.buttonLink === '#'
+              ? 'This event is open to all — just show up!'
+              : event.buttonLink
+                ? 'Click to register on Eventbrite'
+                : 'Registration required for entry'}
+          </p>
         </div>
       </div>
       <TicketModal

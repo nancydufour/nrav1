@@ -30,7 +30,7 @@ export const events: EventType[] = [
   {
     id: 2,
     title: 'Green Nose Day Community',
-    date: '2026-05-25T08:00:00',
+    date: '2027-05-25T08:00:00',
     time: '8:00 AM - 12:00 PM WAT',
     location: 'UNILAG Main Auditorium, University Of Lagos, Akoka, Lagos',
     shortDescription:
@@ -41,5 +41,20 @@ export const events: EventType[] = [
       'https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg',
     buttonText: 'Register Now',
     buttonLink: 'https://www.eventbrite.com/e/the-healing-session-by-needy-relief-africa-tickets-1797473494609'
+  },
+  {
+    id: 3,
+    title: 'The Big Pot Project',
+    date: '2026-03-28T10:00:00',
+    time: '10:00 AM WAT',
+    location: 'Agege Stadium, Lagos',
+    shortDescription:
+      'The Big Pot is more than a meal—it is a symbol of care, dignity, and togetherness.',
+    longDescription:
+      "The Big Pot is a humanitarian feeding outreach designed to serve, support, and restore hope within our community through the simple but powerful act of sharing food and love. This outreach will bring together volunteers, partners, and well-meaning individuals to feed 5,000 people in one day, demonstrating compassion, unity, and social responsibility.",
+    image:
+      'https://res.cloudinary.com/drnwxb8cm/image/upload/v1771183913/WhatsApp_Image_2026-02-15_at_4.57.13_PM_o5hgzp.jpg',
+    buttonText: 'Register Now',
+    buttonLink: '#'
   },
 ];
