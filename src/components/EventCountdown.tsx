@@ -71,7 +71,25 @@ const EventCountdown: React.FC<EventCountdownProps> = ({
   });
 
   return (
-    <div className="bg-gradient-to-br from-deep-purple to-burnt-red rounded-2xl p-8 text-white shadow-2xl h-full flex flex-col">
+    <div className="relative rounded-2xl p-8 text-white shadow-2xl h-full flex flex-col overflow-hidden">
+      {/* Background Layer */}
+      {event.image ? (
+        <>
+          {/* Blurred poster background */}
+          <div
+            className="absolute inset-0 bg-cover bg-center blur-sm scale-110"
+            style={{ backgroundImage: `url(${event.image})` }}
+          />
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-deep-purple/80 to-burnt-red/80" />
+        </>
+      ) : (
+        /* Fallback gradient background */
+        <div className="absolute inset-0 bg-gradient-to-br from-deep-purple to-burnt-red" />
+      )}
+
+      {/* Content Layer */}
+      <div className="relative z-10 flex flex-col h-full">
       <div className="text-center mb-8">
         <div className="flex items-center justify-center space-x-2 mb-4">
           <Calendar className="h-6 w-6 text-warm-yellow" />
@@ -143,6 +161,7 @@ const EventCountdown: React.FC<EventCountdownProps> = ({
               ? 'Click to register on Eventbrite'
               : 'Registration required for entry'}
         </p>
+      </div>
       </div>
     </div>
   );
