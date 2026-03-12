@@ -130,7 +130,7 @@ const Partners: React.FC = () => {
       name: "H.E.R. Foundation",
       type: "Founding Partner",
       description: "Our parent organization providing strategic oversight and support",
-      logo: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734789/1_d3ksez.png"
+      logo: "https://cdn.needyreliefafrica.org/1_d3ksez.png"
     },
     {
       name: "Community Health Partners",

@@ -16,7 +16,7 @@ const ImpactStories: React.FC = () => {
       location: "Lagos, Nigeria",
       date: "December 2024",
       beneficiaries: "500+ children",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734811/SO8_u3nil8.jpg",
+      image: "https://cdn.needyreliefafrica.org/SO8_u3nil8.jpg",
       description: "In the heart of Lagos, we launched our school feeding program at three primary schools in underserved communities. What started as a simple meal distribution became a transformation story.",
       impact: [
         "500+ children now receive daily nutritious meals",
@@ -45,7 +45,7 @@ const ImpactStories: React.FC = () => {
       location: "Lagos, Nigeria",
       date: "November 2024",
       beneficiaries: "200+ patients",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg",
+      image: "https://cdn.needyreliefafrica.org/8D4A0404_c50ikf.jpg",
       description: "H.E.R Foundation, visited The Gbagada General Hospital in Lagos to extend love, care, and support.",
       impact: [
         "200+ children received care packages",
@@ -103,7 +103,7 @@ const ImpactStories: React.FC = () => {
     //   location: "Cape Town, South Africa",
     //   date: "September 2024",
     //   beneficiaries: "150+ individuals",
-    //   image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1767139210/TheHomelessShelterNRA_uxnxbg.png",
+    //   image: "https://cdn.needyreliefafrica.org/TheHomelessShelterNRA_uxnxbg.png",
     //   description: "When winter hit Cape Town hard, we mobilized quickly to provide emergency shelter, warm clothing, and hot meals to homeless individuals living on the streets.",
     //   impact: [
     //     "150+ people received emergency shelter",
@@ -131,7 +131,7 @@ const ImpactStories: React.FC = () => {
       location: "Ogun State, Nigeria",
       date: "August 2024",
       beneficiaries: "800+ families",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734793/About4_uzfjoe.jpg",
+      image: "https://cdn.needyreliefafrica.org/About4_uzfjoe.jpg",
       description: "This snippet captures our visit to Abeokuta Ogun State, where our mission came alive through service, compassion, and connection. At Need Relief Africa, by H.E.R Foundation, every visit is more than just a stop — it is a step toward lasting change.",
       impact: [
         "800+ families receive regular meals",

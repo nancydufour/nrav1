@@ -45,28 +45,28 @@ const GreenNoseDetails: React.FC = () => {
 
   const images = [
     {
-      src: 'https://res.cloudinary.com/drnwxb8cm/image/upload/v1762592193/WhatsApp_Image_2025-10-03_at_13.45.46_b52053b5_czxxub.jpg',
+      src: 'https://cdn.needyreliefafrica.org/WhatsApp_Image_2025-10-03_at_13.45.46_b52053b5_czxxub.jpg',
       alt: 'Person wearing a green nose',
       position:
         'absolute top-0 -left-16 w-48 h-64 lg:w-64 lg:h-80',
       rotation: 'transform -rotate-12',
     },
     {
-      src: 'https://res.cloudinary.com/drnwxb8cm/image/upload/v1762592198/WhatsApp_Image_2025-10-03_at_13.45.47_cc5b6f5e_nlvob3.jpg',
+      src: 'https://cdn.needyreliefafrica.org/WhatsApp_Image_2025-10-03_at_13.45.47_cc5b6f5e_nlvob3.jpg',
       alt: 'Child smiling with a green nose',
       position:
         'absolute bottom-0 -left-10 w-48 h-48 lg:w-56 lg:h-56',
       rotation: 'transform rotate-6',
     },
     {
-      src: 'https://res.cloudinary.com/drnwxb8cm/image/upload/v1762592245/WhatsApp_Image_2025-10-03_at_13.45.47_b4c486da_nexdbv.jpg',
+      src: 'https://cdn.needyreliefafrica.org/WhatsApp_Image_2025-10-03_at_13.45.47_b4c486da_nexdbv.jpg',
       alt: 'Group with green noses',
       position:
         'absolute top-0 -right-16 w-56 h-40 lg:w-72 lg:h-56',
       rotation: 'transform rotate-3',
     },
     {
-      src: 'https://res.cloudinary.com/drnwxb8cm/image/upload/v1762592302/WhatsApp_Image_2025-10-03_at_13.45.46_85562f3a_dwopw2.jpg',
+      src: 'https://cdn.needyreliefafrica.org/WhatsApp_Image_2025-10-03_at_13.45.46_85562f3a_dwopw2.jpg',
       alt: 'Woman laughing with a green nose',
       position:
         'absolute bottom-0 -right-10 w-48 h-64 lg:w-64 lg:h-72',

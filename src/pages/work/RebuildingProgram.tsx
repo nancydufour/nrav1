@@ -11,21 +11,21 @@ const RebuildingProgram: React.FC = () => {
       title: "Healing Programs",
       description: "Faith-based and psychological support through storytelling and counseling initiatives",
       impact: "300+ people supported",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299826/8D4A0346_civ5o2.jpg"
+      image: "https://cdn.needyreliefafrica.org/8D4A0346_civ5o2.jpg"
     },
     {
       icon: <GraduationCap className="h-8 w-8" />,
       title: "Education Support",
       description: "Scholarships, school supplies, and educational infrastructure development",
       impact: "100+ students supported",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299689/_DSC0696_yrkiud.jpg"
+      image: "https://cdn.needyreliefafrica.org/_DSC0696_yrkiud.jpg"
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
       title: "Economic Empowerment",
       description: "Entrepreneurship training, microfinance, and employment opportunities",
       impact: "100+ businesses started",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299931/Womens-Economic-Empowerment-Website-1-e1591292184244_kavm9c.jpg"
+      image: "https://cdn.needyreliefafrica.org/Womens-Economic-Empowerment-Website-1-e1591292184244_kavm9c.jpg"
     }
   ];
 

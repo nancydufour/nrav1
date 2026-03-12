@@ -23,7 +23,7 @@ export const events: EventType[] = [
     longDescription:
       "Get ready for an uplifting in-person experience with Needy Relief Africa. This event is all about bringing people together for healing, connection, and positive vibes. Whether you're seeking some peace, support, or just a great atmosphere, The Healing Session is the perfect place to be. Don’t miss out on this chance to recharge and be part of something truly special!",
     image:
-      'https://res.cloudinary.com/drnwxb8cm/image/upload/v1762551383/WhatsApp_Image_2025-10-12_at_13.45.02_0bbd7979_vfglst.jpg',
+      'https://cdn.needyreliefafrica.org/WhatsApp_Image_2025-10-12_at_13.45.02_0bbd7979_vfglst.jpg',
     buttonText: 'Please Register',
     buttonLink: 'https://www.eventbrite.com/e/the-healing-session-by-needy-relief-africa-tickets-1797473494609'
   },
@@ -38,7 +38,7 @@ export const events: EventType[] = [
     longDescription:
       "Green Nose Day is a vibrant fundraising event that brings people together to support meaningful community projects. Simply wear your green nose, show up with friends or family, and take part in a day dedicated to generosity and impact. Every contribution goes directly into initiatives that strengthen education, healthcare, and essential services for vulnerable communities. No running, no pressure, just a collective effort to make a visible difference.",
     image:
-      'https://res.cloudinary.com/drnwxb8cm/image/upload/v1759421336/Thumbnail_skeovv.jpg',
+      'https://cdn.needyreliefafrica.org/Thumbnail_skeovv.jpg',
     buttonText: 'Register Now',
     buttonLink: 'https://www.eventbrite.com/e/the-healing-session-by-needy-relief-africa-tickets-1797473494609'
   },
@@ -53,7 +53,7 @@ export const events: EventType[] = [
     longDescription:
       "The Big Pot is a humanitarian feeding outreach designed to serve, support, and restore hope within our community through the simple but powerful act of sharing food and love. This outreach will bring together volunteers, partners, and well-meaning individuals to feed 5,000 people in one day, demonstrating compassion, unity, and social responsibility.",
     image:
-      'https://res.cloudinary.com/drnwxb8cm/image/upload/v1771183913/WhatsApp_Image_2026-02-15_at_4.57.13_PM_o5hgzp.jpg',
+      'https://cdn.needyreliefafrica.org/WhatsApp_Image_2026-02-15_at_4.57.13_PM_o5hgzp.jpg',
     buttonText: 'Register Now',
     buttonLink: '#'
   },

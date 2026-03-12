@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
               className="flex items-center space-x-[2rem] mb-4 w-fit"
             >
               <img
-                src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734789/2_rgkois.png"
+                src="https://cdn.needyreliefafrica.org/2_rgkois.png"
                 className="object-contain h-[3.5rem] min-[400px]:h-[4.9rem]"
                 alt="NRA logo"
               />
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                 powered&nbsp;by
               </div>
               <img
-                src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734789/1_d3ksez.png"
+                src="https://cdn.needyreliefafrica.org/1_d3ksez.png"
                 className="object-contain h-[3.5rem] min-[400px]:h-[4.9rem]"
                 alt="Her logo"
               />

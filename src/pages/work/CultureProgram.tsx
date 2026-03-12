@@ -18,14 +18,14 @@ const CultureProgram: React.FC = () => {
       title: "Community Volunteer Programs",
       description: "Training and empowering local volunteers to become agents of change in their communities",
       impact: "100+ volunteers trained",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758300435/8D4A0475_rprohx.jpg"
+      image: "https://cdn.needyreliefafrica.org/8D4A0475_rprohx.jpg"
     },
     {
       icon: <Star className="h-8 w-8" />,
       title: "Transparency Initiative",
       description: "Real-time impact tracking and storytelling to build public trust and accountability",
       impact: "100% transparency rate",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758300678/Transparency_zxywsx.jpg"
+      image: "https://cdn.needyreliefafrica.org/Transparency_zxywsx.jpg"
     }
   ];
 

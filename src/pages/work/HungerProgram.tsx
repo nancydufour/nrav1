@@ -11,14 +11,14 @@ const HungerProgram: React.FC = () => {
       title: "School Feeding Programs",
       description: "Daily nutritious meals for children in underserved schools",
       impact: "300+ children fed",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734811/SO8_u3nil8.jpg"
+      image: "https://cdn.needyreliefafrica.org/SO8_u3nil8.jpg"
     },
     {
       icon: <Utensils className="h-8 w-8" />,
       title: "Community Kitchens",
       description: "Permanent cooking facilities in high-need communities",
       impact: "200+ families served",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg"
+      image: "https://cdn.needyreliefafrica.org/SO10_i9fimz.jpg"
     },
     // {
     //   icon: <Truck className="h-8 w-8" />,

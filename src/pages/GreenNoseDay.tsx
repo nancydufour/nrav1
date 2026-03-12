@@ -17,17 +17,17 @@ const GreenNoseDay: React.FC = () => {
       location: "Lagos, Nigeria"
     },
     {
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734815/SO10_i9fimz.jpg",
+      image: "https://cdn.needyreliefafrica.org/SO10_i9fimz.jpg",
       title: "Community Kitchen Launch",
       location: "Lagos, Nigeria"
     },
     {
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg",
+      image: "https://cdn.needyreliefafrica.org/8D4A0404_c50ikf.jpg",
       title: "Hospital Care Package Distribution",
       location: "Lagos, Nigeria"
     },
     {
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734812/SO11_vumnzn.jpg",
+      image: "https://cdn.needyreliefafrica.org/SO11_vumnzn.jpg",
       title: "School Feeding Program",
       location: "Lagos, Nigeria"
     }

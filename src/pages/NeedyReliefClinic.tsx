@@ -120,7 +120,7 @@ const NeedyReliefClinic: React.FC = () => {
 
             <div className="animate-fadeInUp stagger-2">
               <img
-                src="https://res.cloudinary.com/drnwxb8cm/image/upload/v1759396358/raw_gt5arn.png"
+                src="https://cdn.needyreliefafrica.org/raw_gt5arn.png"
                 alt="Healthcare services"
                 className="rounded-2xl shadow-2xl w-full h-96 object-cover"
               />

@@ -11,21 +11,21 @@ const ShelterProgram: React.FC = () => {
       title: "Emergency Shelters",
       description: "Temporary shelter spaces for displaced individuals and homeless families",
       impact: "150+ people sheltered",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1767139210/TheHomelessShelterNRA_uxnxbg.png"
+      image: "https://cdn.needyreliefafrica.org/TheHomelessShelterNRA_uxnxbg.png"
     },
     {
       icon: <Shirt className="h-8 w-8" />,
       title: "Care Kit Distribution",
       description: "Blankets, clothes, and essential items for those living on the streets",
       impact: "500+ care kits distributed",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299531/FAK.jpg_svsduk.jpg  "
+      image: "https://cdn.needyreliefafrica.org/FAK.jpg_svsduk.jpg  "
     },
     {
       icon: <HandHeart className="h-8 w-8" />,
       title: "Reintegration Support",
       description: "Working with social workers to help vulnerable people reintegrate into society",
       impact: "80+ people reintegrated",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734791/About2_lyz7bp.jpg"
+      image: "https://cdn.needyreliefafrica.org/About2_lyz7bp.jpg"
     }
   ];
 

@@ -11,21 +11,21 @@ const ChildrenProgram: React.FC = () => {
     //   title: "Safe Playgrounds",
     //   description: "Child-friendly parks and recreational areas in low-income communities",
     //   impact: "15+ playgrounds built",
-    //   image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg"
+    //   image: "https://cdn.needyreliefafrica.org/SO2_jufv7j.jpg"
     // },
     {
       icon: <Heart className="h-8 w-8" />,
       title: "Green Nose Day Africa",
       description: "Annual fundraising event for child-focused projects across the continent",
       impact: "Coming soon",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/Image1_yjmcae.jpg"
+      image: "https://cdn.needyreliefafrica.org/Image1_yjmcae.jpg"
     },
     {
       icon: <Shield className="h-8 w-8" />,
       title: "Trauma Support",
       description: "Psychosocial support for children who have experienced trauma or abandonment",
       impact: "200+ children supported",
-      image: "https://res.cloudinary.com/drnwxb8cm/image/upload/v1758299088/8D4A0404_c50ikf.jpg"
+      image: "https://cdn.needyreliefafrica.org/8D4A0404_c50ikf.jpg"
     }
   ];
 

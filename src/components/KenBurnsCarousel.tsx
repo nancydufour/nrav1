@@ -9,9 +9,9 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 SwiperCore.use([Autoplay, EffectFade]);
 
 const images = [
-  'https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734797/SO2_jufv7j.jpg',
-  'https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734808/SO9_alow7g.jpg',
-  'https://res.cloudinary.com/drnwxb8cm/image/upload/v1756734802/SO6_gssywc.jpg',
+  'https://cdn.needyreliefafrica.org/SO2_jufv7j.jpg',
+  'https://cdn.needyreliefafrica.org/SO9_alow7g.jpg',
+  'https://cdn.needyreliefafrica.org/SO6_gssywc.jpg',
 ];
 
 const KenBurnsCarousel: React.FC = () => {
