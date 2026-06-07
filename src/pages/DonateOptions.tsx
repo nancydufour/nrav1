@@ -509,7 +509,7 @@ const DonateOptions: React.FC = () => {
                 </div>
               </div>
 
-              <div>
+              {/* <div>
                 <h4 className="font-montserrat font-semibold text-lg text-white mb-4">
                   International Donations
                 </h4>
@@ -524,7 +524,7 @@ const DonateOptions: React.FC = () => {
                     <span className="text-warm-yellow font-semibold">Routing:</span> Available on request
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="mt-8 p-4 bg-warm-yellow bg-opacity-20 rounded-lg">
