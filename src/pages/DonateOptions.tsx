@@ -498,13 +498,13 @@ const DonateOptions: React.FC = () => {
                 </h4>
                 <div className="space-y-3 font-lato text-gray-200">
                   <div>
-                    <span className="text-warm-yellow font-semibold">Bank Name:</span> TBA
+                    <span className="text-warm-yellow font-semibold">Bank Name:</span> Wema bank
                   </div>
                   <div>
                     <span className="text-warm-yellow font-semibold">Account Name:</span> Needy Relief Africa
                   </div>
                   <div>
-                    <span className="text-warm-yellow font-semibold">Account Number:</span> TBA
+                    <span className="text-warm-yellow font-semibold">Account Number:</span> 0127752220
                   </div>
                 </div>
               </div>
