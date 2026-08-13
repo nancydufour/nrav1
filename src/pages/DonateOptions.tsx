@@ -217,6 +217,61 @@ const DonateOptions: React.FC<DonateOptionsProps> = ({ onBack }) => {
           )}
 
           {/* Intro */}
+          {/* Bank Transfer */}
+          <div className="mb-10 rounded-2xl bg-white p-6 shadow-sm md:p-8">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="rounded-xl bg-deep-purple/10 p-3">
+                <CreditCard className="h-7 w-7 text-deep-purple" />
+              </div>
+
+              <div>
+                <h3 className="font-montserrat text-xl font-bold text-charcoal">
+                  Donate via Bank Transfer
+                </h3>
+
+                <p className="font-lato text-sm text-gray-500">
+                  You can make a direct transfer to our account.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-cream p-6">
+              <div className="mb-4">
+                <p className="font-lato text-sm text-gray-500">
+                  Account Name
+                </p>
+
+                <p className="font-montserrat text-lg font-bold text-charcoal">
+                  Needy Relief Africa
+                </p>
+              </div>
+
+              <div className="mb-4">
+                <p className="font-lato text-sm text-gray-500">
+                  Account Number
+                </p>
+
+                <p className="font-montserrat text-2xl font-bold tracking-wider text-deep-purple">
+                  0127752220
+                </p>
+              </div>
+
+              <div>
+                <p className="font-lato text-sm text-gray-500">
+                  Bank
+                </p>
+
+                <p className="font-montserrat text-lg font-bold text-charcoal">
+                  Wema Bank
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-4 font-lato text-sm text-gray-500">
+              After making a transfer, please keep your transaction receipt
+              for your records.
+            </p>
+          </div>
           <div className="mb-12 text-center">
             <Heart className="mx-auto mb-4 h-10 w-10 text-burnt-red" />
 
