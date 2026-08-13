@@ -158,7 +158,7 @@ const DonationVerify: React.FC = () => {
                 </p>
 
                 <button
-                  onClick={() => navigate("/donate")}
+                  onClick={() => navigate("/donate-options")}
                   className="inline-flex items-center gap-2 rounded-full bg-deep-purple px-8 py-3 font-montserrat font-semibold text-white transition-all hover:scale-105 hover:bg-opacity-90"
                 >
                   <ArrowLeft className="h-5 w-5" />
