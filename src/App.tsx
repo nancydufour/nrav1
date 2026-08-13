@@ -8,6 +8,7 @@ import GreenNoseDay from './pages/GreenNoseDay';
 import ContactUs from './pages/ContactUs';
 import ImpactStories from './pages/ImpactStories';
 import DonateOptions from './pages/DonateOptions';
+import DonationVerify from './pages/DonationVerify';
 import PhotoStories from './pages/PhotoStories';
 import Partners from './pages/Partners';
 import NeedyReliefClinic from './pages/NeedyReliefClinic';
@@ -43,6 +44,7 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/stories" element={<ImpactStories />} />
           <Route path="/donate-options" element={<DonateOptions />} />
+          <Route path="/donation/verify" element={<DonationVerify />} />
           <Route path="/gallery" element={<PhotoStories />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/clinic" element={<NeedyReliefClinic />} />

@@ -1,678 +1,494 @@
-import React, { useState } from 'react';
-import { Heart, CreditCard, Smartphone, Building, Users, Gift, Star, Shield, CheckCircle, X, LucideIcon } from 'lucide-react';
-import ParallexSection from '../components/ParallaxSection';
-import AnimatedCard from '../components/AnimatedCard';
-import { useNavigate } from 'react-router-dom';
+"use client";
 
-interface GivingOption {
-  id: number;
-  title: string;
-  icon: LucideIcon;
-  color: string;
-  hoverColor: string;
-  summary: string;
-  details: string;
-  actionType: 'modal' | 'link';
-  link: string | null;
-  btnText: string;
+import React, { useState } from "react";
+import {
+  Heart,
+  GraduationCap,
+  Utensils,
+  Users,
+  Gift,
+  CreditCard,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
+
+interface DonateOptionsProps {
+  onBack?: () => void;
 }
 
-const DonateOptions: React.FC = () => {
-  const navigate = useNavigate();
-  const [selectedOption, setSelectedOption] = useState<GivingOption | null>(null);
-  const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
-  const [customAmount, setCustomAmount] = useState('');
-  const [donationType, setDonationType] = useState<'one-time' | 'monthly'>('one-time');
-  const [selectedCause, setSelectedCause] = useState<string>('general');
-  const [expandedFaq, setExpandedFaq] = useState<string | null>(null);
+const DonateOptions: React.FC<DonateOptionsProps> = ({ onBack }) => {
+  const [selectedAmount, setSelectedAmount] = useState<number | null>(5000);
+  const [customAmount, setCustomAmount] = useState("");
+  const [selectedCause, setSelectedCause] = useState("general");
 
-  const quickAmounts = [10500, 50000, 100500, 200000, 300000, 500000];
+  const [donorName, setDonorName] = useState("");
+  const [donorEmail, setDonorEmail] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const donationAmounts = [
+    {
+      amount: 5000,
+      impact: "Provides meals for children",
+    },
+    {
+      amount: 10000,
+      impact: "Supports educational materials",
+    },
+    {
+      amount: 25000,
+      impact: "Provides essential family support",
+    },
+    {
+      amount: 50000,
+      impact: "Supports community development",
+    },
+  ];
 
   const causes = [
     {
-      id: 'general',
-      title: 'Where Most Needed',
-      description: 'Support our most urgent priorities',
-      icon: <Heart className="h-6 w-6" />,
-      color: 'bg-warm-yellow'
+      id: "general",
+      name: "Where Most Needed",
+      description: "Let us direct your donation where it can make the greatest impact.",
+      icon: Heart,
     },
     {
-      id: 'feeding',
-      title: 'School Feeding Program',
-      description: 'Feed hungry children in schools',
-      icon: <Users className="h-6 w-6" />,
-      color: 'bg-earth-green'
+      id: "education",
+      name: "Education",
+      description: "Support educational opportunities and resources for children and young people.",
+      icon: GraduationCap,
     },
     {
-      id: 'healthcare',
-      title: 'Hospital Support',
-      description: 'Care packages for patients',
-      icon: <Shield className="h-6 w-6" />,
-      color: 'bg-burnt-red'
+      id: "feeding",
+      name: "Food & Nutrition",
+      description: "Help provide nutritious meals and essential food supplies to vulnerable families.",
+      icon: Utensils,
     },
     {
-      id: 'shelter',
-      title: 'Emergency Shelter',
-      description: 'Shelter for the homeless',
-      icon: <Building className="h-6 w-6" />,
-      color: 'bg-deep-purple'
-    }
-  ];
-
-  const impactExamples = [
-    { amount: '₦10,500', impact: 'Provides a nutritious meal for 2 children' },
-    { amount: '₦50,000', impact: 'Feeds a child for a week' },
-    { amount: '₦100,500', impact: 'Provides care packages for 5 hospital patients' },
-    { amount: '₦200,000', impact: 'Feeds 10 children for a week' },
-    { amount: '₦300,000', impact: 'Provides emergency shelter supplies for a family' },
-    { amount: '₦500,000', impact: 'Funds a community kitchen for a month' }
-  ];
-
-  const givingOptions: GivingOption[] = [
-    {
-      id: 1,
-      title: "In-Kind Donations",
-      icon: Gift,
-      color: "text-warm-yellow",
-      hoverColor: "hover:text-warm-yellow",
-      summary: "Donate food, clothing, or medical supplies.",
-      details: "Your physical donations directly support families in need. We accept non-perishable food items, gently used clothing, and essential medical supplies at our drop-off centers. Every item counts towards building a better life for our beneficiaries.",
-      actionType: "modal",
-      link: null,
-      btnText: "Learn More"
-    },
-    {
-      id: 2,
-      title: "Corporate Giving",
+      id: "community",
+      name: "Community Support",
+      description: "Support programmes designed to strengthen and empower local communities.",
       icon: Users,
-      color: "text-earth-green",
-      hoverColor: "hover:text-earth-green",
-      summary: "Partner with us for CSR initiatives.",
-      details: "Join forces with us to amplify our impact. Our corporate partnership programs include employee volunteering days, matching gift programs, and joint community outreach initiatives designed to align with your company's values.",
-      actionType: "link",
-      link: "/partners",
-      btnText: "Partner With Us"
     },
-    {
-      id: 3,
-      title: "Legacy Giving",
-      icon: Star,
-      color: "text-burnt-red",
-      hoverColor: "hover:text-burnt-red",
-      summary: "Leave a lasting impact through your will.",
-      details: "Create a legacy that outlasts a lifetime. By including our organization in your will, trust, or estate plan, you ensure that future generations continue to receive the support they deserve long into the future.",
-      actionType: "modal",
-      link: null,
-      btnText: "Learn More"
-    }
   ];
-
-  const handleAction = (option: GivingOption) => {
-    if (option.actionType === 'link' && option.link) {
-      navigate(option.link);
-    } else {
-      setSelectedOption(option);
-    }
-  };
-
-  const handleAmountSelect = (amount: number) => {
-    setSelectedAmount(amount);
-    setCustomAmount('');
-  };
-
-  const handleCustomAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomAmount(e.target.value);
-    setSelectedAmount(null);
-  };
 
   const getCurrentAmount = () => {
-    return selectedAmount || parseInt(customAmount) || 0;
+    if (customAmount) {
+      const amount = Number(customAmount.replace(/,/g, ""));
+      return Number.isFinite(amount) ? amount : 0;
+    }
+
+    return selectedAmount || 0;
   };
 
   const getCurrentImpact = () => {
     const amount = getCurrentAmount();
-    // Find the highest amount that is less than or equal to the selected amount
-    const impact = impactExamples
-      .filter(example => parseInt(example.amount.replace('₦', '').replace(',', '')) <= amount)
-      .reduce((highest, current) => {
-        const currentAmount = parseInt(current.amount.replace('₦', '').replace(',', ''));
-        const highestAmount = parseInt(highest.amount.replace('₦', '').replace(',', ''));
-        return currentAmount > highestAmount ? current : highest;
-      }, impactExamples[0]);
 
-    return impact?.impact || 'Every donation makes a difference';
+    if (amount >= 50000) {
+      return "Supports community development";
+    }
+
+    if (amount >= 25000) {
+      return "Provides essential family support";
+    }
+
+    if (amount >= 10000) {
+      return "Supports educational materials";
+    }
+
+    if (amount >= 5000) {
+      return "Provides meals for children";
+    }
+
+    return "Every contribution makes a difference";
+  };
+
+  const handleAmountSelect = (amount: number) => {
+    setSelectedAmount(amount);
+    setCustomAmount("");
+  };
+
+  const handleCustomAmountChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const value = e.target.value.replace(/[^0-9]/g, "");
+
+    setCustomAmount(value);
+    setSelectedAmount(null);
+  };
+
+  const handleDonate = async () => {
+    const amount = getCurrentAmount();
+
+    if (!amount || amount < 100) {
+      alert("Please enter a donation amount of at least ₦100.");
+      return;
+    }
+
+    if (!donorName.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    if (!donorEmail.trim()) {
+      alert("Please enter your email address.");
+      return;
+    }
+
+    try {
+      setIsProcessing(true);
+
+      const response = await fetch(
+        "https://backend-long-frog-8592.fly.dev/donations/initialize",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: donorName.trim(),
+            email: donorEmail.trim(),
+            amount,
+            cause: selectedCause,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.authorization_url) {
+        throw new Error(
+          data.message || "Unable to initialize payment."
+        );
+      }
+
+      window.location.href = data.authorization_url;
+    } catch (error) {
+      console.error("Donation initialization error:", error);
+
+      alert(
+        error instanceof Error
+          ? error.message
+          : "Unable to start payment. Please try again."
+      );
+
+      setIsProcessing(false);
+    }
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <ParallexSection
-        speed={0.4}
-        className="relative h-[30rem] bg-gradient-to-br from-warm-yellow to-earth-green"
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-        <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-montserrat font-bold text-4xl md:text-6xl text-white mb-6 animate-slideInLeft">
-            Make a <span className="text-warm-yellow">Donation</span>
+    <div className="min-h-screen bg-cream">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-deep-purple via-earth-green to-warm-yellow py-20">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 h-32 w-32 rounded-full bg-white blur-2xl" />
+          <div className="absolute bottom-10 right-10 h-40 w-40 rounded-full bg-white blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto max-w-5xl px-4 text-center">
+          <div className="mb-6 inline-flex items-center justify-center rounded-full bg-white/20 p-5 backdrop-blur-sm">
+            <Gift className="h-12 w-12 text-white" />
+          </div>
+
+          <h1 className="mb-6 font-montserrat text-4xl font-bold text-white md:text-6xl">
+            Make a{" "}
+            <span className="text-warm-yellow">Difference</span>
           </h1>
-          <p className="font-lato text-xl text-gray-200 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-            Your generosity transforms lives across Africa. Every donation, no matter the size, helps restore dignity and hope.
+
+          <p className="mx-auto max-w-3xl font-lato text-lg leading-relaxed text-white/90 md:text-xl">
+            Your generosity helps us provide essential support,
+            create opportunities, and restore dignity to vulnerable
+            individuals and communities across Africa.
           </p>
         </div>
-      </ParallexSection>
+      </section>
 
-      {/* Main Donation Form */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Donation Type Toggle */}
-          <div className="text-center mb-12 animate-fadeInUp">
-            <div className="inline-flex bg-cream rounded-full p-2 mb-8">
-              <button
-                onClick={() => setDonationType('one-time')}
-                className={`px-8 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 ${donationType === 'one-time'
-                    ? 'bg-deep-purple text-white shadow-lg'
-                    : 'text-deep-purple hover:bg-white'
-                  }`}
-              >
-                One-time Donation
-              </button>
-              <button
-                onClick={() => setDonationType('monthly')}
-                className={`px-8 py-3 rounded-full font-montserrat font-semibold transition-all duration-300 ${donationType === 'monthly'
-                    ? 'bg-deep-purple text-white shadow-lg'
-                    : 'text-deep-purple hover:bg-white'
-                  }`}
-              >
-                Monthly Giving
-              </button>
-            </div>
-
-            {donationType === 'monthly' && (
-              <div className="bg-earth-green bg-opacity-10 border border-earth-green rounded-lg p-4 max-w-md mx-auto">
-                <p className="font-lato text-earth-green font-semibold">
-                  Monthly donors provide sustainable support that helps us plan long-term programs
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Amount Selection */}
-          <div className="mb-12 animate-fadeInUp stagger-2">
-            <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6 text-center">
-              Choose Your {donationType === 'monthly' ? 'Monthly ' : ''}Donation Amount
-            </h3>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              {quickAmounts.map((amount) => (
-                <button
-                  key={amount}
-                  onClick={() => handleAmountSelect(amount)}
-                  className={`p-4 rounded-xl border-2 font-montserrat font-semibold text-lg transition-all duration-300 transform hover:scale-105 ${selectedAmount === amount
-                      ? 'border-deep-purple bg-deep-purple text-white shadow-lg'
-                      : 'border-gray-300 text-charcoal hover:border-deep-purple hover:bg-deep-purple hover:text-white'
-                    }`}
-                >
-                  ₦{amount.toLocaleString()}
-                </button>
-              ))}
-            </div>
-
-            <div className="relative">
-              <input
-                type="number"
-                value={customAmount}
-                onChange={handleCustomAmountChange}
-                placeholder="Enter custom amount"
-                className="w-full pl-20 pr-6 py-4 border-2 border-gray-300 rounded-xl font-lato text-lg focus:border-deep-purple focus:outline-none transition-colors duration-300"
-              />
-              <span className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500 font-lato text-lg pointer-events-none">
-                ₦
-              </span>
-            </div>
-          </div>
-
-          {/* Impact Display */}
-          {getCurrentAmount() > 0 && (
-            <div className="bg-warm-yellow bg-opacity-10 border border-warm-yellow rounded-xl p-6 mb-12 text-center animate-scaleIn">
-              <h4 className="font-montserrat font-bold text-xl text-charcoal mb-2">
-                Your Impact
-              </h4>
-              <p className="font-lato text-lg text-gray-700">
-                ₦{getCurrentAmount().toLocaleString()} {donationType === 'monthly' ? 'per month ' : ''}
-                {getCurrentImpact()}
-              </p>
-            </div>
+      {/* Donation Content */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-5xl px-4">
+          {/* Back Button */}
+          {onBack && (
+            <button
+              onClick={onBack}
+              className="mb-8 flex items-center gap-2 font-montserrat font-semibold text-deep-purple transition-all hover:gap-3"
+            >
+              <ArrowRight className="h-5 w-5 rotate-180" />
+              Back
+            </button>
           )}
 
-          {/* Cause Selection */}
-          <div className="mb-12 animate-fadeInUp stagger-3">
-            <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6 text-center">
-              Choose Your Cause
+          {/* Intro */}
+          <div className="mb-12 text-center">
+            <Heart className="mx-auto mb-4 h-10 w-10 text-burnt-red" />
+
+            <h2 className="mb-4 font-montserrat text-3xl font-bold text-charcoal md:text-4xl">
+              Choose Your Donation
+            </h2>
+
+            <p className="mx-auto max-w-2xl font-lato text-lg text-gray-600">
+              Select an amount and cause below. Every donation,
+              regardless of size, contributes towards creating a
+              better future.
+            </p>
+          </div>
+
+          {/* Donation Amount */}
+          <div className="mb-12 animate-fadeInUp">
+            <h3 className="mb-6 text-center font-montserrat text-2xl font-bold text-charcoal">
+              Choose Your Donation Amount
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {causes.map((cause) => (
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+              {donationAmounts.map((item) => (
                 <button
-                  key={cause.id}
-                  onClick={() => setSelectedCause(cause.id)}
-                  className={`p-6 rounded-xl border-2 text-left transition-all duration-300 transform hover:scale-105 ${selectedCause === cause.id
-                      ? 'border-deep-purple bg-deep-purple text-white shadow-lg'
-                      : 'border-gray-300 hover:border-deep-purple hover:shadow-md'
-                    }`}
+                  key={item.amount}
+                  type="button"
+                  onClick={() => handleAmountSelect(item.amount)}
+                  className={`rounded-2xl border-2 p-5 text-center transition-all duration-300 hover:-translate-y-1 ${
+                    selectedAmount === item.amount &&
+                    !customAmount
+                      ? "border-deep-purple bg-deep-purple text-white shadow-lg"
+                      : "border-gray-200 bg-white text-charcoal hover:border-deep-purple"
+                  }`}
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className={`p-3 rounded-full ${selectedCause === cause.id ? 'bg-white bg-opacity-20' : cause.color + ' bg-opacity-10'
-                      }`}>
-                      <div className={selectedCause === cause.id ? 'text-white' : 'text-gray-700'}>
-                        {cause.icon}
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-montserrat font-bold text-lg mb-2">
-                        {cause.title}
-                      </h4>
-                      <p className={`font-lato ${selectedCause === cause.id ? 'text-gray-200' : 'text-gray-600'
-                        }`}>
-                        {cause.description}
-                      </p>
-                    </div>
+                  <div className="mb-2 font-montserrat text-2xl font-bold">
+                    ₦{item.amount.toLocaleString()}
+                  </div>
+
+                  <div
+                    className={`font-lato text-sm ${
+                      selectedAmount === item.amount &&
+                      !customAmount
+                        ? "text-white/80"
+                        : "text-gray-500"
+                    }`}
+                  >
+                    {item.impact}
                   </div>
                 </button>
               ))}
             </div>
+
+            {/* Custom Amount */}
+            <div className="mx-auto mt-6 max-w-md">
+              <label className="mb-2 block font-montserrat font-semibold text-charcoal">
+                Or enter a custom amount
+              </label>
+
+              <div className="relative">
+                <span className="absolute left-5 top-1/2 -translate-y-1/2 font-montserrat text-lg font-bold text-gray-500">
+                  ₦
+                </span>
+
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  value={customAmount}
+                  onChange={handleCustomAmountChange}
+                  placeholder="Enter amount"
+                  className="w-full rounded-xl border-2 border-gray-200 bg-white px-5 py-4 pl-10 font-lato text-lg outline-none transition-colors focus:border-deep-purple"
+                />
+              </div>
+            </div>
+
+            {/* Current Amount */}
+            <div className="mx-auto mt-6 max-w-md rounded-2xl bg-earth-green/10 p-5 text-center">
+              <p className="mb-1 font-lato text-sm text-gray-500">
+                Your donation
+              </p>
+
+              <p className="font-montserrat text-3xl font-bold text-deep-purple">
+                ₦{getCurrentAmount().toLocaleString()}
+              </p>
+
+              <p className="mt-1 font-lato text-sm text-gray-600">
+                {getCurrentImpact()}
+              </p>
+            </div>
           </div>
 
-          {/* Payment Methods */}
-          <div className="mb-12 animate-fadeInUp stagger-4">
-            <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-6 text-center">
-              Payment Methods
+          {/* Cause Selection */}
+          <div className="mb-12 animate-fadeInUp">
+            <h3 className="mb-6 text-center font-montserrat text-2xl font-bold text-charcoal">
+              Choose Where Your Donation Goes
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-cream rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-                <CreditCard className="h-12 w-12 text-deep-purple mx-auto mb-4" />
-                <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-2">
-                  Card Payment
-                </h4>
-                <p className="font-lato text-gray-600 text-sm">
-                  Visa, Mastercard, Verve
-                </p>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              {causes.map((cause) => {
+                const Icon = cause.icon;
+                const isSelected = selectedCause === cause.id;
+
+                return (
+                  <button
+                    key={cause.id}
+                    type="button"
+                    onClick={() => setSelectedCause(cause.id)}
+                    className={`rounded-2xl border-2 p-6 text-left transition-all duration-300 hover:-translate-y-1 ${
+                      isSelected
+                        ? "border-deep-purple bg-deep-purple text-white shadow-lg"
+                        : "border-gray-200 bg-white text-charcoal hover:border-deep-purple"
+                    }`}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className={`rounded-xl p-3 ${
+                          isSelected
+                            ? "bg-white/20"
+                            : "bg-deep-purple/10"
+                        }`}
+                      >
+                        <Icon
+                          className={`h-7 w-7 ${
+                            isSelected
+                              ? "text-white"
+                              : "text-deep-purple"
+                          }`}
+                        />
+                      </div>
+
+                      <div className="flex-1">
+                        <h4 className="mb-2 font-montserrat text-lg font-bold">
+                          {cause.name}
+                        </h4>
+
+                        <p
+                          className={`font-lato text-sm leading-relaxed ${
+                            isSelected
+                              ? "text-white/80"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          {cause.description}
+                        </p>
+                      </div>
+
+                      {isSelected && (
+                        <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white">
+                          <div className="h-3 w-3 rounded-full bg-deep-purple" />
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Donor Information */}
+          <div className="mb-12 animate-fadeInUp">
+            <h3 className="mb-6 text-center font-montserrat text-2xl font-bold text-charcoal">
+              Your Information
+            </h3>
+
+            <div className="rounded-2xl bg-white p-6 shadow-sm md:p-8">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                {/* Name */}
+                <div>
+                  <label
+                    htmlFor="donor-name"
+                    className="mb-2 block font-montserrat font-semibold text-charcoal"
+                  >
+                    Full Name
+                  </label>
+
+                  <input
+                    id="donor-name"
+                    type="text"
+                    value={donorName}
+                    onChange={(e) => setDonorName(e.target.value)}
+                    placeholder="Enter your full name"
+                    disabled={isProcessing}
+                    className="w-full rounded-xl border-2 border-gray-200 bg-white px-5 py-4 font-lato text-lg outline-none transition-colors focus:border-deep-purple disabled:cursor-not-allowed disabled:bg-gray-100"
+                  />
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label
+                    htmlFor="donor-email"
+                    className="mb-2 block font-montserrat font-semibold text-charcoal"
+                  >
+                    Email Address
+                  </label>
+
+                  <input
+                    id="donor-email"
+                    type="email"
+                    value={donorEmail}
+                    onChange={(e) => setDonorEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    disabled={isProcessing}
+                    className="w-full rounded-xl border-2 border-gray-200 bg-white px-5 py-4 font-lato text-lg outline-none transition-colors focus:border-deep-purple disabled:cursor-not-allowed disabled:bg-gray-100"
+                  />
+                </div>
               </div>
 
-              <div className="bg-cream rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-                <Smartphone className="h-12 w-12 text-earth-green mx-auto mb-4" />
-                <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-2">
-                  SMS Payement
-                </h4>
-                <p className="font-lato text-gray-600 text-sm">
-                  MTN, Airtel, 9mobile
-                </p>
+              <p className="mt-4 font-lato text-sm text-gray-500">
+                Your email will be used to send your donation
+                confirmation and payment receipt.
+              </p>
+            </div>
+          </div>
+
+          {/* Payment Information */}
+          <div className="mb-10 rounded-2xl bg-white p-6 shadow-sm md:p-8">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="rounded-xl bg-deep-purple/10 p-3">
+                <CreditCard className="h-7 w-7 text-deep-purple" />
               </div>
 
-              <div className="bg-cream rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300">
-                <Building className="h-12 w-12 text-burnt-red mx-auto mb-4" />
-                <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-2">
-                  Bank Transfer
-                </h4>
-                <p className="font-lato text-gray-600 text-sm">
-                  Direct bank transfer
+              <div>
+                <h3 className="font-montserrat text-xl font-bold text-charcoal">
+                  Secure Payment
+                </h3>
+
+                <p className="font-lato text-sm text-gray-500">
+                  Your payment is securely processed by Paystack.
                 </p>
               </div>
+            </div>
+
+            <div className="flex items-start gap-3 rounded-xl bg-earth-green/10 p-4">
+              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-earth-green" />
+
+              <p className="font-lato text-sm leading-relaxed text-gray-600">
+                Your payment information is handled securely by
+                Paystack. We do not store your card details on our
+                servers.
+              </p>
             </div>
           </div>
 
           {/* Donate Button */}
-          <div className="text-center animate-scaleIn stagger-5">
+          <div className="text-center">
             <button
-              disabled={getCurrentAmount() === 0}
-              className={`px-12 py-4 rounded-full font-montserrat font-bold text-xl transition-all duration-300 transform ${getCurrentAmount() > 0
-                  ? 'bg-deep-purple text-white hover:bg-opacity-90 hover:scale-110 hover:rotate-1 shadow-lg animate-pulse-glow'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                }`}
-            >
-              Donate ₦{getCurrentAmount().toLocaleString()} {donationType === 'monthly' ? 'Monthly' : 'Now'}
-            </button>
-
-            {getCurrentAmount() > 0 && (
-              <p className="font-lato text-gray-600 mt-4">
-                Secure payment powered by industry-leading encryption
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Donate Section */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
-              Why Your <span className="text-burnt-red">Donation</span> Matters
-            </h2>
-            <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-              Every amount you give goes directly to transforming lives and restoring dignity across Africa.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <AnimatedCard delay={0} className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="bg-warm-yellow bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="h-8 w-8 text-warm-yellow" />
-              </div>
-              <h3 className="font-montserrat font-bold text-xl text-charcoal mb-4">
-                100% Transparency
-              </h3>
-              <p className="font-lato text-gray-600">
-                Every donation is tracked and reported. You'll see exactly how your money creates change.
-              </p>
-            </AnimatedCard>
-
-            <AnimatedCard delay={150} className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="bg-earth-green bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Heart className="h-8 w-8 text-earth-green" />
-              </div>
-              <h3 className="font-montserrat font-bold text-xl text-charcoal mb-4">
-                Direct Impact
-              </h3>
-              <p className="font-lato text-gray-600">
-                Your donation goes straight to the communities that need it most, with minimal administrative costs.
-              </p>
-            </AnimatedCard>
-
-            <AnimatedCard delay={300} className="bg-white rounded-2xl p-8 shadow-lg text-center">
-              <div className="bg-burnt-red bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-8 w-8 text-burnt-red" />
-              </div>
-              <h3 className="font-montserrat font-bold text-xl text-charcoal mb-4">
-                Secure & Safe
-              </h3>
-              <p className="font-lato text-gray-600">
-                All transactions are encrypted and secure. Your personal information is protected.
-              </p>
-            </AnimatedCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Other Ways to Give */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
-              Other Ways to <span className="text-deep-purple">Give</span>
-            </h2>
-            <p className="font-lato text-lg text-gray-600">
-              Choose the giving method that works best for you.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {givingOptions.map((option, index) => {
-              const IconComponent = option.icon;
-
-              return (
-                <AnimatedCard
-                  key={option.id}
-                  delay={index * 150}
-                  className="bg-cream rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300 flex flex-col items-center group"
-                >
-                  <IconComponent className={`h-12 w-12 mx-auto mb-4 ${option.color}`} />
-
-                  <h4 className="font-montserrat font-semibold text-lg text-charcoal mb-2">
-                    {option.title}
-                  </h4>
-
-                  <p className="font-lato text-gray-600 text-sm mb-4 flex-grow">
-                    {option.summary}
-                  </p>
-
-                  <button
-                    onClick={() => handleAction(option)}
-                    className={`font-montserrat font-semibold hover:underline mt-auto ${option.color}`}
-                  >
-                    {option.btnText}
-                  </button>
-                </AnimatedCard>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {selectedOption && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
-          {/* Modal Container */}
-          <div className="bg-cream rounded-xl max-w-md w-full p-8 relative shadow-2xl animate-in fade-in zoom-in duration-200">
-
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedOption(null)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-charcoal transition-colors p-1"
-            >
-              <X className="h-6 w-6" />
-            </button>
-
-            {/* Modal Content */}
-            <div className="text-center">
-              <selectedOption.icon className={`h-16 w-16 mx-auto mb-6 ${selectedOption.color}`} />
-
-              <h3 className="font-montserrat font-bold text-2xl text-charcoal mb-4">
-                {selectedOption.title}
-              </h3>
-
-              {/* Divider */}
-              <div className="w-16 h-1 bg-gray-200 mx-auto mb-6 rounded-full" />
-
-              <p className="font-lato text-gray-700 leading-relaxed mb-8 text-sm md:text-base">
-                {selectedOption.details}
-              </p>
-
-              <button
-                onClick={() => setSelectedOption(null)}
-                className="px-8 py-2.5 rounded-full text-white font-montserrat font-medium bg-charcoal hover:opacity-90 transition-all active:scale-95 shadow-md"
-              >
-                Close Details
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Bank Details Section */}
-      <section className="py-20 bg-deep-purple">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-fadeInUp">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-white mb-4">
-              Direct Bank <span className="text-warm-yellow">Transfer</span>
-            </h2>
-            <p className="font-lato text-xl text-gray-200">
-              Prefer to donate via bank transfer? Use these details:
-            </p>
-          </div>
-
-          <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 animate-scaleIn stagger-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-montserrat font-semibold text-lg text-white mb-4">
-                  Nigerian Naira Account
-                </h4>
-                <div className="space-y-3 font-lato text-gray-200">
-                  <div>
-                    <span className="text-warm-yellow font-semibold">Bank Name:</span> Wema bank
-                  </div>
-                  <div>
-                    <span className="text-warm-yellow font-semibold">Account Name:</span> Needy Relief Africa
-                  </div>
-                  <div>
-                    <span className="text-warm-yellow font-semibold">Account Number:</span> 0127752220
-                  </div>
-                </div>
-              </div>
-
-              {/* <div>
-                <h4 className="font-montserrat font-semibold text-lg text-white mb-4">
-                  International Donations
-                </h4>
-                <div className="space-y-3 font-lato text-gray-200">
-                  <div>
-                    <span className="text-warm-yellow font-semibold">SWIFT Code:</span> TBA
-                  </div>
-                  <div>
-                    <span className="text-warm-yellow font-semibold">USD Account:</span> TBA
-                  </div>
-                  <div>
-                    <span className="text-warm-yellow font-semibold">Routing:</span> Available on request
-                  </div>
-                </div>
-              </div> */}
-            </div>
-
-            <div className="mt-8 p-4 bg-warm-yellow bg-opacity-20 rounded-lg">
-              <p className="font-lato text-white text-center">
-                <strong>Important:</strong> Please email us at info@needyreliefafrica.org after making a transfer so we can acknowledge your donation and send you a receipt.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Indicators */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
-              Your Donation is <span className="text-earth-green">Safe</span>
-            </h2>
-            <p className="font-lato text-lg text-gray-600">
-              We're committed to transparency and accountability in everything we do.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center animate-fadeInUp stagger-1">
-              <div className="bg-earth-green bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="h-10 w-10 text-earth-green" />
-              </div>
-              <h3 className="font-montserrat font-bold text-xl text-charcoal mb-4">
-                Registered NGO
-              </h3>
-              <p className="font-lato text-gray-600">
-                Officially registered and compliant with all regulatory requirements.
-              </p>
-            </div>
-
-            <div className="text-center animate-fadeInUp stagger-2">
-              <div className="bg-warm-yellow bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="h-10 w-10 text-warm-yellow" />
-              </div>
-              <h3 className="font-montserrat font-bold text-xl text-charcoal mb-4">
-                Annual Reports
-              </h3>
-              <p className="font-lato text-gray-600">
-                Detailed financial reports showing exactly how donations are used.
-              </p>
-            </div>
-
-            <div className="text-center animate-fadeInUp stagger-3">
-              <div className="bg-burnt-red bg-opacity-10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Star className="h-10 w-10 text-burnt-red" />
-              </div>
-              <h3 className="font-montserrat font-bold text-xl text-charcoal mb-4">
-                Impact Updates
-              </h3>
-              <p className="font-lato text-gray-600">
-                Regular updates on how your donations are creating real change.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-cream">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fadeInUp">
-            <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-charcoal mb-4">
-              Frequently Asked <span className="text-deep-purple">Questions</span>
-            </h2>
-          </div>
-
-          <div className="space-y-4 animate-fadeInUp stagger-2">
-            {/*
-            {
-              id: 'tax',
-              question: 'Is my donation tax-deductible?',
-              answer: 'Yes, as a registered NGO, all donations are tax-deductible. We'll provide you with a receipt for your records.'
-            },
-            {
-              id: 'programs',
-              question: 'How much of my donation goes to programs?',
-              answer: 'Over 85% of every donation goes directly to our programs. Administrative costs are kept to a minimum.'
-            },
-            {
-              id: 'cancel',
-              question: 'Can I cancel my monthly donation?',
-              answer: 'Absolutely. You can modify or cancel your monthly donation at any time by contacting us.'
-            },
-            {
-              id: 'updates',
-              question: 'Will I receive updates on my donation's impact?',
-              answer: 'Yes! We send regular impact reports and stories showing how your donation is making a difference.'
-            }
-          */}
-            {[
-              {
-                id: 'tax',
-                question: 'Is my donation tax-deductible?',
-                answer: 'Yes, as a registered NGO, all donations are tax-deductible. We\'ll provide you with a receipt for your records.'
-              },
-              {
-                id: 'programs',
-                question: 'How much of my donation goes to programs?',
-                answer: 'Over 85% of every donation goes directly to our programs. Administrative costs are kept to a minimum.'
-              },
-              {
-                id: 'cancel',
-                question: 'Can I cancel my monthly donation?',
-                answer: 'Absolutely. You can modify or cancel your monthly donation at any time by contacting us.'
-              },
-              {
-                id: 'updates',
-                question: 'Will I receive updates on my donation\'s impact?',
-                answer: 'Yes! We send regular impact reports and stories showing how your donation is making a difference.'
+              type="button"
+              onClick={handleDonate}
+              disabled={
+                getCurrentAmount() < 100 || isProcessing
               }
-            ].map((faq) => (
-              <div key={faq.id} className="bg-white rounded-xl shadow-md overflow-hidden">
-                <button
-                  onClick={() => setExpandedFaq(expandedFaq === faq.id ? null : faq.id)}
-                  className="w-full px-6 py-4 flex justify-between items-center text-left"
-                >
-                  <h4 className="font-montserrat font-semibold text-lg text-charcoal">
-                    {faq.question}
-                  </h4>
-                  <span className={`transform transition-transform duration-300 ${expandedFaq === faq.id ? 'rotate-180' : ''
-                    }`}>
-                    <svg
-                      className="w-5 h-5 text-deep-purple"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </button>
-                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${expandedFaq === faq.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
-                  }`}>
-                  <p className="px-6 pb-4 font-lato text-gray-600">
-                    {faq.answer}
-                  </p>
-                </div>
-              </div>
-            ))}
+              className={`inline-flex items-center justify-center gap-3 rounded-full px-12 py-4 font-montserrat text-xl font-bold shadow-lg transition-all duration-300 ${
+                getCurrentAmount() >= 100 && !isProcessing
+                  ? "bg-deep-purple text-white hover:scale-105 hover:bg-opacity-90"
+                  : "cursor-not-allowed bg-gray-300 text-gray-500"
+              }`}
+            >
+              {isProcessing ? (
+                <>
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                  Processing...
+                </>
+              ) : (
+                <>
+                  <Heart className="h-6 w-6" />
+                  Donate ₦{getCurrentAmount().toLocaleString()} Now
+                </>
+              )}
+            </button>
+
+            <p className="mt-4 font-lato text-sm text-gray-500">
+              You will be redirected to Paystack to securely
+              complete your donation.
+            </p>
           </div>
         </div>
       </section>
