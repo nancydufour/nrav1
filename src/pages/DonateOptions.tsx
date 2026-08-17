@@ -519,8 +519,8 @@ const DonateOptions: React.FC<DonateOptionsProps> = ({ onBack }) => {
               type="button"
               onClick={handleDonate}
               disabled={
-                // getCurrentAmount() < 100 || isProcessing
-                true
+                getCurrentAmount() < 100 || isProcessing
+                // true
               }
               className={`inline-flex items-center justify-center gap-3 rounded-full px-12 py-4 font-montserrat text-xl font-bold shadow-lg transition-all duration-300 ${
                 getCurrentAmount() >= 100 && !isProcessing
