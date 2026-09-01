@@ -25,6 +25,7 @@ import Donate from './components/Donate';
 import BackgroundMusic from './components/BackgroundMusic';
 import Events from './pages/Events';
 import GreenNoseDetails from './pages/GreenNoseDetails';
+import UK from './pages/UK';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/work/culture" element={<CultureProgram />} />
           <Route path="/work/rebuilding" element={<RebuildingProgram />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/uk" element={<UK />} />
         </Routes>
         <Donate />
         <Footer />

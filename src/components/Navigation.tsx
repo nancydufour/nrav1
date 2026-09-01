@@ -35,6 +35,7 @@ const Navigation: React.FC = () => {
     },
     { name: 'Gallery', path: '/gallery' },
     { name: "Events", path: "/events" },
+    { name: "UK", path: "/uk" },
     { name: "Contact", path: "/contact" },
   ];
 
