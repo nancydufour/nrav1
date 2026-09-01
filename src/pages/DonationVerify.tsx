@@ -158,19 +158,26 @@ const DonationVerify: React.FC = () => {
                 </div>
 
                 {certificateUrl && (
-                <a  
-                  href={certificateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mb-4 inline-flex items-center justify-center rounded-full bg-earth-green px-8 py-3 font-montserrat font-semibold text-white transition-all hover:scale-105"
-                >
-                  Download Certificate
-                </a>
+                <div className="mb-8">
+                  <p className="mb-4 font-lato text-sm leading-relaxed text-gray-600">
+                    Your donation certificate has been generated and is
+                    ready to download.
+                  </p>
+
+                  <a
+                    href={certificateUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-earth-green px-8 py-3 font-montserrat font-semibold text-white transition-all hover:scale-105"
+                  >
+                    Download Certificate
+                  </a>
+                </div>
               )}
 
                 <p className="mb-8 font-lato text-sm text-gray-500">
-                  A payment receipt will be sent to your email
-                  address by Paystack.
+                  A payment receipt alongside your certificate will be sent to your email
+                  address.
                 </p>
 
                 <button
