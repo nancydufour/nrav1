@@ -15,6 +15,8 @@ const BACKEND_URL = "https://backend-long-frog-8592.fly.dev";
 const DonationVerify: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const [certificateUrl, setCertificateUrl] =
+  useState<string | null>(null);
 
   const [status, setStatus] = useState<
     "loading" | "success" | "failed"
@@ -49,6 +51,9 @@ const DonationVerify: React.FC = () => {
             typeof data.amount === "number"
               ? data.amount / 100
               : null
+          );
+          setCertificateUrl(
+            data.certificate_url || null
           );
 
           setStatus("success");
@@ -151,6 +156,17 @@ const DonationVerify: React.FC = () => {
                     {reference}
                   </p>
                 </div>
+
+                {certificateUrl && (
+                <a  
+                  href={certificateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mb-4 inline-flex items-center justify-center rounded-full bg-earth-green px-8 py-3 font-montserrat font-semibold text-white transition-all hover:scale-105"
+                >
+                  Download Certificate
+                </a>
+              )}
 
                 <p className="mb-8 font-lato text-sm text-gray-500">
                   A payment receipt will be sent to your email
