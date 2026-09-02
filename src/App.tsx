@@ -47,7 +47,7 @@ function App() {
           <Route path="/stories" element={<ImpactStories />} />
           <Route path="/donate-options" element={<DonateOptions />} />
           <Route path="/donation/verify" element={<DonationVerify />} />
-          <Route path="/certificate/verify/:certificateId" element={<CertificateVerify />} />
+          <Route path="/verify/:certificateId" element={<CertificateVerify />} />
           <Route path="/gallery" element={<PhotoStories />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/clinic" element={<NeedyReliefClinic />} />
