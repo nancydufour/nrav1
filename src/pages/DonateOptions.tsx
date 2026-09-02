@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
+import { useDonation } from "../hooks/useDonation";
 
 interface DonateOptionsProps {
   onBack?: () => void;
@@ -19,6 +20,7 @@ interface DonateOptionsProps {
 type DonationType = "one_time" | "recurring";
 
 const DonateOptions: React.FC<DonateOptionsProps> = ({ onBack }) => {
+  const { initializeDonation } = useDonation();
   const [selectedAmount, setSelectedAmount] = useState<number | null>(5000);
   const [customAmount, setCustomAmount] = useState("");
   const [selectedCause, setSelectedCause] = useState("general");
@@ -126,31 +128,13 @@ const DonateOptions: React.FC<DonateOptionsProps> = ({ onBack }) => {
     try {
       setIsProcessing(true);
 
-      const response = await fetch(
-        "https://backend-long-frog-8592.fly.dev/donations/initialize",
-        // "http://127.0.0.1:5000/donations/initialize",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: donorName.trim(),
-            email: donorEmail.trim(),
-            amount,
-            cause: selectedCause,
-            type: donationType,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (!response.ok || !data.authorization_url) {
-        throw new Error(
-          data.message || "Unable to initialize payment."
-        );
-      }
+      const data = await initializeDonation({
+        name: donorName.trim(),
+        email: donorEmail.trim(),
+        amount,
+        cause: selectedCause,
+        type: donationType,
+      });
 
       window.location.href = data.authorization_url;
     } catch (error) {

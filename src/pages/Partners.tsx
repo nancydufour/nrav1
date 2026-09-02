@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import { Handshake, Building, Users, Heart, CheckCircle, ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
 import ParallaxSection from '../components/ParallaxSection';
 import AnimatedCard from '../components/AnimatedCard';
+import { usePartnershipForm } from '../hooks/usePartnershipForm';
 
 // Validation schema
 const validationSchema = Yup.object().shape({
@@ -32,6 +33,8 @@ const validationSchema = Yup.object().shape({
 });
 
 const Partners: React.FC = () => {
+  const { submitPartnershipInquiry } = usePartnershipForm();
+
   const formik = useFormik({
     initialValues: {
       organizationName: '',
@@ -48,16 +51,7 @@ const Partners: React.FC = () => {
         // Ensure values are properly serialized
         const formData = JSON.stringify(values);
         
-        const response = await axios.post(
-          "https://backend-long-frog-8592.fly.dev/partnership",
-          values,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            timeout: 30000, // 30 second timeout
-          }
-        );
+        const response = await submitPartnershipInquiry(values);
 
         // Check if response was successful
         if (response.status >= 200 && response.status < 300) {

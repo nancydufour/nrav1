@@ -9,8 +9,7 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
-
-const BACKEND_URL = "https://backend-long-frog-8592.fly.dev";
+import { useCertificateVerify } from "../hooks/useCertificateVerify";
 
 interface Certificate {
   certificate_id: string;
@@ -23,6 +22,7 @@ interface Certificate {
 const CertificateVerify: React.FC = () => {
   const { certificateId } = useParams();
   const navigate = useNavigate();
+  const { verifyCertificate } = useCertificateVerify();
 
   const [status, setStatus] = useState<
     "loading" | "success" | "failed"
@@ -39,16 +39,10 @@ const CertificateVerify: React.FC = () => {
       }
 
       try {
-        const response = await fetch(
-          `${BACKEND_URL}/certificates/verify/${encodeURIComponent(
-            certificateId
-          )}`
-        );
-
-        const data = await response.json();
+        const { ok, data } = await verifyCertificate(certificateId);
 
         if (
-          response.ok &&
+          ok &&
           data.status === "success" &&
           data.valid === true &&
           data.certificate

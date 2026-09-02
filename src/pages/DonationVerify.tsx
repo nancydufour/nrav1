@@ -9,12 +9,12 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-
-const BACKEND_URL = "https://backend-long-frog-8592.fly.dev";
+import { useDonationVerify } from "../hooks/useDonationVerify";
 
 const DonationVerify: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { verifyDonation } = useDonationVerify();
   const [certificateUrl, setCertificateUrl] =
   useState<string | null>(null);
 
@@ -37,14 +37,10 @@ const DonationVerify: React.FC = () => {
       setReference(ref);
 
       try {
-        const response = await fetch(
-          `${BACKEND_URL}/donations/verify/${encodeURIComponent(ref)}`
-        );
-
-        const data = await response.json();
+        const { ok, data } = await verifyDonation(ref);
 
         if (
-          response.ok &&
+          ok &&
           data.payment_status === "success"
         ) {
           setAmount(

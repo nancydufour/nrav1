@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -11,12 +11,45 @@ import {
   ShoppingBag,
   HomeIcon,
   CalendarHeart,
-  Camera,
+  PlayCircle,
   Mail,
   Send,
   ArrowRight,
+  X,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import AnimatedCard from "../components/AnimatedCard";
+import { useContactForm } from "../hooks/useContactForm";
+
+const HERO_VIDEO_URL = import.meta.env.VITE_UK_HERO_VIDEO_URL;
+
+type GalleryItem =
+  | { type: "image"; src: string; alt: string }
+  | { type: "video"; src: string; caption: string };
+
+const galleryItems: GalleryItem[] = [
+  {
+    type: "image",
+    src: import.meta.env.VITE_UK_GALLERY_IMAGE_1_URL,
+    alt: "Food basket support provided by Needy Relief Africa UK",
+  },
+  {
+    type: "image",
+    src: import.meta.env.VITE_UK_GALLERY_IMAGE_2_URL,
+    alt: "Needy Relief Africa UK flyer",
+  },
+  {
+    type: "video",
+    src: import.meta.env.VITE_UK_GALLERY_VIDEO_1_URL,
+    caption: "Needy Relief Africa UK",
+  },
+  {
+    type: "video",
+    src: import.meta.env.VITE_UK_GALLERY_VIDEO_2_URL,
+    caption: "Needy Relief Africa UK",
+  },
+];
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -67,6 +100,36 @@ const ukActivities = [
 
 const UK: React.FC = () => {
   const contactRef = useRef<HTMLDivElement>(null);
+  const { submitContactForm } = useContactForm();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const closeGalleryModal = () => setSelectedIndex(null);
+  const showPrevItem = () =>
+    setSelectedIndex((i) =>
+      i === null ? null : (i - 1 + galleryItems.length) % galleryItems.length
+    );
+  const showNextItem = () =>
+    setSelectedIndex((i) =>
+      i === null ? null : (i + 1) % galleryItems.length
+    );
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeGalleryModal();
+      if (e.key === "ArrowLeft") showPrevItem();
+      if (e.key === "ArrowRight") showNextItem();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedIndex]);
 
   const formik = useFormik({
     initialValues: {
@@ -79,7 +142,7 @@ const UK: React.FC = () => {
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        await axios.post("https://backend-long-frog-8592.fly.dev/contact", values);
+        await submitContactForm(values);
         toast.success("Message sent successfully! We will get back to you soon.");
         formik.resetForm();
       } catch (error) {
@@ -109,7 +172,18 @@ const UK: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-earth-green">
+      <section className="relative h-[30rem] bg-gradient-to-br from-deep-purple to-earth-green overflow-hidden">
+        {HERO_VIDEO_URL && (
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src={HERO_VIDEO_URL}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          />
+        )}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 pt-[10rem] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="font-lato font-semibold text-warm-yellow tracking-wide uppercase mb-4 animate-fadeInUp">
@@ -208,24 +282,108 @@ const UK: React.FC = () => {
               UK <span className="text-burnt-red">Gallery</span>
             </h2>
             <p className="font-lato text-lg text-gray-600 max-w-2xl mx-auto">
-              Photos from our UK activities are coming soon. Follow our socials to be the
-              first to see them.
+              A look at our activities and community support across the UK.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[0, 1, 2, 3].map((i) => (
+            {galleryItems.map((item, i) => (
               <AnimatedCard
-                key={i}
+                key={item.src}
                 delay={i * 100}
-                className="aspect-square bg-cream rounded-2xl flex items-center justify-center border border-dashed border-gray-300"
+                onClick={() => setSelectedIndex(i)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e: React.KeyboardEvent) => {
+                  if (e.key === "Enter" || e.key === " ") setSelectedIndex(i);
+                }}
+                className="aspect-square rounded-2xl overflow-hidden shadow-lg relative group bg-cream cursor-pointer"
               >
-                <Camera className="h-10 w-10 text-gray-300" />
+                {item.type === "image" ? (
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <video
+                    src={item.src}
+                    preload="metadata"
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  {item.type === "video" && (
+                    <PlayCircle className="h-10 w-10 text-white drop-shadow opacity-90 group-hover:scale-110 transition-transform duration-300" />
+                  )}
+                </div>
               </AnimatedCard>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Gallery Modal */}
+      {selectedIndex !== null && (
+        <div
+          className="fixed inset-0 z-[60] bg-black bg-opacity-90 flex items-center justify-center p-4"
+          onClick={closeGalleryModal}
+        >
+          <button
+            onClick={closeGalleryModal}
+            aria-label="Close"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white bg-opacity-10 hover:bg-opacity-20 text-white rounded-full p-2 transition-colors duration-200"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrevItem();
+            }}
+            aria-label="Previous"
+            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-white bg-opacity-10 hover:bg-opacity-20 text-white rounded-full p-2 sm:p-3 transition-colors duration-200"
+          >
+            <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              showNextItem();
+            }}
+            aria-label="Next"
+            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-white bg-opacity-10 hover:bg-opacity-20 text-white rounded-full p-2 sm:p-3 transition-colors duration-200"
+          >
+            <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
+          </button>
+
+          <div
+            className="max-w-4xl w-full flex flex-col items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {galleryItems[selectedIndex].type === "image" ? (
+              <img
+                src={galleryItems[selectedIndex].src}
+                alt={(galleryItems[selectedIndex] as { alt: string }).alt}
+                className="max-h-[80vh] w-auto max-w-full object-contain rounded-lg"
+              />
+            ) : (
+              <video
+                src={galleryItems[selectedIndex].src}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[80vh] w-auto max-w-full rounded-lg"
+              />
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Volunteer & Partner */}
       <section id="get-involved" className="py-20 bg-cream">

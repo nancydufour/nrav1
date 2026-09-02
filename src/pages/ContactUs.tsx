@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import { SiTiktok, SiWhatsapp } from "react-icons/si";
+import { useContactForm } from "../hooks/useContactForm";
 
 // Validation schema
 const validationSchema = Yup.object().shape({
@@ -38,6 +39,7 @@ const ContactUs: React.FC = () => {
   const [searchParams] = useSearchParams();
   const subjectParam = searchParams.get("subject");
   const defaultSubject = typeof subjectParam === "string" ? subjectParam : "";
+  const { submitContactForm } = useContactForm();
 
   const formik = useFormik({
     initialValues: {
@@ -50,10 +52,7 @@ const ContactUs: React.FC = () => {
     validationSchema,
     onSubmit: async (values, { setSubmitting }) => {
       try {
-        await axios.post(
-          "https://backend-long-frog-8592.fly.dev/contact",
-          values
-        );
+        await submitContactForm(values);
 
         toast.success("Message sent successfully! We will get back to you soon.");
         formik.resetForm({
