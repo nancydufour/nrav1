@@ -6,6 +6,8 @@ export type Story = {
     year: number;
     photographer: string;
     img?: string;
+    /** Degrees to rotate the image when displayed (e.g. 180 for upside-down photos) */
+    rotate?: number;
     poster?: string;
     video?: string;
     alt: string;
@@ -151,6 +153,7 @@ export const mediaData: Story[] = [
         year: 2025,
         photographer: "Needy Relief Africa",
         img: "https://cdn.needyreliefafrica.org/IMG_7139_vjvpvd.jpg",
+        rotate: 180,
         alt: "Community outreach",
         impact: { beneficiaries: 500, story: "Healthcare initiative aimed at improving access to quality medical services for residents of Igbeti" },
     },

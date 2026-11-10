@@ -174,7 +174,8 @@ export default function PhotoStories() {
               >
                 <div className="h-40 bg-gray-100 relative overflow-hidden">
                   {s.type === "image" ? (
-                    <img src={s.img} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <img src={s.img}
+                      style={s.rotate ? { rotate: `${s.rotate}deg` } : undefined} alt={s.alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                   ) : (
                     <>
                       <video 
@@ -228,7 +229,8 @@ export default function PhotoStories() {
                 >
                   {item.type === "image" ? (
                     <img 
-                      src={item.img} 
+                      src={item.img}
+                      style={item.rotate ? { rotate: `${item.rotate}deg` } : undefined} 
                       alt={item.alt} 
                       loading="lazy" 
                       className="w-full object-cover group-hover:scale-105 transition-transform duration-500" 
@@ -288,7 +290,8 @@ export default function PhotoStories() {
                   onClick={() => setSelected(item)}
                 >
                   {item.type === "image" ? (
-                    <img src={item.img} alt={item.alt} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={item.img}
+                      style={item.rotate ? { rotate: `${item.rotate}deg` } : undefined} alt={item.alt} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="relative h-56 max-h-56 overflow-hidden">
                       <video 
@@ -342,7 +345,8 @@ export default function PhotoStories() {
                   <div className="flex-1 bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group" onClick={() => setSelected(item)}>
                     <div className="grid grid-cols-1 md:grid-cols-3">
                       {item.type === "image" ? (
-                        <img src={item.img} alt={item.alt} className="w-full h-48 md:h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
+                        <img src={item.img}
+                      style={item.rotate ? { rotate: `${item.rotate}deg` } : undefined} alt={item.alt} className="w-full h-48 md:h-40 object-cover group-hover:scale-105 transition-transform duration-500" />
                       ) : (
                         <div className="relative h-48 md:h-40 max-h-48 overflow-hidden">
                           <video 
@@ -415,7 +419,8 @@ export default function PhotoStories() {
               <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="h-auto max-h-[50vh] lg:max-h-[82vh] bg-black relative flex items-center justify-center">
                 {selected && selected.type === "image" ? (
-                <img src={selected.img} alt={selected.alt} className="w-full h-auto max-h-[50vh] lg:max-h-[82vh] object-contain" />
+                <img src={selected.img}
+                      style={selected.rotate ? { rotate: `${selected.rotate}deg` } : undefined} alt={selected.alt} className="w-full h-auto max-h-[50vh] lg:max-h-[82vh] object-contain" />
                 ) : (
                 selected && (
                   <video controls autoPlay loop className="w-full h-auto max-h-[50vh] lg:max-h-[82vh] object-contain" src={selected.video} poster={selected.poster} />
