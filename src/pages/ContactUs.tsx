@@ -147,10 +147,10 @@ const ContactUs: React.FC = () => {
                         href="tel:+2348165289455"
                         className="block hover:underline"
                       >
-                        +234 816 528 9455
+                        +2348085056018
                       </a>
                       <a
-                        href="tel:+2347080921501"
+                        href="tel:+2348087765855"
                         className="block hover:underline"
                       >
                         +234 708 092 1501

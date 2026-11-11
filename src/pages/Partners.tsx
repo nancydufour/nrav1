@@ -284,8 +284,8 @@ const Partners: React.FC = () => {
                   <div>
                     <h4 className="font-montserrat font-semibold text-lg text-charcoal">Phone</h4>
                     <div className="font-lato text-gray-600 space-y-1">
-                      <a href='tel:+2348165289455' className="block hover:underline">+234 816 528 9455</a>
-                      <a href='tel:+2347080921501' className="block hover:underline">+234 708 092 1501</a>
+                      <a href='tel:+2348165289455' className="block hover:underline">+2348085056018</a>
+                      <a href='tel:+2348087765855' className="block hover:underline">+234 708 092 1501</a>
                       <a href='tel:+2347047771945' className="block hover:underline">+234 704 777 1945</a>
                     </div>
                   </div>
